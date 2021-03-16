@@ -5,7 +5,7 @@ package game;
  *
  */
 public class character {
-	// test commit - Jason
+
 	String name;
 	int strength, defense, experience, level, hp;
 	int baseStrength, baseDefense, baseHP;
