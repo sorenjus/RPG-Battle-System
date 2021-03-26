@@ -3,7 +3,7 @@ package game;
 import java.util.*;
 
 public class StateStack {
-	Map<String, IState> mStates = new Map<String, IState>();
+	/*Map<String, IState> mStates = new Map<String, IState>();
 	List<IState> mStack = List<IState>();
 
 	public void Update(float elapsedTime){
@@ -24,4 +24,5 @@ public class StateStack {
 	public IState Pop(){
 		return mStack.pop();
 	}
+	 */
 }
