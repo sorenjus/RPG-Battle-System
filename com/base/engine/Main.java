@@ -1,5 +1,6 @@
 package com.base.engine;
 
+import com.base.game.Game;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;

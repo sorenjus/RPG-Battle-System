@@ -1,4 +1,4 @@
-package com.base.engine;
+package com.base.game;
 
 /**
  * Class for functions performed by the game

@@ -1,4 +1,4 @@
-package game;
+package com.base.game;
 
 public class OverworldState implements IState {
 	@Override

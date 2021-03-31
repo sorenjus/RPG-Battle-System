@@ -1,4 +1,4 @@
-package game;
+package com.base.game;
 
 public interface IState {
 	public void Update(float elapsedTime);

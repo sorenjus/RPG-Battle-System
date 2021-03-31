@@ -1,4 +1,4 @@
-package game;
+package com.base.game;
 
 public class BattleState implements IState {
 	@Override
