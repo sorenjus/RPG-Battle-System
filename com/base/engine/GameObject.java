@@ -6,10 +6,10 @@ import static org.lwjgl.opengl.GL11.*;
  * Class for all in-game objects with sprites
  */
 public abstract class GameObject {
-	private float x;
-	private float y;
+	protected float x;
+	protected float y;
 	private Animation animation;
-	private Sprite sprite;
+	protected Sprite sprite;
 
 	public void update() {
 
@@ -38,5 +38,15 @@ public abstract class GameObject {
 
 	public float getSizeY() {
 		return sprite.getSizeY();
+	}
+
+	public float getSX() { return sprite.getSizeX(); }
+
+	public float getSY() { return sprite.getSizeY(); }
+
+	public void init(float x, float y, float r, float g, float b, float sx, float sy) {
+		this.x = x;
+		this.y = y;
+		this.sprite = new Sprite(r,g,b,sx,sy);
 	}
 }
