@@ -1,38 +1,35 @@
 package com.base.game.gameobjects;
 
+import com.base.engine.GameObject;
+import com.base.engine.Sprite;
+import org.lwjgl.input.Keyboard;
 /**
  * @author Justin Sorensen
  *This class represents a character, which progresses as experience in gained through battle
  */
-public class Character {
+public class Character extends GameObject {
 
 	//String containing the characters name//
-	String name;
+	private String name;
 	//Integer values containing various stats of the character//
-	int strength, defense, experience, level, hp;
+	private int strength, defense, experience, level, hp;
 	//Integer values representing the original HP, strength, and defense of the character//
-	int baseStrength, baseDefense, baseHP;
+	private int baseStrength, baseDefense, baseHP;
 	//Integer of experience needed to reach the next level//
-	int levelThreshold;
-	
-	public static void main(String[] args) {
-	}
+	private int levelThreshold;
+
+	public static final float SIZE = 32;
 /*
 	 * This is a basic constructor of a character when no parameters are given
 	 */
-	public Character() {
-		name = "Char";
-		level = 0;
-		hp = 0;
-		strength = 0;
-		defense = 0;
-		experience = 0;	
+	public Character(float x, float y) {
+		init(x,y,0.1f,1f,0.25f,SIZE,SIZE);
 	}
-	
+
 	/*
 	 * This constructor creates a new character
 	 * @param entry the name of the character
-	 */
+
 	public Character(String entry) {
 		name = entry;
 		level = 1;
@@ -45,7 +42,7 @@ public class Character {
 		experience = 0;
 		levelThreshold = 50;
 	}
-	
+	*/
 	/*
 	 * This constructor returns all of the details of the character
 	 * @return String
