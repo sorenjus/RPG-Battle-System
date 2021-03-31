@@ -24,7 +24,7 @@ public class Game {
 	 * Receives player input
 	 */
 	public void getInput() {
-
+		player.getInput();
 	}
 
 	/**

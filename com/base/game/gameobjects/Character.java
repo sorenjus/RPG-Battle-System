@@ -20,18 +20,11 @@ public class Character extends GameObject {
 
 	public static final float SIZE = 32;
 /*
-	 * This is a basic constructor of a character when no parameters are given
+	 /*
+	 * This constructor creates a new character
 	 */
 	public Character(float x, float y) {
 		init(x,y,0.1f,1f,0.25f,SIZE,SIZE);
-	}
-
-	/*
-	 * This constructor creates a new character
-	 * @param entry the name of the character
-
-	public Character(String entry) {
-		name = entry;
 		level = 1;
 		baseStrength = 5;
 		strength = baseStrength;
@@ -42,7 +35,24 @@ public class Character extends GameObject {
 		experience = 0;
 		levelThreshold = 50;
 	}
-	*/
+
+	public void getInput(){
+		if (Keyboard.isKeyDown(Keyboard.KEY_W)){ move(0, 1);}
+		if (Keyboard.isKeyDown(Keyboard.KEY_S)){ move (0, -1);}
+		if (Keyboard.isKeyDown(Keyboard.KEY_A)){ move (-1, 0);}
+		if (Keyboard.isKeyDown(Keyboard.KEY_D)){ move (1, 0);}
+		if (Keyboard.isKeyDown(Keyboard.KEY_1)){ System.out.println(this.characterToString());}
+	}
+
+	private void move(float magX, float magY){
+		this.x += getSpeed() * magX;
+		this.y += getSpeed() * magY;
+	}
+
+	public float getSpeed(){
+		return 4f;
+	}
+
 	/*
 	 * This constructor returns all of the details of the character
 	 * @return String
