@@ -33,6 +33,22 @@ public class Sprite {
 		this.sizey = sy;
 	}
 
+	public float getSizeX() {
+		return sizex;
+	}
+
+	public float getSizeY() {
+		return sizey;
+	}
+
+	public void setSizeX(float sx) {
+		this.sizex = sx;
+	}
+
+	public void setSizeY(float sy) {
+		this.sizey = sy;
+	}
+
 	/**
 	 * Draws the sprite
 	 */
