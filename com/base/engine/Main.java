@@ -10,6 +10,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.lwjgl.opengl.GL11.*;
+import static Store.Tex.BeginSession;
+import static Store.Tex.LoadTexture;
+import static Store.Tex.*;
+import org.newdawn.slick.opengl.Texture;
 
 /**
  * The main class of the program that opens and closes the game and manages the game loop.
@@ -21,7 +25,40 @@ public class Main {
 	 * The RPG battle system game
 	 */
 	private static Game game;
+	/*public Main() {
 
+		BeginSession();
+
+		int[][] map = {
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+		};
+
+		TileGrid grid = new TileGrid(map);
+		while(!Display.isCloseRequested()) {
+
+			grid.Draw();
+
+			Display.update();
+			Display.sync(60);
+
+		}
+	}
+
+	 */
 	public static void main(String[] args) {
 		initDisplay();
 		initGL();
