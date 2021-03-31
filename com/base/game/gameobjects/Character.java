@@ -1,10 +1,10 @@
-package com.base.game;
+package com.base.game.gameobjects;
 
 /**
  * @author Justin Sorensen
  *This class represents a character, which progresses as experience in gained through battle
  */
-public class character {
+public class Character {
 
 	//String containing the characters name//
 	String name;
@@ -20,7 +20,7 @@ public class character {
 /*
 	 * This is a basic constructor of a character when no parameters are given
 	 */
-	public character() {
+	public Character() {
 		name = "Char";
 		level = 0;
 		hp = 0;
@@ -33,7 +33,7 @@ public class character {
 	 * This constructor creates a new character
 	 * @param entry the name of the character
 	 */
-	public character(String entry) {
+	public Character(String entry) {
 		name = entry;
 		level = 1;
 		baseStrength = 5;
