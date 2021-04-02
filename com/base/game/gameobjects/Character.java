@@ -1,7 +1,6 @@
 package com.base.game.gameobjects;
 
 import com.base.engine.GameObject;
-import com.base.engine.Sprite;
 import org.lwjgl.input.Keyboard;
 /**
  * @author Justin Sorensen
@@ -137,7 +136,11 @@ public class Character extends GameObject {
 	public int getLevel() {
 		return this.level;
 	}
-	
+
+	/**
+	 * Function increasing the charater's level
+	 */
+
 	private void levelUp() {
 		this.level += 1;
 		this.hp = incHP();
@@ -145,15 +148,28 @@ public class Character extends GameObject {
 		this.defense = incStat(this.baseDefense);
 		this.levelThreshold = setThreshold() + 50;
 	}
-	
+
+	/**
+	 * Function returning a new threshold for leveling up
+	 * @return int
+	 */
 	private int setThreshold() {
 		return 25 * this.level * this.level - 25 * this.level;
 	}
-	
+
+	/**
+	 * Function returning an increase in stats
+	 * @return int
+	 */
 	private int incStat(int stat) {
 		return ((stat * this.level)/2 + 2);
 	}
-	
+
+	/**
+	 * Function returning an increase in HP
+	 * @return int
+	 */
+
 	private int incHP() {
 		return ((this.getStrength() * (200 * this.getLevel()))/100) + 30;
 	}

@@ -1,23 +1,4 @@
 package com.base.engine;
-import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
-import static org.lwjgl.opengl.GL11.GL_PROJECTION;
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.glBegin;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glLoadIdentity;
-import static org.lwjgl.opengl.GL11.glMatrixMode;
-import static org.lwjgl.opengl.GL11.glOrtho;
-import static org.lwjgl.opengl.GL11.glTexCoord2f;
-import static org.lwjgl.opengl.GL11.glTranslatef;
-import static org.lwjgl.opengl.GL11.glVertex2f;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
@@ -26,10 +7,25 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.lwjgl.opengl.GL11.*;
+
+
+/**
+ * This class stores functions in a package for ease of use and funneling
+ *
+ */
 public class Store {
 
 	public static final int WIDTH = 1280, HEIGHT = 960;
 
+	/**
+	 * Create a window 800x600 for the game to run in
+	 */
 	public static void BeginSession() {
 		Display.setTitle("JRPG GAME");
 		try {
@@ -49,6 +45,10 @@ public class Store {
 
 	}
 
+	/**
+	 * Draws the overworld with tiles
+	 */
+
 	public static void DrawQuad(float x, float y, float width, float height)
 	{
 		glBegin(GL_QUADS);
@@ -59,6 +59,9 @@ public class Store {
 		glEnd();
 	}
 
+	/**
+	 * Renders all the tiles drawn
+	 */
 
 	public static void DrawQuadTex(Texture tex,float x, float y, float width, float height) {
 		tex.bind();
@@ -76,6 +79,11 @@ public class Store {
 		glLoadIdentity();
 	}
 
+	/**
+	 * Load the texture from a specific path and
+	 * @return Texture
+	 */
+
 	public static Texture LoadTexture(String path, String fileType) {
 		Texture tex = null;
 		InputStream in = ResourceLoader.getResourceAsStream(path);
@@ -86,6 +94,11 @@ public class Store {
 		}
 		return tex;
 	}
+
+	/**
+	 * Load the texture from a quick path
+	 * @return Texture
+	 */
 
 	public static Texture QuickLoad(String name) {
 		Texture tex = null;

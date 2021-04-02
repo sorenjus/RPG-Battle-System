@@ -10,6 +10,7 @@ import static org.lwjgl.opengl.GL11.*;
 public abstract class GameObject {
 	/**
 	 * Coordinates of the GameObject on the overworld
+	 *
 	 */
 	protected float x, y;
 	private Animation animation;
@@ -18,6 +19,11 @@ public abstract class GameObject {
 	public void update() {
 
 	}
+
+	/**
+	 * Renders the sprites for game objects
+	 *
+	 */
 
 	public void render() {
 		glPushMatrix();
@@ -61,6 +67,7 @@ public abstract class GameObject {
 	}
 
 	/**
+	 * Initialize the sprite
 	 *
 	 * @param x default horizontal
 	 * @param y default vertical location

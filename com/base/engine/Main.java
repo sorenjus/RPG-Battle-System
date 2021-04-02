@@ -1,19 +1,15 @@
 package com.base.engine;
 
 import com.base.game.Game;
-import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static org.lwjgl.opengl.GL11.*;
+
+//import org.lwjgl.LWJGLException;
 //import static Store.Tex.BeginSession;
 //import static Store.Tex.LoadTexture;
 //import static Store.Tex.*;
-import org.newdawn.slick.opengl.Texture;
 
 /**
  * The main class of the program that opens and closes the game and manages the game loop.
