@@ -137,7 +137,10 @@ public class Character extends GameObject {
 	public int getLevel() {
 		return this.level;
 	}
-	
+
+	/**
+	 * Function increases Character stats when threshold is met
+	 */
 	private void levelUp() {
 		this.level += 1;
 		this.hp = incHP();
@@ -145,15 +148,28 @@ public class Character extends GameObject {
 		this.defense = incStat(this.baseDefense);
 		this.levelThreshold = setThreshold() + 50;
 	}
-	
+
+	/**
+	 * Level threshold is set based on character level
+	 * @return int
+	 */
 	private int setThreshold() {
 		return 25 * this.level * this.level - 25 * this.level;
 	}
-	
+
+	/**
+	 * Increases Character stats
+	 * @param stat Character stat
+	 * @return int
+	 */
 	private int incStat(int stat) {
 		return ((stat * this.level)/2 + 2);
 	}
-	
+
+	/**
+	 * Increase Character HP
+	 * @return int
+	 */
 	private int incHP() {
 		return ((this.getStrength() * (200 * this.getLevel()))/100) + 30;
 	}
