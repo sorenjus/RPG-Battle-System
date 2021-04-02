@@ -2,7 +2,7 @@ package com.base.engine;
 
 import org.newdawn.slick.opengl.Texture;
 
-import static Store.Tex.*;
+//import static Store.Tex.*;
 public class Tile {
 
     private float x, y, width, height;
@@ -15,11 +15,11 @@ public class Tile {
         this.width=width;
         this.height=height;
         this.type=type;
-        this.texture=QuickLoad(type.textureName);
+        this.texture=Store.QuickLoad(type.textureName);
     }
 
     public void Draw() {
-        DrawQuadTex(texture,x,y,width,height);
+        Store.DrawQuadTex(texture,x,y,width,height);
     }
 
     public float getX() {
