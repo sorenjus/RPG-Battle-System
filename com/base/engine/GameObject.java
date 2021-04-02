@@ -4,10 +4,14 @@ import static org.lwjgl.opengl.GL11.*;
 
 /**
  * Class for all in-game objects with sprites
+ *
+ * @author Jason Truskowski
  */
 public abstract class GameObject {
-	protected float x;
-	protected float y;
+	/**
+	 * Coordinates of the GameObject on the overworld
+	 */
+	protected float x, y;
 	private Animation animation;
 	protected Sprite sprite;
 

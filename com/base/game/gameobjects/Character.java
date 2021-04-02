@@ -19,7 +19,7 @@ public class Character extends GameObject {
 	private int levelThreshold;
 
 	public static final float SIZE = 32;
-/*
+/**
 	 /*
 	 * This constructor creates a new character
 	 */
@@ -53,7 +53,7 @@ public class Character extends GameObject {
 		return 4f;
 	}
 
-	/*
+	/**
 	 * This constructor returns all of the details of the character
 	 * @return String
 	 */
@@ -62,7 +62,7 @@ public class Character extends GameObject {
 				+ "\nDefense : " + this.defense + "\nTo Next Level : " + (this.levelThreshold - this.experience);
 	}
 	
-	/*
+	/**
 	 * Function returning the character's name
 	 * @return String
 	 */
@@ -70,7 +70,7 @@ public class Character extends GameObject {
 		return this.name;
 	}
 	
-	/*
+	/**
 	 * Function returning the character's HP
 	 * @return int
 	 */
@@ -78,7 +78,7 @@ public class Character extends GameObject {
 		return this.hp;
 	}
 	
-	/*
+	/**
 	 * Function returning the character's strength
 	 * @return int
 	 */
@@ -86,7 +86,7 @@ public class Character extends GameObject {
 		return this.strength;
 	}
 	
-	/*
+	/**
 	 * Function returning the character's defense
 	 * @return int
 	 */
@@ -94,7 +94,7 @@ public class Character extends GameObject {
 		return this.defense;
 	}
 	
-	/*
+	/**
 	 * Function returning the characters amount of experience
 	 * @return int
 	 */
@@ -102,11 +102,11 @@ public class Character extends GameObject {
 		return this.experience;
 	}
 	
-	/*
+	/**
 	 * This function raises the characters experience by the amount of experience gained
 	 * in battle. It then evaluates if the amount of experience meets the current level threshold. 
 	 * If so the character levels up
-	 * @param battle experience
+	 * @param battleExp battle experience
 	 */
 	public void setExperience(int battleExp) {
 		this.experience += battleExp;
@@ -115,7 +115,7 @@ public class Character extends GameObject {
 		}
 	}
 	
-	/*
+	/**
 	 * Function returning the characters experience threshold
 	 * @return int
 	 */
@@ -123,7 +123,7 @@ public class Character extends GameObject {
 		return this.levelThreshold;
 	}
 	
-	/*
+	/**
 	 * Function returning the characters level
 	 * @return int
 	 */

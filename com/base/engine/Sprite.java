@@ -2,19 +2,20 @@ package com.base.engine;
 
 import static org.lwjgl.opengl.GL11.*;
 
+/**
+ * This class handles the drawing and size of ingame sprites
+ *
+ * @author Jason Truskowski
+ */
 public class Sprite {
 	/**
 	 * The color values for the sprite
 	 */
-	private float red;
-	private float green;
-	private float blue;
-
+	private float red, green, blue;
 	/**
 	 * The horizontal and vertical size values for the sprite
 	 */
-	private float sizex;
-	private float sizey;
+	private float sizex, sizey;
 
 	/**
 	 * Default constructor for a sprite
@@ -33,18 +34,34 @@ public class Sprite {
 		this.sizey = sy;
 	}
 
+	/**
+	 *
+	 * @return The (horizontal) length of the sprite
+	 */
 	public float getSizeX() {
 		return sizex;
 	}
 
+	/**
+	 *
+	 * @return The (vertical) height of the sprite
+	 */
 	public float getSizeY() {
 		return sizey;
 	}
 
+	/**
+	 *
+	 * @param sx The desired sprite length
+	 */
 	public void setSizeX(float sx) {
 		this.sizex = sx;
 	}
 
+	/**
+	 *
+	 * @param sy The desired sprite height
+	 */
 	public void setSizeY(float sy) {
 		this.sizey = sy;
 	}

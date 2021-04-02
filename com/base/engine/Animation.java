@@ -2,6 +2,11 @@ package com.base.engine;
 
 import java.util.ArrayList;
 
+/**
+ * This class handles the functionality of animating GameObjects
+ *
+ * @author Jason Truskowski
+ */
 public class Animation {
 	/**
 	 * Stores all of the frames in the animation in order

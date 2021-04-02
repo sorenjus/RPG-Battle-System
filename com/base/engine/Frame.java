@@ -1,5 +1,10 @@
 package com.base.engine;
 
+/**
+ * This class determines behavior for rendering and moving between frames of animations
+ *
+ * @author Jason Truskowski
+ */
 public class Frame {
 	/**
 	 * The sprite being displayed
