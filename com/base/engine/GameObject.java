@@ -11,10 +11,16 @@ public abstract class GameObject {
 	private Animation animation;
 	protected Sprite sprite;
 
+	/**
+	 * Updates the state of a GameObject
+	 */
 	public void update() {
 
 	}
 
+	/**
+	 * Renders the sprites
+	 */
 	public void render() {
 		glPushMatrix();
 
@@ -24,17 +30,34 @@ public abstract class GameObject {
 		glPopMatrix();
 	}
 
+	/**
+	 * Returns the the x position of the sprite
+	 * @return returns the cartesian x of where the sprite is
+	 */
 	public float getX() {
 		return x;
 	}
 
+	/**
+	 * Returns the the y position of the sprite
+	 * @return returns the cartesian y of where the sprite is
+	 */
 	public float getY() {
 		return y;
 	}
 
+	/**
+	 * Returns the the size of the sprite on x cartexian
+	 * @return returns the cartesian x of how big the sprite is
+	 */
 	public float getSizeX() {
 		return sprite.getSizeX();
 	}
+
+	/**
+	 * Returns the the size of the sprite on y cartexian
+	 * @return returns the cartesian y of how big the sprite is
+	 */
 
 	public float getSizeY() {
 		return sprite.getSizeY();
@@ -44,6 +67,15 @@ public abstract class GameObject {
 
 	public float getSY() { return sprite.getSizeY(); }
 
+	/**
+	 * Constructs a sprite
+	 *
+	 * @param r Red value
+	 * @param g Green value
+	 * @param b Blue value
+	 * @param sx Horizontal length
+	 * @param sy Vertical height
+	 */
 	public void init(float x, float y, float r, float g, float b, float sx, float sy) {
 		this.x = x;
 		this.y = y;

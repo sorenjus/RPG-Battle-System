@@ -36,6 +36,9 @@ public class Character extends GameObject {
 		levelThreshold = 50;
 	}
 
+	/**
+	 * Gets imput from W A S D for movements and 1 key to return the stats of the character
+	 */
 	public void getInput(){
 		if (Keyboard.isKeyDown(Keyboard.KEY_W)){ move(0, 1);}
 		if (Keyboard.isKeyDown(Keyboard.KEY_S)){ move (0, -1);}
@@ -44,11 +47,17 @@ public class Character extends GameObject {
 		if (Keyboard.isKeyDown(Keyboard.KEY_1)){ System.out.println(this.characterToString());}
 	}
 
+	/**
+	 * moves the character
+	 */
 	private void move(float magX, float magY){
 		this.x += getSpeed() * magX;
 		this.y += getSpeed() * magY;
 	}
 
+	/**
+	 * Gets the speed of the character
+	 */
 	public float getSpeed(){
 		return 4f;
 	}
