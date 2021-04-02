@@ -23,7 +23,7 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-public class Store {
+public class Tex {
 
     public static final int WIDTH = 1280, HEIGHT = 960;
 
