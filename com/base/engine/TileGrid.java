@@ -1,6 +1,6 @@
 package com.base.engine;
 
-import static Store.Tex.*;
+//import static Store.Tex.*;
 
 /**
  * Populates the overworld with tiles
@@ -49,7 +49,7 @@ public class TileGrid {
         for (int i=0; i < map.length; i++) {
             for (int j=0; j < map[i].length;j++) {
                 Tile t = map[i][j];
-                DrawQuadTex(t.getTexture(),t.getX(),t.getY(),t.getWidth(),t.getHeight());
+                Store.DrawQuadTex(t.getTexture(),t.getX(),t.getY(),t.getWidth(),t.getHeight());
             }
         }
     }

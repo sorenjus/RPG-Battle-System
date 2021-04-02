@@ -19,7 +19,7 @@ public class Character extends GameObject {
 	private int levelThreshold;
 
 	public static final float SIZE = 32;
-/*
+/**
 	 /*
 	 * This constructor creates a new character
 	 */
@@ -37,7 +37,7 @@ public class Character extends GameObject {
 	}
 
 	/**
-	 * Gets imput from W A S D for movements and 1 key to return the stats of the character
+	 * Move the character and display character stats based on input key
 	 */
 	public void getInput(){
 		if (Keyboard.isKeyDown(Keyboard.KEY_W)){ move(0, 1);}
@@ -47,22 +47,20 @@ public class Character extends GameObject {
 		if (Keyboard.isKeyDown(Keyboard.KEY_1)){ System.out.println(this.characterToString());}
 	}
 
-	/**
-	 * moves the character
-	 */
 	private void move(float magX, float magY){
 		this.x += getSpeed() * magX;
 		this.y += getSpeed() * magY;
 	}
 
 	/**
-	 * Gets the speed of the character
+	 * default speed the sprite moves on the map
+	 * @return float
 	 */
 	public float getSpeed(){
 		return 4f;
 	}
 
-	/*
+	/**
 	 * This constructor returns all of the details of the character
 	 * @return String
 	 */
@@ -71,7 +69,7 @@ public class Character extends GameObject {
 				+ "\nDefense : " + this.defense + "\nTo Next Level : " + (this.levelThreshold - this.experience);
 	}
 	
-	/*
+	/**
 	 * Function returning the character's name
 	 * @return String
 	 */
@@ -79,7 +77,7 @@ public class Character extends GameObject {
 		return this.name;
 	}
 	
-	/*
+	/**
 	 * Function returning the character's HP
 	 * @return int
 	 */
@@ -87,7 +85,7 @@ public class Character extends GameObject {
 		return this.hp;
 	}
 	
-	/*
+	/**
 	 * Function returning the character's strength
 	 * @return int
 	 */
@@ -95,7 +93,7 @@ public class Character extends GameObject {
 		return this.strength;
 	}
 	
-	/*
+	/**
 	 * Function returning the character's defense
 	 * @return int
 	 */
@@ -103,7 +101,7 @@ public class Character extends GameObject {
 		return this.defense;
 	}
 	
-	/*
+	/**
 	 * Function returning the characters amount of experience
 	 * @return int
 	 */
@@ -111,11 +109,11 @@ public class Character extends GameObject {
 		return this.experience;
 	}
 	
-	/*
+	/**
 	 * This function raises the characters experience by the amount of experience gained
 	 * in battle. It then evaluates if the amount of experience meets the current level threshold. 
 	 * If so the character levels up
-	 * @param battle experience
+	 * @param battleExp battle experience
 	 */
 	public void setExperience(int battleExp) {
 		this.experience += battleExp;
@@ -124,7 +122,7 @@ public class Character extends GameObject {
 		}
 	}
 	
-	/*
+	/**
 	 * Function returning the characters experience threshold
 	 * @return int
 	 */
@@ -132,7 +130,7 @@ public class Character extends GameObject {
 		return this.levelThreshold;
 	}
 	
-	/*
+	/**
 	 * Function returning the characters level
 	 * @return int
 	 */

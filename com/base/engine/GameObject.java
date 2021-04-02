@@ -4,23 +4,21 @@ import static org.lwjgl.opengl.GL11.*;
 
 /**
  * Class for all in-game objects with sprites
+ *
+ * @author Jason Truskowski
  */
 public abstract class GameObject {
-	protected float x;
-	protected float y;
+	/**
+	 * Coordinates of the GameObject on the overworld
+	 */
+	protected float x, y;
 	private Animation animation;
 	protected Sprite sprite;
 
-	/**
-	 * Updates the state of a GameObject
-	 */
 	public void update() {
 
 	}
 
-	/**
-	 * Renders the sprites
-	 */
 	public void render() {
 		glPushMatrix();
 
@@ -31,45 +29,41 @@ public abstract class GameObject {
 	}
 
 	/**
-	 * Returns the the x position of the sprite
-	 * @return returns the cartesian x of where the sprite is
+	 * Return the value of X
+	 * @return float
 	 */
 	public float getX() {
 		return x;
 	}
 
 	/**
-	 * Returns the the y position of the sprite
-	 * @return returns the cartesian y of where the sprite is
+	 * Return the value of Y
+	 * @return float
 	 */
 	public float getY() {
 		return y;
 	}
 
 	/**
-	 * Returns the the size of the sprite on x cartexian
-	 * @return returns the cartesian x of how big the sprite is
+	 * Return the size value of X
+	 * @return float
 	 */
 	public float getSizeX() {
 		return sprite.getSizeX();
 	}
 
 	/**
-	 * Returns the the size of the sprite on y cartexian
-	 * @return returns the cartesian y of how big the sprite is
+	 * Return the size value of Y
+	 * @return float
 	 */
-
 	public float getSizeY() {
 		return sprite.getSizeY();
 	}
 
-	public float getSX() { return sprite.getSizeX(); }
-
-	public float getSY() { return sprite.getSizeY(); }
-
 	/**
-	 * Constructs a sprite
 	 *
+	 * @param x default horizontal
+	 * @param y default vertical location
 	 * @param r Red value
 	 * @param g Green value
 	 * @param b Blue value
