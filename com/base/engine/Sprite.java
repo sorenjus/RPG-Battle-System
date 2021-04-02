@@ -8,10 +8,12 @@ import static org.lwjgl.opengl.GL11.*;
  * @author Jason Truskowski
  */
 public class Sprite {
+
 	/**
 	 * The color values for the sprite
 	 */
 	private float red, green, blue;
+
 	/**
 	 * The horizontal and vertical size values for the sprite
 	 */

@@ -36,6 +36,9 @@ public class Character extends GameObject {
 		levelThreshold = 50;
 	}
 
+	/**
+	 * Move the character and display character stats based on input key
+	 */
 	public void getInput(){
 		if (Keyboard.isKeyDown(Keyboard.KEY_W)){ move(0, 1);}
 		if (Keyboard.isKeyDown(Keyboard.KEY_S)){ move (0, -1);}
@@ -49,6 +52,10 @@ public class Character extends GameObject {
 		this.y += getSpeed() * magY;
 	}
 
+	/**
+	 * default speed the sprite moves on the map
+	 * @return float
+	 */
 	public float getSpeed(){
 		return 4f;
 	}
