@@ -1,19 +1,15 @@
 package com.base.engine;
 
 import com.base.game.Game;
-import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static org.lwjgl.opengl.GL11.*;
-import static Store.Tex.BeginSession;
-import static Store.Tex.LoadTexture;
-import static Store.Tex.*;
-import org.newdawn.slick.opengl.Texture;
+
+//import org.lwjgl.LWJGLException;
+//import static Store.Tex.BeginSession;
+//import static Store.Tex.LoadTexture;
+//import static Store.Tex.*;
 
 /**
  * The main class of the program that opens and closes the game and manages the game loop.
@@ -25,40 +21,7 @@ public class Main {
 	 * The RPG battle system game
 	 */
 	private static Game game;
-	/*public Main() {
 
-		BeginSession();
-
-		int[][] map = {
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-		};
-
-		TileGrid grid = new TileGrid(map);
-		while(!Display.isCloseRequested()) {
-
-			grid.Draw();
-
-			Display.update();
-			Display.sync(60);
-
-		}
-	}
-
-	 */
 	public static void main(String[] args) {
 		initDisplay();
 		initGL();
@@ -71,14 +34,10 @@ public class Main {
 	 * Creates the display window for the game
 	 */
 	private static void initDisplay() {
-		try {
-			Display.setDisplayMode(new DisplayMode(800, 600));
-			Display.create();
-			Keyboard.create();
-			Display.setVSyncEnabled(true);
-		} catch (LWJGLException ex) {
-			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-		}
+			//Display.setDisplayMode(new DisplayMode(800, 600));
+			//Display.create();
+			Store.BeginSession();
+			//new Main();
 	}
 
 	/**
@@ -104,7 +63,31 @@ public class Main {
 	 * Repeatedly updates the game state until the program is closed
 	 */
 	private static void gameLoop() {
+		int[][] map = {
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+		};
+
+		TileGrid grid = new TileGrid(map);
+		grid.Draw();
+
 		while(!Display.isCloseRequested()) {
+
+			Display.update();
+			Display.sync(60);
 			getInput();
 			update();
 			render();
