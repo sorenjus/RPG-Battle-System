@@ -3,9 +3,11 @@ package com.base.game.gameobjects;
 import com.base.engine.GameObject;
 import com.base.engine.Sprite;
 import org.lwjgl.input.Keyboard;
+
 /**
+ * This class simulates the character and manages the stats
+ *
  * @author Justin Sorensen
- *This class represents a character, which progresses as experience in gained through battle
  */
 public class Character extends GameObject {
 

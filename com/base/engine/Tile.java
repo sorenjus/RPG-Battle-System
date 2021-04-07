@@ -2,6 +2,9 @@ package com.base.engine;
 
 import org.newdawn.slick.opengl.Texture;
 
+/**
+ * This class creates a tile based on the parameters  and draws it
+ */
 public class Tile {
 
     private float x, y, width, height;
