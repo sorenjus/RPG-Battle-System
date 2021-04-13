@@ -7,65 +7,65 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class Tile {
 
-    private float x, y, width, height;
+    private float xCord, yCord, width, height;
     private Texture texture;
     private TileType type;
 
     /**
      * Default constructor a tile
      *
-     * @param x x cartesian position
-     * @param y y cartesian position
+     * @param xCord x cartesian position
+     * @param yCord y cartesian position
      * @param width width of the tile
      * @param height Height of the tile
      * @param type tile type
      */
-    public Tile(float x, float y, float width, float height, TileType type) {
-        this.x=x;
-        this.y=y;
+    public Tile(final float xCord,final float yCord,final float width,final float height,final TileType type) {
+        this.xCord=xCord;
+        this.yCord=yCord;
         this.width=width;
         this.height=height;
         this.type=type;
-        this.texture=Store.QuickLoad(type.textureName);
+        this.texture=Store.quickLoad(type.textureName);
     }
 
     /**
      * Draws the texture of the tile at a ceratin position
      */
-    public void Draw() {
-        Store.DrawQuadTex(texture,x,y,width,height);
+    public void draw() {
+        Store.drawQuadTex(texture,xCord,yCord,width,height);
     }
 
     /**
      * Getter for x cartesian position
-     * @return y cartesian position
+     * @return xCord cartesian position
      */
     public float getX() {
-        return x;
+        return xCord;
     }
 
     /**
      * Setter for the x cartesian position
-     * @param x is the new position x to set
+     * @param newxCord is the new position x to set
      */
-    public void setX(float x) {
-        this.x = x;
+    public void setX(final float newxCord) {
+        this.xCord = newxCord;
     }
 
     /**
      * Getter for y cartesian position
-     * @return y cartesian position
+     * @return yCord cartesian position
      */
     public float getY() {
-        return y;
+        return yCord;
     }
 
     /**
      * Setter for the y cartesian position
-     * @param y is the new position y to set
+     * @param newyCord is the new position y to set
      */
-    public void setY(float y) {
-        this.y = y;
+    public void setY(final float newyCord) {
+        this.yCord = newyCord;
     }
 
     /**
@@ -82,7 +82,7 @@ public class Tile {
      * @param width is the new width of the tile
      */
 
-    public void setWidth(float width) {
+    public void setWidth(final float width) {
         this.width = width;
     }
 
@@ -101,7 +101,7 @@ public class Tile {
      * @param height is the new height of the tile
      */
 
-    public void setHeight(float height) {
+    public void setHeight(final float height) {
         this.height = height;
     }
     /**
@@ -116,7 +116,7 @@ public class Tile {
      * Setter for the texture of the tile
      * @param texture is the new texture of the tile
      */
-    public void setTexture(Texture texture) {
+    public void setTexture(final Texture texture) {
         this.texture = texture;
     }
 
@@ -134,7 +134,7 @@ public class Tile {
      * @param type is the new type of tile
      */
 
-    public void setType(TileType type) {
+    public void setType(final TileType type) {
         this.type = type;
     }
 

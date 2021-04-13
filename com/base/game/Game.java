@@ -25,7 +25,7 @@ public class Game {
 	 * Default game constructor
 	 */
 	public Game(){
-		objects = new ArrayList<GameObject>();
+		objects = new ArrayList<>();
 		player = new Character(Display.getWidth() / 2 - Character.SIZE / 2, Display.getHeight() / 2 - Character.SIZE /2);
 		objects.add(player);
 	}
@@ -33,23 +33,25 @@ public class Game {
 	/**
 	 * Receives player input
 	 */
-	public void getInput() {
-		player.getInput();
+	public void returnInput() {
+		player.returnInput();
 	}
 
 	/**
 	 * Updates the state of the game
 	 */
 	public void update() {
-		for(GameObject go : objects)
+		for(final GameObject go : objects) {
 			go.update();
+		}
 	}
 
 	/**
 	 * Updates the displayed graphics
 	 */
 	public void render() {
-		for(GameObject go : objects)
+		for(final GameObject go : objects) {
 			go.render();
+		}
 	}
 }

@@ -22,11 +22,11 @@ public class Frame {
 	/**
 	 * Default constructor for a frame
 	 *
-	 * @param s The sprite to be displayed
+	 * @param sprite The sprite to be displayed
 	 * @param len The number of frames the sprite should be displayed for
 	 */
-	public Frame(Sprite s, int len) {
-		this.sprite = s;
+	public Frame(final Sprite sprite,final int len) {
+		this.sprite = sprite;
 		this.length = len;
 		timeDisplayed = 0;
 	}

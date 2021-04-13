@@ -22,7 +22,8 @@ public class Main {
 	 */
 	private static Game game;
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
+
 		initDisplay();
 		initGL();
 		initGame();
@@ -36,7 +37,7 @@ public class Main {
 	private static void initDisplay() {
 			//Display.setDisplayMode(new DisplayMode(800, 600));
 			//Display.create();
-			Store.BeginSession();
+			Store.beginSession();
 			//new Main();
 	}
 
@@ -63,7 +64,7 @@ public class Main {
 	 * Repeatedly updates the game state until the program is closed
 	 */
 	private static void gameLoop() {
-		int[][] map = {
+		final int[][] map = {
 				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -81,8 +82,8 @@ public class Main {
 				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 		};
 
-		TileGrid grid = new TileGrid(map);
-		grid.Draw();
+		final TileGrid grid = new TileGrid(map);
+		grid.draw();
 
 		while(!Display.isCloseRequested()) {
 
@@ -98,7 +99,7 @@ public class Main {
 	 * Receives player input
 	 */
 	private static void getInput() {
-		game.getInput();
+		game.returnInput();
 	}
 
 	/**

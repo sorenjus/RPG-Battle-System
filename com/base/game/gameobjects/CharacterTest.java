@@ -8,7 +8,7 @@ public class CharacterTest {
     @Test
     public void CharacterConstructor(){
 
-        Character player = new Character(384.0F, 284.0f);
+        final Character player = new Character(384.0F, 284.0f);
         assertEquals(1, player.getLevel());
         assertEquals(5, player.getStrength());
         assertEquals(40, player.getHP());
@@ -19,7 +19,7 @@ public class CharacterTest {
 
     @Test
     public void levelUp(){
-        Character player = new Character(384.0F, 284.0f);
+        final Character player = new Character(384.0F, 284.0f);
         player.setExperience(50);
         assertEquals(2, player.getLevel());
         assertEquals(7, player.getStrength());

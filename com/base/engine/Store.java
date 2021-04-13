@@ -26,7 +26,7 @@ public class Store {
 	/**
 	 * Create a window 800x600 for the game to run in
 	 */
-	public static void BeginSession() {
+	public static void beginSession() {
 		Display.setTitle("JRPG GAME");
 		try {
 			Display.setDisplayMode(new DisplayMode(800,600));
@@ -49,13 +49,13 @@ public class Store {
 	 * Draws the overworld with tiles
 	 */
 
-	public static void DrawQuad(float x, float y, float width, float height)
+	public static void drawQuad(final float xCord,final float yCord,final float width,final float height)
 	{
 		glBegin(GL_QUADS);
-		glVertex2f(x,y);
-		glVertex2f(x+width,y);
-		glVertex2f(x+width,y+height);
-		glVertex2f(x,y+height);
+		glVertex2f(xCord,yCord);
+		glVertex2f(xCord+width,yCord);
+		glVertex2f(xCord+width,yCord+height);
+		glVertex2f(xCord,yCord+height);
 		glEnd();
 	}
 
@@ -63,9 +63,9 @@ public class Store {
 	 * Renders all the tiles drawn
 	 */
 
-	public static void DrawQuadTex(Texture tex,float x, float y, float width, float height) {
+	public static void drawQuadTex(final Texture tex,final float xCord,final float yCord,final float width,final float height) {
 		tex.bind();
-		glTranslatef(x,y,0); // 0 is for 3d
+		glTranslatef(xCord,yCord,0); // 0 is for 3d
 		glBegin(GL_QUADS);
 		glTexCoord2f(0,0);
 		glVertex2f(0,0);
@@ -84,11 +84,11 @@ public class Store {
 	 * @return Texture
 	 */
 
-	public static Texture LoadTexture(String path, String fileType) {
+	public static Texture loadTexture(final String path,final String fileType) {
 		Texture tex = null;
-		InputStream in = ResourceLoader.getResourceAsStream(path);
+		final InputStream streamIn = ResourceLoader.getResourceAsStream(path);
 		try {
-			tex = TextureLoader.getTexture(fileType, in);
+			tex = TextureLoader.getTexture(fileType, streamIn);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -100,9 +100,9 @@ public class Store {
 	 * @return Texture
 	 */
 
-	public static Texture QuickLoad(String name) {
-		Texture tex = null;
-		tex = LoadTexture("com/base/Resources/"+ name + ".png","PNG");
+	public static Texture quickLoad(final String name) {
+		Texture tex;
+		tex = loadTexture("com/base/Resources/"+ name + ".png","PNG");
 		return tex;
 	}
 

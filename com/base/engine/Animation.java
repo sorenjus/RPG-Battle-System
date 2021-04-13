@@ -22,14 +22,14 @@ public class Animation {
 	 * Default constructor for a new animation
 	 */
 	public Animation() {
-		frames = new ArrayList<Frame>();
+		frames = new ArrayList<>();
 	}
 
 	/**
 	 * Renders the current frame of the animation
 	 */
 	public void render() {
-		Frame temp = frames.get(currentFrame);
+		final Frame temp = frames.get(currentFrame);
 
 		if(temp.render()) {
 			// Advance to the next frame, or return to the first frame if on the last

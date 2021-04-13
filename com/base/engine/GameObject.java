@@ -12,7 +12,7 @@ public abstract class GameObject {
 	 * Coordinates of the GameObject on the overworld
 	 *
 	 */
-	protected float x, y;
+	protected float xCoordinate, yCoordinate;
 	private Animation animation;
 	protected Sprite sprite;
 
@@ -28,7 +28,7 @@ public abstract class GameObject {
 	public void render() {
 		glPushMatrix();
 
-		glTranslatef(x,y,0);
+		glTranslatef(xCoordinate, yCoordinate,0);
 		sprite.render();
 
 		glPopMatrix();
@@ -39,7 +39,7 @@ public abstract class GameObject {
 	 * @return float
 	 */
 	public float getX() {
-		return x;
+		return xCoordinate;
 	}
 
 	/**
@@ -47,7 +47,7 @@ public abstract class GameObject {
 	 * @return float
 	 */
 	public float getY() {
-		return y;
+		return yCoordinate;
 	}
 
 	/**
@@ -69,17 +69,17 @@ public abstract class GameObject {
 	/**
 	 * Initialize the sprite
 	 *
-	 * @param x default horizontal
-	 * @param y default vertical location
-	 * @param r Red value
-	 * @param g Green value
-	 * @param b Blue value
-	 * @param sx Horizontal length
-	 * @param sy Vertical height
+	 * @param xCord default horizontal
+	 * @param yCord default vertical location
+	 * @param red Red value
+	 * @param green Green value
+	 * @param blue Blue value
+	 * @param hLength Horizontal length
+	 * @param vLength Vertical height
 	 */
-	public void init(float x, float y, float r, float g, float b, float sx, float sy) {
-		this.x = x;
-		this.y = y;
-		this.sprite = new Sprite(r,g,b,sx,sy);
+	public void init(final float xCord,final float yCord,final float red,final float green,final float blue,final float hLength,final float vLength) {
+		this.xCoordinate = xCord;
+		this.yCoordinate = yCord;
+		this.sprite = new Sprite(red,green,blue,hLength,vLength);
 	}
 }

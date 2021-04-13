@@ -22,18 +22,18 @@ public class Sprite {
 	/**
 	 * Default constructor for a sprite
 	 *
-	 * @param r Red value
-	 * @param g Green value
-	 * @param b Blue value
-	 * @param sx Horizontal length
-	 * @param sy Vertical height
+	 * @param red Red value
+	 * @param green Green value
+	 * @param blue Blue value
+	 * @param hLength Horizontal length
+	 * @param vLength Vertical height
 	 */
-	public Sprite(float r, float g, float b, float sx, float sy) {
-		this.red = r;
-		this.green = g;
-		this.blue = b;
-		this.sizex = sx;
-		this.sizey = sy;
+	public Sprite(final float red,final float green,final float blue,final float hLength,final float vLength) {
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
+		this.sizex = hLength;
+		this.sizey = vLength;
 	}
 
 	/**
@@ -54,18 +54,18 @@ public class Sprite {
 
 	/**
 	 *
-	 * @param sx The desired sprite length
+	 * @param spriteLength The desired sprite length
 	 */
-	public void setSizeX(float sx) {
-		this.sizex = sx;
+	public void setSizeX(final float spriteLength) {
+		this.sizex = spriteLength;
 	}
 
 	/**
 	 *
-	 * @param sy The desired sprite height
+	 * @param spriteHeight The desired sprite height
 	 */
-	public void setSizeY(float sy) {
-		this.sizey = sy;
+	public void setSizeY(final float spriteHeight) {
+		this.sizey = spriteHeight;
 	}
 
 	/**

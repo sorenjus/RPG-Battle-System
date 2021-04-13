@@ -27,7 +27,7 @@ public class TileGrid {
     /**
      * Loop to populate the world with Grass and Brick type tiles
      */
-    public TileGrid(int[][] newMap) {
+    public TileGrid(final int[][] newMap) {
         map = new Tile[20][15];
         for (int i=0; i < map.length; i++) {
             for (int j=0; j < map[i].length;j++) {
@@ -45,11 +45,11 @@ public class TileGrid {
     /**
      * Loop that assigns textures to tiles based on their type
      */
-    public void Draw() {
+    public void draw() {
         for (int i=0; i < map.length; i++) {
             for (int j=0; j < map[i].length;j++) {
-                Tile t = map[i][j];
-                Store.DrawQuadTex(t.getTexture(),t.getX(),t.getY(),t.getWidth(),t.getHeight());
+                final Tile tile = map[i][j];
+                Store.drawQuadTex(tile.getTexture(),tile.getX(),tile.getY(),tile.getWidth(),tile.getHeight());
             }
         }
     }
