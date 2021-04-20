@@ -28,6 +28,7 @@ public class Game {
         objects = new ArrayList<>();
         player = new Character(Display.getWidth() / 2 - Character.SIZE / 2, Display.getHeight() / 2 - Character.SIZE / 2);
         objects.add(player);
+        objects.add(new GenericRedSquareOfDeath(150, 250, 1));
     }
 
     /**

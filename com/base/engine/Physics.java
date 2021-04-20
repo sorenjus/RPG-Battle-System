@@ -21,4 +21,8 @@ public class Physics {
 
         return hitbox1.intersects(hitbox2);
     }
+
+    public static boolean inLineOfSight(GameObject object1, GameObject object2) {
+        return true;
+    }
 }
