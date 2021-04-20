@@ -8,33 +8,33 @@ import java.util.ArrayList;
  * @author Jason Truskowski
  */
 public class Animation {
-	/**
-	 * Stores all of the frames in the animation in order
-	 */
-	private ArrayList<Frame> frames;
+    /**
+     * Stores all of the frames in the animation in order
+     */
+    private transient final ArrayList<Frame> frames;
 
-	/**
-	 * The index of the frame the animation is currently on
-	 */
-	private int currentFrame;
+    /**
+     * The index of the frame the animation is currently on
+     */
+    private transient int currentFrame;
 
-	/**
-	 * Default constructor for a new animation
-	 */
-	public Animation() {
-		frames = new ArrayList<>();
-	}
+    /**
+     * Default constructor for a new animation
+     */
+    public Animation() {
+        frames = new ArrayList<>();
+    }
 
-	/**
-	 * Renders the current frame of the animation
-	 */
-	public void render() {
-		final Frame temp = frames.get(currentFrame);
+    /**
+     * Renders the current frame of the animation
+     */
+    public void render() {
+        final Frame temp = frames.get(currentFrame);
 
-		if(temp.render()) {
-			// Advance to the next frame, or return to the first frame if on the last
-			currentFrame++;
-			currentFrame %= frames.size();
-		}
-	}
+        if (temp.render()) {
+            // Advance to the next frame, or return to the first frame if on the last
+            currentFrame++;
+            currentFrame %= frames.size();
+        }
+    }
 }

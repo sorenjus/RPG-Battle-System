@@ -17,114 +17,114 @@ import static org.lwjgl.opengl.GL11.*;
  * @author Jason Truskowski
  */
 public class Main {
-	/**
-	 * The RPG battle system game
-	 */
-	private static Game game;
+    /**
+     * The RPG battle system game
+     */
+    private static Game game;
 
-	public static void main(final String[] args) {
+    public static void main(final String[] args) {
 
-		initDisplay();
-		initGL();
-		initGame();
-		gameLoop();
-		cleanUp();
-	}
+        initDisplay();
+        initGL();
+        initGame();
+        gameLoop();
+        cleanUp();
+    }
 
-	/**
-	 * Creates the display window for the game
-	 */
-	private static void initDisplay() {
-			//Display.setDisplayMode(new DisplayMode(800, 600));
-			//Display.create();
-			Store.beginSession();
-			//new Main();
-	}
+    /**
+     * Creates the display window for the game
+     */
+    private static void initDisplay() {
+        //Display.setDisplayMode(new DisplayMode(800, 600));
+        //Display.create();
+        Store.beginSession();
+        //new Main();
+    }
 
-	/**
-	 * Initializes openGL settings
-	 */
-	private static void initGL() {
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
-		glMatrixMode(GL_MODELVIEW);
-		glDisable(GL_DEPTH_TEST);
-		glClearColor(0,0,0,0);
-	}
+    /**
+     * Initializes openGL settings
+     */
+    private static void initGL() {
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
+        glMatrixMode(GL_MODELVIEW);
+        glDisable(GL_DEPTH_TEST);
+        glClearColor(0, 0, 0, 0);
+    }
 
-	/**
-	 * Creates a new game
-	 */
-	private static void initGame() {
-		game = new Game();
-	}
+    /**
+     * Creates a new game
+     */
+    private static void initGame() {
+        game = new Game();
+    }
 
-	/**
-	 * Repeatedly updates the game state until the program is closed
-	 */
-	private static void gameLoop() {
-		final int[][] map = {
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-		};
+    /**
+     * Repeatedly updates the game state until the program is closed
+     */
+    private static void gameLoop() {
+        final int[][] map = {
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        };
 
-		final TileGrid grid = new TileGrid(map);
-		grid.draw();
+        final TileGrid grid = new TileGrid(map);
+        grid.draw();
 
-		while(!Display.isCloseRequested()) {
+        while (!Display.isCloseRequested()) {
 
-			Display.update();
-			Display.sync(60);
-			getInput();
-			update();
-			render();
-		}
-	}
+            Display.update();
+            Display.sync(60);
+            getInput();
+            update();
+            render();
+        }
+    }
 
-	/**
-	 * Receives player input
-	 */
-	private static void getInput() {
-		game.returnInput();
-	}
+    /**
+     * Receives player input
+     */
+    private static void getInput() {
+        game.returnInput();
+    }
 
-	/**
-	 * Updates the state of the game
-	 */
-	private static void update() {
-		game.update();
-	}
+    /**
+     * Updates the state of the game
+     */
+    private static void update() {
+        game.update();
+    }
 
-	/**
-	 * Updates the displayed graphics
-	 */
-	private static void render() {
-		glClear(GL_COLOR_BUFFER_BIT);
-		glLoadIdentity();
-		game.render();
-		Display.update();
-		Display.sync(60);
-	}
+    /**
+     * Updates the displayed graphics
+     */
+    private static void render() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glLoadIdentity();
+        game.render();
+        Display.update();
+        Display.sync(60);
+    }
 
-	/**
-	 * Disables the display and input device when the program is closed
-	 */
-	private static void cleanUp() {
-		Display.destroy();
-		Keyboard.destroy();
-	}
+    /**
+     * Disables the display and input device when the program is closed
+     */
+    private static void cleanUp() {
+        Display.destroy();
+        Keyboard.destroy();
+    }
 }

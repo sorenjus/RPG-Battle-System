@@ -1,12 +1,13 @@
 package com.base.game.gameobjects;
 
 import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CharacterTest {
 
     @Test
-    public void CharacterConstructor(){
+    public void CharacterConstructor() {
 
         final Character player = new Character(384.0F, 284.0f);
         assertEquals(1, player.getLevel());
@@ -18,7 +19,7 @@ public class CharacterTest {
     }
 
     @Test
-    public void levelUp(){
+    public void levelUp() {
         final Character player = new Character(384.0F, 284.0f);
         player.setExperience(50);
         assertEquals(2, player.getLevel());

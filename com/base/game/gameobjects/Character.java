@@ -10,168 +10,192 @@ import org.lwjgl.input.Keyboard;
  */
 public class Character extends GameObject {
 
-	//String containing the characters name//
-	private String name;
-	//Integer values containing various stats of the character//
-	private int strength, defense, experience, level, healthPoints;
-	//Integer values representing the original HP, strength, and defense of the character//
-	private int baseStrength, baseDefense, baseHP;
-	//Integer of experience needed to reach the next level//
-	private int levelThreshold;
+    //String containing the characters name//
+    private transient String name;
+    //Integer values containing various stats of the character//
+    private transient int strength, defense, experience, level, healthPoints;
+    //Integer values representing the original HP, strength, and defense of the character//
+    private transient final int baseStrength, baseDefense, baseHP;
+    //Integer of experience needed to reach the next level//
+    private transient int levelThreshold;
 
-	public static final float SIZE = 32;
-/**
-	 /*
-	 * This constructor creates a new character
-	 */
-	public Character(final float xCoordinate,final float yCoordinate) {
-		init(xCoordinate, yCoordinate,0.1f,1f,0.25f,SIZE,SIZE);
-		level = 1;
-		baseStrength = 5;
-		strength = baseStrength;
-		baseHP = incHP();
-		healthPoints = baseHP;
-		baseDefense = 5;
-		defense = baseDefense;
-		experience = 0;
-		levelThreshold = 50;
-	}
+    public static final float SIZE = 32;
 
-	/**
-	 * Move the character and display character stats based on input key
-	 */
-	public void returnInput(){
-		if (Keyboard.isKeyDown(Keyboard.KEY_W)){ move(0, 1);}
-		if (Keyboard.isKeyDown(Keyboard.KEY_S)){ move (0, -1);}
-		if (Keyboard.isKeyDown(Keyboard.KEY_A)){ move (-1, 0);}
-		if (Keyboard.isKeyDown(Keyboard.KEY_D)){ move (1, 0);}
-		if (Keyboard.isKeyDown(Keyboard.KEY_1)){ System.out.println(this.characterToString());}
-	}
+    /**
+     * /*
+     * This constructor creates a new character
+     */
+    public Character(final float xCoordinate, final float yCoordinate) {
+        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE);
+        level = 1;
+        baseStrength = 5;
+        strength = baseStrength;
+        baseHP = incHP();
+        healthPoints = baseHP;
+        baseDefense = 5;
+        defense = baseDefense;
+        experience = 0;
+        levelThreshold = 50;
+    }
 
-	private void move(final float magX,final float magY){
-		this.xCoordinate += getSpeed() * magX;
-		this.yCoordinate += getSpeed() * magY;
-	}
+    /**
+     * Move the character and display character stats based on input key
+     */
+    public void returnInput() {
+        if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
+            move(0, 1);
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
+            move(0, -1);
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
+            move(-1, 0);
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
+            move(1, 0);
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_1)) {
+            System.out.println(this.characterToString());
+        }
+    }
 
-	/**
-	 * default speed the sprite moves on the map
-	 * @return float
-	 */
-	public float getSpeed(){
-		return 4f;
-	}
+    private void move(final float magX, final float magY) {
+        this.xCoordinate += getSpeed() * magX;
+        this.yCoordinate += getSpeed() * magY;
+    }
 
-	/**
-	 * This constructor returns all of the details of the character
-	 * @return String
-	 */
-	public String characterToString() {
-		return "Name : " + this.name + "\nLevel : " + this.level + "\nHP : " + this.healthPoints + "\nStrength : " + this.strength
-				+ "\nDefense : " + this.defense + "\nTo Next Level : " + (this.levelThreshold - this.experience);
-	}
-	
-	/**
-	 * Function returning the character's name
-	 * @return String
-	 */
-	public String getName() {
-		return this.name;
-	}
-	
-	/**
-	 * Function returning the character's HP
-	 * @return int
-	 */
-	public int getHP() {
-		return this.healthPoints;
-	}
-	
-	/**
-	 * Function returning the character's strength
-	 * @return int
-	 */
-	public int getStrength() {
-		return this.strength;
-	}
-	
-	/**
-	 * Function returning the character's defense
-	 * @return int
-	 */
-	public int getDefense() {
-		return this.defense;
-	}
-	
-	/**
-	 * Function returning the characters amount of experience
-	 * @return int
-	 */
-	public int getExperience() {
-		return this.experience;
-	}
-	
-	/**
-	 * This function raises the characters experience by the amount of experience gained
-	 * in battle. It then evaluates if the amount of experience meets the current level threshold. 
-	 * If so the character levels up
-	 * @param battleExp battle experience
-	 */
-	public void setExperience(final int battleExp) {
-		this.experience += battleExp;
-		if(this.experience >= this.levelThreshold) {
-			this.levelUp();
-		}
-	}
-	
-	/**
-	 * Function returning the characters experience threshold
-	 * @return int
-	 */
-	public int getThreshold() {
-		return this.levelThreshold;
-	}
-	
-	/**
-	 * Function returning the characters level
-	 * @return int
-	 */
-	public int getLevel() {
-		return this.level;
-	}
+    /**
+     * default speed the sprite moves on the map
+     *
+     * @return float
+     */
+    public float getSpeed() {
+        return 4f;
+    }
 
-	/**
-	 * Function increases Character stats when threshold is met
-	 */
-	private void levelUp() {
-		this.level += 1;
-		this.healthPoints = incHP();
-		this.strength = incStat(this.baseStrength);
-		this.defense = incStat(this.baseDefense);
-		this.levelThreshold = returnThreshold() + 50;
-	}
+    /**
+     * This constructor returns all of the details of the character
+     *
+     * @return String
+     */
+    public String characterToString() {
+        return "Name : " + this.name + "\nLevel : " + this.level + "\nHP : " + this.healthPoints + "\nStrength : " + this.strength
+                + "\nDefense : " + this.defense + "\nTo Next Level : " + (this.levelThreshold - this.experience);
+    }
 
-	/**
-	 * Level threshold is set based on character level
-	 * @return int
-	 */
-	private int returnThreshold() {
-		return 25 * this.level * this.level - 25 * this.level;
-	}
+    /**
+     * Function returning the character's name
+     *
+     * @return String
+     */
+    public String getName() {
+        return this.name;
+    }
 
-	/**
-	 * Increases Character stats
-	 * @param stat Character stat
-	 * @return int
-	 */
-	private int incStat(final int stat) {
-		return (stat * this.level)/2 + 2;
-	}
+    /**
+     * Function returning the character's HP
+     *
+     * @return int
+     */
+    public int getHP() {
+        return this.healthPoints;
+    }
 
-	/**
-	 * Increase Character HP
-	 * @return int
-	 */
-	private int incHP() {
-		return (this.getStrength() * (200 * this.getLevel()))/100 + 30;
-	}
+    /**
+     * Function returning the character's strength
+     *
+     * @return int
+     */
+    public int getStrength() {
+        return this.strength;
+    }
+
+    /**
+     * Function returning the character's defense
+     *
+     * @return int
+     */
+    public int getDefense() {
+        return this.defense;
+    }
+
+    /**
+     * Function returning the characters amount of experience
+     *
+     * @return int
+     */
+    public int getExperience() {
+        return this.experience;
+    }
+
+    /**
+     * This function raises the characters experience by the amount of experience gained
+     * in battle. It then evaluates if the amount of experience meets the current level threshold.
+     * If so the character levels up
+     *
+     * @param battleExp battle experience
+     */
+    public void setExperience(final int battleExp) {
+        this.experience += battleExp;
+        if (this.experience >= this.levelThreshold) {
+            this.levelUp();
+        }
+    }
+
+    /**
+     * Function returning the characters experience threshold
+     *
+     * @return int
+     */
+    public int getThreshold() {
+        return this.levelThreshold;
+    }
+
+    /**
+     * Function returning the characters level
+     *
+     * @return int
+     */
+    public int getLevel() {
+        return this.level;
+    }
+
+    /**
+     * Function increases Character stats when threshold is met
+     */
+    private void levelUp() {
+        this.level += 1;
+        this.healthPoints = incHP();
+        this.strength = incStat(this.baseStrength);
+        this.defense = incStat(this.baseDefense);
+        this.levelThreshold = returnThreshold() + 50;
+    }
+
+    /**
+     * Level threshold is set based on character level
+     *
+     * @return int
+     */
+    private int returnThreshold() {
+        return 25 * this.level * this.level - 25 * this.level;
+    }
+
+    /**
+     * Increases Character stats
+     *
+     * @param stat Character stat
+     * @return int
+     */
+    private int incStat(final int stat) {
+        return (stat * this.level) / 2 + 2;
+    }
+
+    /**
+     * Increase Character HP
+     *
+     * @return int
+     */
+    private int incHP() {
+        return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
+    }
 }
