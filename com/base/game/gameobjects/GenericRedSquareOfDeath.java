@@ -14,6 +14,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 	public GenericRedSquareOfDeath(float x, float y, int exp, int str, int def, int th) {
 		super(x, y, exp, str, def, th);
 		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE, 0);
+		setAttackCoolDown(1000);
 	}
 
 	@Override
@@ -50,9 +51,8 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 	@Override
 	protected void attack() {
-
-
 		System.out.println("The Generic Red Square of Death attacks!");
+		restartAttackCoolDown();
 	}
 
 	@Override

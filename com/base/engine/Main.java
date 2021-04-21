@@ -1,6 +1,7 @@
 package com.base.engine;
 
 import com.base.game.Game;
+import com.base.game.Time;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
@@ -86,9 +87,9 @@ public class Main {
 
         final TileGrid grid = new TileGrid(map);
         grid.draw();
-
+        Time.init();
         while (!Display.isCloseRequested()) {
-
+            Time.update();
             Display.update();
             Display.sync(60);
             getInput();
