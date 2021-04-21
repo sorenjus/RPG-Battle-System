@@ -147,6 +147,13 @@ public class PlayerCharacter extends GameObject {
     }
 
     /**
+     * Function reducing the characters healthpoint
+     */
+    public void setHP(){
+        this.healthPoints = this.healthPoints - 10;
+    }
+
+    /**
      * Function returning the characters experience threshold
      *
      * @return int
