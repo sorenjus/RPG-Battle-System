@@ -2,6 +2,7 @@ package com.base.game;
 
 import com.base.engine.GameObject;
 import com.base.engine.Main;
+import com.base.engine.Physics;
 import com.base.game.gameobjects.PlayerCharacter;
 import com.base.game.gameobjects.Enemy;
 
@@ -11,6 +12,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 	public static final int SIZE = 32;
 	public static final float SLOWDOWN = 0.5f;
+	public static final float VISION = 150f;
 
 	public GenericRedSquareOfDeath(float x, float y, int level) {
 		super(x, y, level);
@@ -19,7 +21,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 	@Override
 	protected void look() {
-		ArrayList<GameObject> seen = Main.inRadius(getX(), getY(), 150); // arbitrary test value
+		ArrayList<GameObject> seen = Main.inRadius(getX(), getY(), VISION);
 
 		for(GameObject seenOb : seen) {
 			if(seenOb instanceof PlayerCharacter) {
@@ -48,5 +50,17 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 		setX(getX() + speedX);
 		setY(getY() + speedY);
+	}
+
+	@Override
+	protected void attack() {
+
+
+		System.out.println("The Generic Red Square of Death attacks!");
+	}
+
+	@Override
+	protected void die() {
+		setDeleteTrue();
 	}
 }

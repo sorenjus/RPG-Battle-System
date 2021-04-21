@@ -6,6 +6,7 @@ import com.base.engine.Physics;
 public class Enemy extends GameObject {
 	private Stats enStats;
 	private GameObject target;
+	protected float attackRange = 50f;
 
 	public Enemy(float x, float y, int level) {
 		enStats = new Stats(level, false);
@@ -20,11 +21,11 @@ public class Enemy extends GameObject {
 	public void update() {
 		if(target == null) {
 			look();
+		} else if(Physics.inLineOfSight(this, target) &&
+				Physics.getDistance(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
+				attack();
 		} else {
 			chase();
-			if(Physics.inLineOfSight(this, target)) {
-				attack();
-			}
 		}
 
 		if(enStats.getHP() <= 0) {

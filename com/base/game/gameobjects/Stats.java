@@ -39,4 +39,8 @@ public class Stats {
 		// TODO: Determine calculation for level if canLevel
 		return level;
 	}
+
+	public void damage(int dmg) {
+		
+	}
 }
