@@ -8,78 +8,88 @@ import static org.lwjgl.opengl.GL11.*;
  * @author Jason Truskowski
  */
 public abstract class GameObject {
-	/**
-	 * Coordinates of the GameObject on the overworld
-	 *
-	 */
-	protected float x, y;
-	private Animation animation;
-	protected Sprite sprite;
+    /**
+     * Coordinates of the GameObject on the overworld
+     */
+    protected transient float xCoordinate, yCoordinate;
+    private Animation animation;
+    protected transient Sprite sprite;
 
-	public void update() {
+    public void update() {
 
-	}
+    }
 
-	/**
-	 * Renders the sprites for game objects
-	 *
-	 */
+    /**
+     * Renders the sprites for game objects
+     */
 
-	public void render() {
-		glPushMatrix();
+    public void render() {
+        glPushMatrix();
 
-		glTranslatef(x,y,0);
-		sprite.render();
+        glTranslatef(xCoordinate, yCoordinate, 0);
+        sprite.render();
 
-		glPopMatrix();
-	}
+        glPopMatrix();
+    }
 
-	/**
-	 * Return the value of X
-	 * @return float
-	 */
-	public float getX() {
-		return x;
-	}
+    /**
+     * Return the value of X
+     *
+     * @return float
+     */
+    public float getX() {
+        return xCoordinate;
+    }
 
-	/**
-	 * Return the value of Y
-	 * @return float
-	 */
-	public float getY() {
-		return y;
-	}
+    /**
+     * Return the value of Y
+     *
+     * @return float
+     */
+    public float getY() {
+        return yCoordinate;
+    }
 
-	/**
-	 * Return the size value of X
-	 * @return float
-	 */
-	public float getSizeX() {
-		return sprite.getSizeX();
-	}
+    /**
+     * Return the size value of X
+     *
+     * @return float
+     */
+    public float getSizeX() {
+        return sprite.getSizeX();
+    }
 
-	/**
-	 * Return the size value of Y
-	 * @return float
-	 */
-	public float getSizeY() {
-		return sprite.getSizeY();
-	}
+    /**
+     * Return the size value of Y
+     *
+     * @return float
+     */
+    public float getSizeY() {
+        return sprite.getSizeY();
+    }
 
-	/**
-	 * Initialize the sprite
-	 *
-	 * @param x default horizontal
-	 * @param y default vertical location
-	 * @param r Red value
-	 * @param g Green value
-	 * @param b Blue value
-	 * @param sx Horizontal length
-	 * @param sy Vertical height
-	 */
-	public void init(float x, float y, float r, float g, float b, float sx, float sy) {
-		this.x = x;
-		this.y = y;
-		this.sprite = new Sprite(r,g,b,sx,sy);
-	}
+    protected void setX(float x) {
+        this.xCoordinate = x;
+    }
+
+    protected void setY(float y) {
+        this.yCoordinate = y;
+    }
+
+    /**
+     * Initialize the sprite
+     *
+     * @param xCord   default horizontal
+     * @param yCord   default vertical location
+     * @param red     Red value
+     * @param green   Green value
+     * @param blue    Blue value
+     * @param hLength Horizontal length
+     * @param vLength Vertical height
+     */
+    public void init(final float xCord, final float yCord, final float red, final float green, final float blue, final float hLength, final float vLength) {
+        this.xCoordinate = xCord;
+        this.yCoordinate = yCord;
+        this.sprite = new Sprite(red, green, blue, hLength, vLength);
+    }
 }

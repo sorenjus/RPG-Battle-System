@@ -4,6 +4,8 @@ import com.base.game.Game;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
+import java.util.ArrayList;
+
 import static org.lwjgl.opengl.GL11.*;
 
 //import org.lwjgl.LWJGLException;
@@ -17,113 +19,118 @@ import static org.lwjgl.opengl.GL11.*;
  * @author Jason Truskowski
  */
 public class Main {
-	/**
-	 * The RPG battle system game
-	 */
-	private static Game game;
+    /**
+     * The RPG battle system game
+     */
+    private static Game game;
 
-	public static void main(String[] args) {
-		initDisplay();
-		initGL();
-		initGame();
-		gameLoop();
-		cleanUp();
-	}
+    public static void main(final String[] args) {
 
-	/**
-	 * Creates the display window for the game
-	 */
-	private static void initDisplay() {
-			//Display.setDisplayMode(new DisplayMode(800, 600));
-			//Display.create();
-			Store.BeginSession();
-			//new Main();
-	}
+        initDisplay();
+        initGL();
+        initGame();
+        gameLoop();
+        cleanUp();
+    }
 
-	/**
-	 * Initializes openGL settings
-	 */
-	private static void initGL() {
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-		glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
-		glMatrixMode(GL_MODELVIEW);
-		glDisable(GL_DEPTH_TEST);
-		glClearColor(0,0,0,0);
-	}
+    /**
+     * Creates the display window for the game
+     */
+    private static void initDisplay() {
+        //Display.setDisplayMode(new DisplayMode(800, 600));
+        //Display.create();
+        Store.beginSession();
+        //new Main();
+    }
 
-	/**
-	 * Creates a new game
-	 */
-	private static void initGame() {
-		game = new Game();
-	}
+    /**
+     * Initializes openGL settings
+     */
+    private static void initGL() {
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(0, Display.getWidth(), 0, Display.getHeight(), -1, 1);
+        glMatrixMode(GL_MODELVIEW);
+        glDisable(GL_DEPTH_TEST);
+        glClearColor(0, 0, 0, 0);
+    }
 
-	/**
-	 * Repeatedly updates the game state until the program is closed
-	 */
-	private static void gameLoop() {
-		int[][] map = {
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-				{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-		};
+    /**
+     * Creates a new game
+     */
+    private static void initGame() {
+        game = new Game();
+    }
 
-		TileGrid grid = new TileGrid(map);
-		grid.Draw();
+    /**
+     * Repeatedly updates the game state until the program is closed
+     */
+    private static void gameLoop() {
+        final int[][] map = {
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        };
 
-		while(!Display.isCloseRequested()) {
+        final TileGrid grid = new TileGrid(map);
+        grid.draw();
 
-			Display.update();
-			Display.sync(60);
-			getInput();
-			update();
-			render();
-		}
-	}
+        while (!Display.isCloseRequested()) {
 
-	/**
-	 * Receives player input
-	 */
-	private static void getInput() {
-		game.getInput();
-	}
+            Display.update();
+            Display.sync(60);
+            getInput();
+            update();
+            render();
+        }
+    }
 
-	/**
-	 * Updates the state of the game
-	 */
-	private static void update() {
-		game.update();
-	}
+    /**
+     * Receives player input
+     */
+    private static void getInput() {
+        game.returnInput();
+    }
 
-	/**
-	 * Updates the displayed graphics
-	 */
-	private static void render() {
-		glClear(GL_COLOR_BUFFER_BIT);
-		glLoadIdentity();
-		game.render();
-		Display.update();
-		Display.sync(60);
-	}
+    /**
+     * Updates the state of the game
+     */
+    private static void update() {
+        game.update();
+    }
 
-	/**
-	 * Disables the display and input device when the program is closed
-	 */
-	private static void cleanUp() {
-		Display.destroy();
-		Keyboard.destroy();
-	}
+    /**
+     * Updates the displayed graphics
+     */
+    private static void render() {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glLoadIdentity();
+        game.render();
+        Display.update();
+        Display.sync(60);
+    }
+
+    public static ArrayList<GameObject> inRadius(float x, float y, float radius) {
+        return game.inRadius(x, y, radius);
+    }
+
+    /**
+     * Disables the display and input device when the program is closed
+     */
+    private static void cleanUp() {
+        Display.destroy();
+        Keyboard.destroy();
+    }
 }
