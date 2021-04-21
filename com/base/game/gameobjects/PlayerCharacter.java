@@ -1,6 +1,7 @@
 package com.base.game.gameobjects;
 
 import com.base.engine.GameObject;
+import com.base.game.Item.Item;
 import org.lwjgl.input.Keyboard;
 
 /**
@@ -19,6 +20,8 @@ public class PlayerCharacter extends GameObject {
     //Integer of experience needed to reach the next level//
     private transient int levelThreshold;
 
+    private Inventory playerInventory;
+
     public static final float SIZE = 32;
 
     /**
@@ -26,7 +29,7 @@ public class PlayerCharacter extends GameObject {
      * This constructor creates a new character
      */
     public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
-        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE);
+        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE, 0);
         level = 1;
         baseStrength = 5;
         strength = baseStrength;
@@ -36,6 +39,7 @@ public class PlayerCharacter extends GameObject {
         defense = baseDefense;
         experience = 0;
         levelThreshold = 50;
+        playerInventory = new Inventory(10);
     }
 
     /**
@@ -198,4 +202,10 @@ public class PlayerCharacter extends GameObject {
     private int incHP() {
         return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
     }
+
+    public void pickUpItem(Item item)
+    {
+        playerInventory.addItemToInventory(item);
+    }
 }
+

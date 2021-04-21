@@ -16,8 +16,8 @@ public class Physics {
      * @return true if the GameObjects are occupying the same space, false if not
      */
     public static GameObject areColliding(final GameObject object1, final GameObject object2) {
-        final Rectangle hitbox1 = new Rectangle((int) object1.getX(), (int) object1.getSizeX(), (int) object1.getY(), (int) object1.getSizeY());
-        final Rectangle hitbox2 = new Rectangle((int) object2.getX(), (int) object2.getSizeX(), (int) object2.getY(), (int) object2.getSizeY());
+        final Rectangle hitbox1 = new Rectangle((int) object1.getX(), (int) object1.getY(), (int) object1.getSizeX(), (int) object1.getSizeY());
+        final Rectangle hitbox2 = new Rectangle((int) object2.getX(), (int) object2.getY(), (int) object2.getSizeX(), (int) object2.getSizeY());
 
         if(hitbox1.intersects(hitbox2)) {
             return object2;

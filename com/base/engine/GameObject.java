@@ -14,6 +14,8 @@ public abstract class GameObject {
     protected transient float xCoordinate, yCoordinate;
     private Animation animation;
     protected transient Sprite sprite;
+    protected transient int typeItem;
+    protected boolean delete = false;
 
     public void update() {
 
@@ -68,6 +70,7 @@ public abstract class GameObject {
         return sprite.getSizeY();
     }
 
+
     protected void setX(float x) {
         this.xCoordinate = x;
     }
@@ -77,8 +80,30 @@ public abstract class GameObject {
     }
 
     /**
-     * Initialize the sprite
+     * Return the item type (0 for non pickable items and 1 for pickable items)
      *
+     * @return int
+     */
+    public int getTypeItem(){ return typeItem; }
+
+    /**
+     * Return the size value of Y
+     *
+     * @return float
+     */
+    public boolean getDelete()
+    {
+        return delete;
+    }
+
+    public void setDeleteTrue()
+    {
+        delete = true;
+    }
+
+    /**
+     * Initialize the sprite
+     * @param type    is the type of item. 0 for non-pickable items
      * @param xCord   default horizontal
      * @param yCord   default vertical location
      * @param red     Red value
@@ -87,9 +112,10 @@ public abstract class GameObject {
      * @param hLength Horizontal length
      * @param vLength Vertical height
      */
-    public void init(final float xCord, final float yCord, final float red, final float green, final float blue, final float hLength, final float vLength) {
+    public void init(final float xCord, final float yCord, final float red, final float green, final float blue, final float hLength, final float vLength, final int type) {
         this.xCoordinate = xCord;
         this.yCoordinate = yCord;
+        this.typeItem = type;
         this.sprite = new Sprite(red, green, blue, hLength, vLength);
     }
 }

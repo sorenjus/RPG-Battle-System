@@ -14,7 +14,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 	public GenericRedSquareOfDeath(float x, float y, int level) {
 		super(x, y, level);
-		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE);
+		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE, 0);
 	}
 
 	@Override
