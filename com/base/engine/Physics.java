@@ -15,14 +15,22 @@ public class Physics {
      * @param object2 The second of the two GameObjects
      * @return true if the GameObjects are occupying the same space, false if not
      */
-    public static boolean areColliding(final GameObject object1, final GameObject object2) {
+    public static GameObject areColliding(final GameObject object1, final GameObject object2) {
         final Rectangle hitbox1 = new Rectangle((int) object1.getX(), (int) object1.getSizeX(), (int) object1.getY(), (int) object1.getSizeY());
         final Rectangle hitbox2 = new Rectangle((int) object2.getX(), (int) object2.getSizeX(), (int) object2.getY(), (int) object2.getSizeY());
 
-        return hitbox1.intersects(hitbox2);
+        if(hitbox1.intersects(hitbox2)) {
+            return object2;
+        } else {
+            return null;
+        }
     }
 
     public static boolean inLineOfSight(GameObject object1, GameObject object2) {
         return true;
+    }
+
+    public static float getDistance(float x1, float y1, float x2, float y2) {
+        return (float)Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
     }
 }

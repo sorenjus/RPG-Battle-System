@@ -4,12 +4,12 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CharacterTest {
+public class PlayerCharacterTest {
 
     @Test
     public void CharacterConstructor() {
 
-        final Character player = new Character(384.0F, 284.0f);
+        final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
         assertEquals(1, player.getLevel());
         assertEquals(5, player.getStrength());
         assertEquals(40, player.getHP());
@@ -20,7 +20,7 @@ public class CharacterTest {
 
     @Test
     public void levelUp() {
-        final Character player = new Character(384.0F, 284.0f);
+        final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
         player.setExperience(50);
         assertEquals(2, player.getLevel());
         assertEquals(7, player.getStrength());

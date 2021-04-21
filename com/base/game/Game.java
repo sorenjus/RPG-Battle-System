@@ -1,7 +1,8 @@
 package com.base.game;
 
 import com.base.engine.GameObject;
-import com.base.game.gameobjects.Character;
+import com.base.engine.Physics;
+import com.base.game.gameobjects.PlayerCharacter;
 import org.lwjgl.opengl.Display;
 
 import java.util.ArrayList;
@@ -19,14 +20,14 @@ public class Game {
     /**
      * The player character for the current game
      */
-    private transient final Character player;
+    private transient final PlayerCharacter player;
 
     /**
      * Default game constructor
      */
     public Game() {
         objects = new ArrayList<>();
-        player = new Character(Display.getWidth() / 2 - Character.SIZE / 2, Display.getHeight() / 2 - Character.SIZE / 2);
+        player = new PlayerCharacter(Display.getWidth() / 2 - PlayerCharacter.SIZE / 2, Display.getHeight() / 2 - PlayerCharacter.SIZE / 2);
         objects.add(player);
         objects.add(new GenericRedSquareOfDeath(150, 250, 1));
     }
@@ -54,5 +55,17 @@ public class Game {
         for (final GameObject go : objects) {
             go.render();
         }
+    }
+
+    public ArrayList<GameObject> inRadius(float x, float y, float radius) {
+        ArrayList<GameObject> inRadius = new ArrayList<GameObject>();
+
+        for(GameObject ob : objects) {
+            if(Physics.getDistance(ob.getX(), ob.getY(), x, y) < radius) {
+                inRadius.add(ob);
+            }
+        }
+
+        return inRadius;
     }
 }

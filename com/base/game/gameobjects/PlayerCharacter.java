@@ -8,7 +8,7 @@ import org.lwjgl.input.Keyboard;
  *
  * @author Justin Sorensen
  */
-public class Character extends GameObject {
+public class PlayerCharacter extends GameObject {
 
     //String containing the characters name//
     private transient String name;
@@ -25,7 +25,7 @@ public class Character extends GameObject {
      * /*
      * This constructor creates a new character
      */
-    public Character(final float xCoordinate, final float yCoordinate) {
+    public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
         init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE);
         level = 1;
         baseStrength = 5;

@@ -4,6 +4,8 @@ import com.base.game.Game;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
+import java.util.ArrayList;
+
 import static org.lwjgl.opengl.GL11.*;
 
 //import org.lwjgl.LWJGLException;
@@ -118,6 +120,10 @@ public class Main {
         game.render();
         Display.update();
         Display.sync(60);
+    }
+
+    public static ArrayList<GameObject> inRadius(float x, float y, float radius) {
+        return game.inRadius(x, y, radius);
     }
 
     /**

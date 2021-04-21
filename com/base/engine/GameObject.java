@@ -68,6 +68,14 @@ public abstract class GameObject {
         return sprite.getSizeY();
     }
 
+    protected void setX(float x) {
+        this.xCoordinate = x;
+    }
+
+    protected void setY(float y) {
+        this.yCoordinate = y;
+    }
+
     /**
      * Initialize the sprite
      *

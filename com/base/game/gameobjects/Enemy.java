@@ -40,6 +40,14 @@ public class Enemy extends GameObject {
 
 	}
 
+	protected GameObject getTarget() {
+		return target;
+	}
+
+	protected void setTarget(GameObject go) {
+		target = go;
+	}
+
 	protected void chase() {
 
 	}
