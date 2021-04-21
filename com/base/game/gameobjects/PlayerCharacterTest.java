@@ -36,5 +36,8 @@ public class PlayerCharacterTest {
         assertEquals(9, player.getDefense());
         assertEquals(100, player.getExperience());
         assertEquals(200, player.getThreshold());
+        player.setHP();
+        assertEquals(62, player.getHP());
+
     }
 }
