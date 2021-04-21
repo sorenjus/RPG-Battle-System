@@ -72,7 +72,6 @@ public class Sprite {
         glBegin(GL_QUADS);
 
         // Drawing a simple rectangle as a placeholder
-        // TODO: Implement actual sprites later
         glVertex2f(0, 0);
         glVertex2f(0, sizey);
         glVertex2f(sizex, sizey);

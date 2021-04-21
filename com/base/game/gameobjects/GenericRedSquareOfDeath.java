@@ -1,10 +1,7 @@
-package com.base.game;
+package com.base.game.gameobjects;
 
 import com.base.engine.GameObject;
 import com.base.engine.Main;
-import com.base.engine.Physics;
-import com.base.game.gameobjects.PlayerCharacter;
-import com.base.game.gameobjects.Enemy;
 
 import java.util.ArrayList;
 
@@ -14,8 +11,8 @@ public class GenericRedSquareOfDeath extends Enemy {
 	public static final float SLOWDOWN = 0.5f;
 	public static final float VISION = 150f;
 
-	public GenericRedSquareOfDeath(float x, float y, int level) {
-		super(x, y, level);
+	public GenericRedSquareOfDeath(float x, float y, int exp, int str, int def, int th) {
+		super(x, y, exp, str, def, th);
 		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE, 0);
 	}
 
@@ -25,8 +22,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 		for(GameObject seenOb : seen) {
 			if(seenOb instanceof PlayerCharacter) {
-				// System.out.println("see");
-				setTarget(seenOb);
+				setTarget((BattleObject)seenOb);
 			}
 		}
 	}

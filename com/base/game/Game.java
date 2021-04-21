@@ -3,6 +3,7 @@ package com.base.game;
 import com.base.engine.GameObject;
 import com.base.engine.Physics;
 import com.base.game.Item.Sword;
+import com.base.game.gameobjects.GenericRedSquareOfDeath;
 import com.base.game.gameobjects.PlayerCharacter;
 import org.lwjgl.opengl.Display;
 
@@ -36,7 +37,7 @@ public class Game {
         player = new PlayerCharacter(Display.getWidth() / 2 - PlayerCharacter.SIZE / 2, Display.getHeight() / 2 - PlayerCharacter.SIZE / 2);
         objects.add(player);
         objects.add(new Sword(350, 400, player));
-        objects.add(new GenericRedSquareOfDeath(150, 250, 1));
+        objects.add(new GenericRedSquareOfDeath(150, 250, 1, 2, 2, 0));
     }
 
     /**

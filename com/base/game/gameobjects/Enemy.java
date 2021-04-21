@@ -3,13 +3,13 @@ package com.base.game.gameobjects;
 import com.base.engine.GameObject;
 import com.base.engine.Physics;
 
-public class Enemy extends GameObject {
+public class Enemy extends BattleObject {
 	private Stats enStats;
-	private GameObject target;
+	private BattleObject target;
 	protected float attackRange = 50f;
 
-	public Enemy(float x, float y, int level) {
-		enStats = new Stats(level, false);
+	public Enemy(float x, float y, int exp, int str, int def, int th) {
+		enStats = new Stats(exp, str, def, th, false);
 		target = null;
 	}
 
@@ -45,7 +45,7 @@ public class Enemy extends GameObject {
 		return target;
 	}
 
-	protected void setTarget(GameObject go) {
+	protected void setTarget(BattleObject go) {
 		target = go;
 	}
 
