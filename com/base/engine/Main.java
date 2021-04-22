@@ -120,6 +120,10 @@ public class Main {
         return game.inRadius(x, y, radius);
     }
 
+    public static ArrayList<GameObject> inFront(float x1, float y1, float x2, float y2) {
+    	return game.inFront(x1, y1, x2, y2);
+    }
+
     /**
      * Disables the display and input device when the program is closed
      */

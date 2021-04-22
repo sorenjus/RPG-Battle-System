@@ -7,6 +7,7 @@ import com.base.game.gameobjects.GenericRedSquareOfDeath;
 import com.base.game.gameobjects.PlayerCharacter;
 import org.lwjgl.opengl.Display;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -76,11 +77,28 @@ public class Game {
         ArrayList<GameObject> inRadius = new ArrayList<>();
 
         for(GameObject ob : objects) {
-            if(Physics.getDistance(ob.getX(), ob.getY(), x, y) < radius) {
+            if(Physics.getDist(ob.getX(), ob.getY(), x, y) < radius) {
                 inRadius.add(ob);
             }
         }
 
         return inRadius;
+    }
+
+    public ArrayList<GameObject> inFront(float x1, float y1, float x2, float y2) {
+        ArrayList<GameObject> inFront = new ArrayList<>();
+
+        float sx = x2 - x1;
+        float sy = y2 - y1;
+
+        Rectangle detection = new Rectangle((int)x1, (int)y1, (int)sx, (int)sy);
+
+        for(GameObject ob : objects) {
+            if(Physics.areColliding(detection, ob) != null) {
+                inFront.add(ob);
+            }
+        }
+
+        return inFront;
     }
 }

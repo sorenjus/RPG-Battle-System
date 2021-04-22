@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Enemy extends BattleObject {
 	private BattleObject target;
-	private float attackRange;
+	private int attackRange;
 	private Cooldown attackCoolDown;
 	private int attackPower;
 	public static final float SLOWDOWN = 0.5f;
@@ -18,7 +18,7 @@ public class Enemy extends BattleObject {
 	public Enemy(float x, float y, int exp, int str, int def, int th) {
 		stats = new Stats(exp, str, def, th, false);
 		target = null;
-		attackRange = 50f;
+		attackRange = 50;
 		attackCoolDown = new Cooldown(0);
 		attackCoolDown.stop();
 	}
@@ -32,7 +32,7 @@ public class Enemy extends BattleObject {
 		if(target == null) {
 			look();
 		} else if(Physics.inLineOfSight(this, target) &&
-				Physics.getDistance(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
+				Physics.getDist(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
 			if(attackCoolDown.isCooldownOver()) {
 				attack();
 			}
