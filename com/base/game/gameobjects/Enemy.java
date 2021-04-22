@@ -29,7 +29,7 @@ public class Enemy extends BattleObject {
 
 	@Override
 	public void update() {
-		if(target == null) {
+		if(target == null || target.getHP() <= 0) {
 			look();
 		} else if(Physics.inLineOfSight(this, target) &&
 				Physics.getDist(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
@@ -110,9 +110,5 @@ public class Enemy extends BattleObject {
 
 		setX(getX() + speedX);
 		setY(getY() + speedY);
-	}
-
-	protected void die() {
-		setDeleteTrue();
 	}
 }

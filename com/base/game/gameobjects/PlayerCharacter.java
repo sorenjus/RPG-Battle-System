@@ -44,6 +44,13 @@ public class PlayerCharacter extends BattleObject {
         attackCoolDown.stop();
     }
 
+    @Override
+    public void update() {
+        if(stats.getHP() <= 0) {
+            die();
+        }
+    }
+
     /**
      * Move the character and display character stats based on input key
      */

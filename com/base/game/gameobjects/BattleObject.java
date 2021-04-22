@@ -61,4 +61,8 @@ public class BattleObject extends GameObject {
 	public void damage(int dmg) {
 		stats.damage(dmg);
 	}
+
+	protected void die() {
+		setDeleteTrue();
+	}
 }

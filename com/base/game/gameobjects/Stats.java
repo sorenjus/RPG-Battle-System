@@ -3,7 +3,7 @@ package com.base.game.gameobjects;
 public class Stats {
 	private int exp, hp, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold;
 	private boolean canLevel;
-	public static final double LEVEL_CONST = 25.0 * Math.pow(3,1.5);
+//	public static final double LEVEL_CONST = 25.0 * Math.pow(3,1.5);
 
 	public Stats(int exp, int str, int def, int th, boolean canLevel) {
 		this.canLevel = canLevel;
@@ -42,17 +42,7 @@ public class Stats {
 	}
 
 	public int getLevel() {
-		if(!canLevel) {
-			return level;
-		}
-
-		// TODO: Determine calculation for level if canLevel
-		double xpFactor = getExperience() + 100.0;
-		double a = Math.sqrt(250.0 * (xpFactor * xpFactor) + 4000.0 * xpFactor + 175000.0);
-		double c = (3.0 * xpFactor + 25.0)/25.0;
-		double d = Math.cbrt(a / LEVEL_CONST + c);
-
-		return (int)(d - 1.0/d * 3.0) - 1;
+		return level;
 	}
 
 	/**
