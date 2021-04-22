@@ -9,11 +9,6 @@ import java.util.ArrayList;
 
 import static org.lwjgl.opengl.GL11.*;
 
-//import org.lwjgl.LWJGLException;
-//import static Store.Tex.BeginSession;
-//import static Store.Tex.LoadTexture;
-//import static Store.Tex.*;
-
 /**
  * The main class of the program that opens and closes the game and manages the game loop.
  *
@@ -26,7 +21,6 @@ public class Main {
     private static Game game;
 
     public static void main(final String[] args) {
-
         initDisplay();
         initGL();
         initGame();
@@ -120,7 +114,6 @@ public class Main {
         glLoadIdentity();
         game.render();
         Display.update();
-        Display.sync(60);
     }
 
     public static ArrayList<GameObject> inRadius(float x, float y, float radius) {

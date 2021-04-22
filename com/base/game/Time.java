@@ -1,6 +1,7 @@
 package com.base.game;
 
 public class Time {
+
 	private static long curFrameStart;
 	private static long lastFrameStart;
 
@@ -13,7 +14,7 @@ public class Time {
 		return System.nanoTime();
 	}
 
-	public static long getDelta() {
+	public static float getDelta() {
 		return curFrameStart - lastFrameStart;
 	}
 

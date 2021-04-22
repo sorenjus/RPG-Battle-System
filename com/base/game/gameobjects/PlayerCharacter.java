@@ -1,6 +1,5 @@
 package com.base.game.gameobjects;
 
-import com.base.engine.GameObject;
 import com.base.game.Item.Item;
 import org.lwjgl.input.Keyboard;
 
@@ -13,12 +12,6 @@ public class PlayerCharacter extends BattleObject {
 
     //String containing the characters name//
     private transient String name = "Greenie"; // temporary
-    //Integer values containing various stats of the character//
-    //private transient int strength, defense, experience, level, healthPoints;
-    //Integer values representing the original HP, strength, and defense of the character//
-    //private transient final int baseStrength, baseDefense, baseHP;
-    //Integer of experience needed to reach the next level//
-    //private transient int levelThreshold;
 
     private Inventory playerInventory;
 

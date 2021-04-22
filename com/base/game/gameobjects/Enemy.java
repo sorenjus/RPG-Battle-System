@@ -1,17 +1,22 @@
 package com.base.game.gameobjects;
 
 import com.base.engine.GameObject;
+import com.base.engine.Main;
 import com.base.engine.Physics;
 import com.base.game.Cooldown;
 
+import java.util.ArrayList;
+
 public class Enemy extends BattleObject {
-	private Stats enStats;
 	private BattleObject target;
 	private float attackRange;
 	private Cooldown attackCoolDown;
+	private int attackPower;
+	public static final float SLOWDOWN = 0.5f;
+	public static float vision = 150f;
 
 	public Enemy(float x, float y, int exp, int str, int def, int th) {
-		enStats = new Stats(exp, str, def, th, false);
+		stats = new Stats(exp, str, def, th, false);
 		target = null;
 		attackRange = 50f;
 		attackCoolDown = new Cooldown(0);
@@ -26,14 +31,16 @@ public class Enemy extends BattleObject {
 	public void update() {
 		if(target == null) {
 			look();
-		} else if(attackCoolDown.isCooldownOver() && Physics.inLineOfSight(this, target) &&
+		} else if(Physics.inLineOfSight(this, target) &&
 				Physics.getDistance(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
+			if(attackCoolDown.isCooldownOver()) {
 				attack();
+			}
 		} else {
 			chase();
 		}
 
-		if(enStats.getHP() <= 0) {
+		if(stats.getHP() <= 0) {
 			die();
 		}
 	}
@@ -51,15 +58,33 @@ public class Enemy extends BattleObject {
 		attackCoolDown.start();
 	}
 
+	public int getAttackPower() {
+		return attackPower;
+	}
+
+	public void setAttackPower(int dmg) {
+		attackPower = dmg;
+	}
+
 	protected void attack() {
 
 	}
 
-	protected void look() {
-
+	public void setVision(float vis) {
+		vision = vis;
 	}
 
-	protected GameObject getTarget() {
+	protected void look() {
+		ArrayList<GameObject> seen = Main.inRadius(getX(), getY(), vision);
+
+		for(GameObject seenOb : seen) {
+			if(seenOb instanceof PlayerCharacter) {
+				setTarget((BattleObject)seenOb);
+			}
+		}
+	}
+
+	protected BattleObject getTarget() {
 		return target;
 	}
 
@@ -68,10 +93,26 @@ public class Enemy extends BattleObject {
 	}
 
 	protected void chase() {
+		float speedX = getTarget().getX() - getX();
+		float speedY = getTarget().getY() - getY();
+		float speedCap = 4f * SLOWDOWN;
 
+		if(speedX > speedCap) {
+			speedX = speedCap;
+		} else if(speedX < -speedCap) {
+			speedX = -speedCap;
+		}
+		if(speedY > speedCap) {
+			speedY = speedCap;
+		} else if(speedY < -speedCap) {
+			speedY = -speedCap;
+		}
+
+		setX(getX() + speedX);
+		setY(getY() + speedY);
 	}
 
 	protected void die() {
-
+		setDeleteTrue();
 	}
 }
