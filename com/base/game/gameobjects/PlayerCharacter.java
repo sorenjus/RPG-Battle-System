@@ -20,11 +20,11 @@ public class PlayerCharacter extends BattleObject {
     private transient String name = "Lonk"; // temporary
 
     private Inventory playerInventory;
-    private int facing;
     public static final int UP = 0;
     public static final int DOWN = 1;
     public static final int LEFT = 2;
     public static final int RIGHT = 3;
+    private int facing;
     private int attackRange;
     private Cooldown attackCoolDown;
 
@@ -123,26 +123,29 @@ public class PlayerCharacter extends BattleObject {
 
     public void attack() {
         System.out.println("Attack");
-        ArrayList<GameObject> attackable = new ArrayList<GameObject>();
+        ArrayList<GameObject> inRange = new ArrayList<GameObject>();
 
         if(facing == UP) {
-            attackable = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
+            inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
         } else if(facing == DOWN) {
-            attackable = Main.inFront(getX(), getY(), getX() + SIZE, getY() - attackRange);
+            inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() - attackRange);
         } else if(facing == LEFT) {
-            attackable = Main.inFront(getX(), getY(), getX() - attackRange, getY() + SIZE);
+            inRange = Main.inFront(getX(), getY(), getX() - attackRange, getY() + SIZE);
         } else if(facing == RIGHT) {
-            attackable = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
+            inRange = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
         }
 
-        for(GameObject ob : attackable) {
-            if(!(ob instanceof Enemy)) {
-                attackable.remove(ob);
+        ArrayList<Enemy> attackable = new ArrayList<Enemy>();
+
+        for(GameObject ob : inRange) {
+            if(ob instanceof Enemy) {
+                attackable.add((Enemy)ob);
             }
         }
 
         if(attackable.size() > 0) {
-            Enemy target = (Enemy)attackable.get(0);
+
+            Enemy target = attackable.get(0);
 
             if(attackable.size() > 1) {
                 for(GameObject en : attackable) {
