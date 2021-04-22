@@ -11,7 +11,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 	@Override
 	protected void attack() {
-		getTarget().damage(getStrength());
+		getTarget().damage(getStrength() - getTarget().getDefense());
 		System.out.println("The Generic Red Square of Death attacks! " + getTarget().getHP()+"/"+getTarget().getMaxHP());
 		restartAttackCoolDown();
 	}

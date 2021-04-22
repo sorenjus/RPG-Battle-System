@@ -3,7 +3,6 @@ package com.base.game.gameobjects;
 public class Stats {
 	private int exp, hp, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold;
 	private boolean canLevel;
-//	public static final double LEVEL_CONST = 25.0 * Math.pow(3,1.5);
 
 	public Stats(int exp, int str, int def, int th, boolean canLevel) {
 		this.canLevel = canLevel;
@@ -11,15 +10,14 @@ public class Stats {
 		this.baseStr = str;
 		this.defense = def;
 		this.baseDef = def;
+		this.levelThreshold = th;
 
 		if(canLevel) {
 			this.exp = exp;
 			this.level = 1;
-			this.levelThreshold = th;
 		} else {
 			this.exp = -1;
 			this.level = exp;
-			this.levelThreshold = exp;
 		}
 		this.hp = getMaxHP();
 	}
@@ -87,6 +85,11 @@ public class Stats {
 		exp += battleExp;
 		if (this.exp >= this.levelThreshold) {
 			this.levelUp();
+			System.out.println("Level Up! You're now Level " + getLevel());
+			System.out.println("HP: " + getHP());
+			System.out.println("Strength: " + getStrength());
+			System.out.println("Defense: " + getDefense());
+			System.out.println("EXP for next level: " + getThreshold());
 		}
 	}
 

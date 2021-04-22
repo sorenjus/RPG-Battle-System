@@ -38,7 +38,9 @@ public class Game {
         player = new PlayerCharacter(Display.getWidth() / 2 - PlayerCharacter.SIZE / 2, Display.getHeight() / 2 - PlayerCharacter.SIZE / 2);
         objects.add(player);
         objects.add(new Sword(350, 400, player));
-        objects.add(new GenericRedSquareOfDeath(150, 250, 1, 1, 2, 0));
+        objects.add(new GenericRedSquareOfDeath(150, 250, 1, 2, 1, 50));
+        objects.add(new GenericRedSquareOfDeath(200, 500, 1, 2, 1, 50));
+        objects.add(new GenericRedSquareOfDeath(500, 450, 1, 2, 1, 50));
     }
 
     /**
