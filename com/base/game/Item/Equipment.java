@@ -1,4 +1,4 @@
-package com.base.game.item;
+package com.base.game.Item;
 
 import com.base.game.gameobjects.Inventory;
 
@@ -11,7 +11,7 @@ public class Equipment {
     /**
      * Array of which items cam be equipped
      */
-    private transient EquippableItems[] equippableItems;
+    private final transient EquippableItems[] equippableItems;
     /**
      * The player's inventory
      */

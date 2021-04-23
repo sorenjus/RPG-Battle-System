@@ -5,7 +5,7 @@ import com.base.engine.Main;
 import com.base.engine.Physics;
 import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
-import com.base.game.item.*;
+import com.base.game.Item.*;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class PlayerCharacter extends BattleObject {
         attackCoolDown.stop();
         /**
          * The items the PlayerCharacter has equipped
-         */
+         **/
         Equipment equipment = new Equipment(playerInventory);
     }
 

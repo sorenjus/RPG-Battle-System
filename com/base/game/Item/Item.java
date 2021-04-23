@@ -1,4 +1,4 @@
-package com.base.game.item;
+package com.base.game.Item;
 
 import com.base.engine.GameObject;
 import com.base.engine.Sprite;
@@ -15,11 +15,6 @@ public class Item extends GameObject {
     protected String itemName;
 
     /**
-     * The item's sprite
-     */
-    protected Sprite itemSprite;
-
-    /**
      * Initializes a new item
      * @param xCord Horizontal position
      * @param yCord Vertical position
@@ -33,7 +28,7 @@ public class Item extends GameObject {
                         final float hLength, final float vLength) {
         this.xCoordinate = xCord;
         this.yCoordinate = yCord;
-        typeOfItem= "Item";
+        typeOfItem= "1";
         this.sprite = new Sprite(red, green, blue, hLength, vLength);
     }
        public String getItemName()

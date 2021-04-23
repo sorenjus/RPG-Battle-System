@@ -1,4 +1,4 @@
-package com.base.game.item;
+package com.base.game.Item;
 
 /**
  * Class for a Sword that can be equipped and used
@@ -36,6 +36,7 @@ public class Sword extends EquippableItems {
         this.setItemName(ITEMNAME);
         STRINCREASE = 2;
         this.itemRange =31;
+        this.typeOfItem="1";
     }
 
     /**

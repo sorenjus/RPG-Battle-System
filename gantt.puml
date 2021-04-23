@@ -1,7 +1,7 @@
 @startgantt
 'https://plantuml.com/gantt-diagram
 Project starts 2021-03-01
-[Open Program] lasts 21 days and is colored in Turquoise and is 80% complete
+[Open Program] lasts 21 days and is colored in Turquoise and is 100% complete
 [New Game] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
 [Exit Game] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
 [Save Game] starts 2021-04-02 and lasts 21 days and is colored in Turquoise
@@ -32,20 +32,20 @@ Project starts 2021-03-01
 
 [New Game] is 100% complete
 [Exit Game] is 100% complete
-[Save Game] is 0% complete
-[Load Game] is 0% complete
-[Move Char] is 80% complete
-[Engange Enemy] is 30% complete
-[Fight Enemy] is 0% complete
-[Select Attack] is 0% complete
-[Select Item] is 0% complete
-[Select Target] is 0% complete
-[Accept Winnings] is 0% complete
-[Gain Xp] is 0% complete
-[Open Menu] is 0% complete
-[Drop Item] is 0% complete
-[Talk to NPC] is 0% complete
-[Gain lvl] is 0% complete
-[Pickup Item] is 0% complete
-[Char Dies] is 0% complete
+[Save Game] is 100% complete and is colored in Red
+[Load Game] is 100% complete and is colored in Red
+[Move Char] is 100% complete
+[Engange Enemy] is 100% complete
+[Fight Enemy] is 100% complete
+[Select Attack] is 100% complete and is colored in Red
+[Select Item] is 100% complete and is colored in Red
+[Select Target] is 100% complete
+[Accept Winnings] is 100% complete
+[Gain Xp] is 100% complete
+[Open Menu] is 100% complete and is colored in Red
+[Drop Item] is 100% complete and is colored in Red
+[Talk to NPC] is 100% complete and is colored in Red
+[Gain lvl] is 100% complete
+[Pickup Item] is 100% complete
+[Char Dies] is 100% complete
 @endgantt

@@ -1,7 +1,10 @@
-package com.base.game.item;
-
-public class ChainMail extends EquippableItems {
-
+package com.base.game.Item;
+/**
+ * Class for a Sword that can be equipped and used
+ *
+ * @author Adrian Croitoru
+ */
+public class Cap extends EquippableItems{
     /**
      * The size of the sword
      */
@@ -9,25 +12,25 @@ public class ChainMail extends EquippableItems {
     /**
      * The name of the item
      */
-    public static final String ITEMNAME = "Chain Mail";
+    public static final String ITEMNAME = "Cap";
     /**
      * The increased damage the sword lets the player deal
      */
     private final int defense;
 
     /**
-     * Constructor for a new Chain Mail Armor piece
+     * Constructor for a new Cap hat
      *
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public ChainMail (final float xCoord, final float yCoord){
+    public Cap (final float xCoord, final float yCoord){
 
-        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, ARMOR_SLOT);
+        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, HEAD_SLOT);
         this.setItemName(ITEMNAME);
-        this.defense =3;
+        this.defense =1;
+        this.typeOfItem="1";
     }
-
 
     /**
      * Getter method for the defense stat of the weapon
@@ -36,4 +39,5 @@ public class ChainMail extends EquippableItems {
     public int getDefense() {
         return defense;
     }
+
 }

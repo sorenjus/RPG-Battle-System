@@ -1,4 +1,4 @@
-package com.base.game.item;
+package com.base.game.Item;
 
 import com.base.engine.Sprite;
 
@@ -42,7 +42,6 @@ public class EquippableItems extends Item {
         this.yCoordinate = yCord;
         this.slot = slot;
         this.sprite = new Sprite(red, green, blue, hLength, vLength);
-
     }
 
     /**
@@ -51,6 +50,7 @@ public class EquippableItems extends Item {
      * @return Current slot
      */
     public int getSlot() {
+
         return slot;
     }
 }
