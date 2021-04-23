@@ -11,9 +11,8 @@ import java.awt.event.*;
  */
 public class DeathScreen extends JFrame implements ActionListener{
 
-    private final JLabel message;
-    private final JButton restart;
-    private final JButton closeGame;
+    private transient final JButton restart;
+    private transient final JButton closeGame;
 
     /**
      * Constructor method to display a menu screen once the character had died
@@ -24,7 +23,7 @@ public class DeathScreen extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        message = new JLabel("You have been defeated.", SwingConstants.CENTER);
+        JLabel message = new JLabel("You have been defeated.", SwingConstants.CENTER);
         restart = new JButton("Restart");
         closeGame = new JButton("Exit");
 
@@ -47,11 +46,11 @@ public class DeathScreen extends JFrame implements ActionListener{
      * @param e Input from user
      */
     public void actionPerformed(final ActionEvent e) {
-        if(e.getSource() == restart) {
+        if(e.getSource().equals(restart)) {//NOPMD
             this.setVisible(false);
             Main.initGame();
         }
-        if(e.getSource() == closeGame) {
+        if(e.getSource().equals(closeGame)) {//NOPMD
             System.exit(0);
         }
     }

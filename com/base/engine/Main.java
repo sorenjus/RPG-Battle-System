@@ -89,7 +89,7 @@ public class Main {
         Time.init();
         while (!Display.isCloseRequested()) {
             Time.update();
-            getInput();
+            returnInput();
             update();
             render();
         }
@@ -98,7 +98,7 @@ public class Main {
     /**
      * Receives player input
      */
-    private static void getInput() {
+    private static void returnInput() {
         game.returnInput();
     }
 
@@ -127,7 +127,7 @@ public class Main {
      * @param radius The radius of the area around the point being checked
      * @return An ArrayList of all the GameObjects in the radius
      */
-    public static ArrayList<GameObject> inRadius(float xCoord, float yCoord, float radius) {
+    public static ArrayList<GameObject> inRadius(final float xCoord, final float yCoord, final float radius) {
         return game.inRadius(xCoord, yCoord, radius);
     }
 

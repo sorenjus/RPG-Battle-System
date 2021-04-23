@@ -9,24 +9,24 @@ public class Cooldown {
 	/**
 	 * The amount of time elapsed in ms
 	 */
-	private int time;
+	private final transient int time;
 
 	/**
 	 * When the cooldown ends
 	 */
-	private long coolDownEnd;
+	private transient long coolDownEnd;
 
 	/**
 	 * Whether cooldown has started
 	 */
-	private boolean started;
+	private transient boolean started;
 
 	/**
 	 * Constructs a new cooldown timer
 	 *
 	 * @param time How long cooldown should last
 	 */
-	public Cooldown(int time) {
+	public Cooldown(final int time) {
 		this.time = time;
 		started = false;
 	}
@@ -36,7 +36,7 @@ public class Cooldown {
 	 */
 	public void start() {
 		started = true;
-		coolDownEnd = time * 1000000 + Time.getTime();
+		coolDownEnd = time * 1_000_000 + Time.getTime();
 	}
 
 	/**
@@ -70,7 +70,9 @@ public class Cooldown {
 	 */
 	public boolean isCooldownOver() {
 		if(!started)
+		{
 			return false;
+		}
 
 		return Time.getTime() >= coolDownEnd;
 	}

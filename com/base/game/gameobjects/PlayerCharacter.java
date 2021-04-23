@@ -5,7 +5,7 @@ import com.base.engine.Main;
 import com.base.engine.Physics;
 import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
-import com.base.game.Item.*;
+import com.base.game.item.*;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
@@ -17,16 +17,12 @@ import java.util.ArrayList;
  */
 public class PlayerCharacter extends BattleObject {
     //String containing the characters name//
-    private transient String name = "Lonk";
+    private static transient final String name = "Lonk";
 
     /**
      * The PlayerCharacter's inventory
      */
-    private final Inventory playerInventory;
-    /**
-     * The items the PlayerCharacter has equipped
-     */
-    private final Equipment equipment;
+    private transient final Inventory playerInventory;
 
     /**
      * Numeric values for the four cardinal directions the character can face
@@ -39,13 +35,13 @@ public class PlayerCharacter extends BattleObject {
     /**
      * Numeric value for which way the character is currently facing
      */
-    private int facing;
-    private int attackRange;
+    private transient int facing;
+    private transient int attackRange;
 
     /**
      * How long the player has to wait between attacks
      */
-    private final Cooldown attackCoolDown;
+    private transient final Cooldown attackCoolDown;
 
     /**
      * The size of the player
@@ -63,7 +59,10 @@ public class PlayerCharacter extends BattleObject {
         attackRange = 69;
         attackCoolDown = new Cooldown(500);
         attackCoolDown.stop();
-        equipment = new Equipment(playerInventory);
+        /**
+         * The items the PlayerCharacter has equipped
+         */
+        Equipment equipment = new Equipment(playerInventory);
     }
 
     /**
@@ -71,9 +70,9 @@ public class PlayerCharacter extends BattleObject {
      */
     @Override
     public void update() {
-        ArrayList<GameObject> objects = Main.inFront(xCoordinate, yCoordinate, xCoordinate+SIZE, yCoordinate+SIZE);
+        final ArrayList<GameObject> objects = Main.inFront(xCoordinate, yCoordinate, xCoordinate+SIZE, yCoordinate+SIZE);
 
-        for (GameObject go : objects)
+        for (final GameObject go : objects)
         {
             if (go instanceof Item) {
                 System.out.println("You picked up a " + ((Item)go).getItemName() + "!");
@@ -104,7 +103,7 @@ public class PlayerCharacter extends BattleObject {
 
         if(stats.getHP() <= 0) {
             die();
-            DeathScreen screen = new DeathScreen();
+            final DeathScreen screen = new DeathScreen();
         }
     }
 
@@ -113,46 +112,52 @@ public class PlayerCharacter extends BattleObject {
      */
     public void returnInput() {
         if (Keyboard.isKeyDown(Keyboard.KEY_W))
+        {
             move(0, 1);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_S))
+        {
             move(0, -1);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_A))
+        {
             move(-1, 0);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_D))
+        {
             move(1, 0);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && attackCoolDown.isCooldownOver())
+        {
             attack();
-        // TODO: Redo characterToString with new setup
-//        if (Keyboard.isKeyDown(Keyboard.KEY_1)) {
-//            System.out.println(this.characterToString());
-//        }
+        }
     }
 
     /**
      * Moves the character and makes them face the desired direction
      *
-     * @param x Horizontal movement
-     * @param y Vertical movement
+     * @param xCoord Horizontal movement
+     * @param yCoord Vertical movement
      */
-    private void move(final float x, final float y) {
-        if(x == 0 && y == 1)
+    private void move(final float xCoord, final float yCoord) {
+        if(xCoord == 0 && yCoord == 1)
         {
             facing = LOOK_UP;
         }
-        if(x == 0 && y == -1)
+        if(xCoord == 0 && yCoord == -1)
         {
             facing = LOOK_DOWN;
         }
-        if(x == -1 && y == 0)
+        if(xCoord == -1 && yCoord == 0)
         {
             facing = LOOK_LEFT;
         }
-        if(x == 1 && y == 0)
+        if(xCoord == 1 && yCoord == 0)
         {
             facing = LOOK_RIGHT;
         }
-        this.xCoordinate += getSpeed() * x;
-        this.yCoordinate += getSpeed() * y;
+        this.xCoordinate += getSpeed() * xCoord;
+        this.yCoordinate += getSpeed() * yCoord;
     }
 
     /**
@@ -189,7 +194,7 @@ public class PlayerCharacter extends BattleObject {
      *
      * @param item The item being picked up
      */
-    public void pickUpItem(Item item) {
+    public void pickUpItem( final Item item) {
         playerInventory.addItemToInventory(item);
     }
 
@@ -212,9 +217,9 @@ public class PlayerCharacter extends BattleObject {
         }
 
         // Creates a list of enemies in range
-        ArrayList<Enemy> attackable = new ArrayList<>();
+        final ArrayList<Enemy> attackable = new ArrayList<>();
 
-        for(GameObject ob : inRange) {
+        for(final GameObject ob : inRange) {
             if(ob instanceof Enemy) {
                 attackable.add((Enemy)ob);
             }
@@ -226,18 +231,18 @@ public class PlayerCharacter extends BattleObject {
             Enemy target = attackable.get(0);
 
             if(attackable.size() > 1) {
-                for(GameObject en : attackable) {
-                    if(Physics.getDist(getX(), getY(), en.getX(), en.getY()) < Physics.getDist(getX(), getY(), target.getX(), target.getY())) {
+                for(final GameObject en : attackable) {
+                    if(Physics.getDist(getX(), getY(), en.getX(), en.getY()) < Physics.getDist(getX(), getY(), target.getX(), target.getY())) {//NOPMD
                         target = (Enemy)en;
                     }
                 }
             }
-            target.damage(getStrength() - target.getDefense());
-            System.out.println("Enemy Hit! Enemy health: " + target.getHP() + "/" + target.getMaxHP());
+            target.damage(getStrength() - target.getDefense());//NOPMD
+            System.out.println("Enemy Hit! Enemy health: " + target.getHP() + "/" + target.getMaxHP());//NOPMD
 
-            if(target.getHP() <= 0) {
-                System.out.println("Enemy Killed! Gained " + target.stats.getExpWorth() + " EXP");
-                stats.setExperience(target.stats.getExpWorth());
+            if(target.getHP() <= 0) {//NOPMD
+                System.out.println("Enemy Killed! Gained " + target.stats.getExpWorth() + " EXP");//NOPMD
+                stats.setExperience(target.stats.getExpWorth());//NOPMD
             }
         } else {
             System.out.println("Missed!");

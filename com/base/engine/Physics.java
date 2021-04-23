@@ -15,7 +15,7 @@ public class Physics {
      * @param object2 The second of the two GameObjects
      * @return true if the GameObjects are occupying the same space, false if not
      */
-    public static GameObject areColliding(GameObject object1, GameObject object2) {
+    public static GameObject areColliding(final GameObject object1, final GameObject object2) {
         return areColliding(new Rectangle((int)object1.getX(), (int)object1.getY(),
                 (int)object1.getSizeX(), (int)object1.getSizeY()), object2);
     }
@@ -29,7 +29,7 @@ public class Physics {
      * @param gameObject The GameObject that is being checked with the collision box
      * @return Whether the GameObject is inside the detection box
      */
-    public static GameObject areColliding(Rectangle collisionBox, GameObject gameObject) {
+    public static GameObject areColliding(final Rectangle collisionBox, final GameObject gameObject) {
         final Rectangle hitbox = new Rectangle((int) gameObject.getX(), (int) gameObject.getY(), (int) gameObject.getSizeX(), (int) gameObject.getSizeY());
 
         if(collisionBox.intersects(hitbox)) {
@@ -39,7 +39,7 @@ public class Physics {
         }
     }
 
-    public static boolean inLineOfSight(GameObject object1, GameObject object2) {
+    public static boolean inLineOfSight(final GameObject object1, final GameObject object2) {
         return true;
     }
 
@@ -52,7 +52,7 @@ public class Physics {
      * @param secondyCoord The ending y coordinate
      * @return The calculated distance between (x1, y1) and (x2, y2)
      */
-    public static float getDist(float firstxCoord, float firstyCoord, float secondxCoord, float secondyCoord) {
+    public static float getDist(final float firstxCoord, final float firstyCoord, final float secondxCoord, final float secondyCoord) {
         return (float)Math.sqrt(((secondxCoord - firstxCoord) * (secondxCoord - firstxCoord)) + ((secondyCoord - firstyCoord) * (secondyCoord - firstyCoord)));
     }
 }

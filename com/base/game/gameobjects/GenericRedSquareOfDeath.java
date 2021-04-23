@@ -21,7 +21,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 	 * @param defense Defense stat
 	 * @param threshold Level-up threshold
 	 */
-	public GenericRedSquareOfDeath(float xCoord, float yCoord, int experience, int strength, int defense, int threshold) {
+	public GenericRedSquareOfDeath(final float xCoord, final  float yCoord,final  int experience, final  int strength, final int defense, final int threshold) {
 		super(experience, strength, defense, threshold);
 		this.init(xCoord, yCoord, 1f, 0f, 0f, SIZE, SIZE, "Enemy");
 		setAttackCoolDown(1000);
@@ -32,9 +32,9 @@ public class GenericRedSquareOfDeath extends Enemy {
 	 */
 	@Override
 	protected void attack() {
-		getTarget().damage(getStrength() - getTarget().getDefense());
+		getTarget().damage(getStrength() - getTarget().getDefense());//NOPMD
 		System.out.println("The Generic Red Square of Death attacks! Your health: "
-				+ getTarget().getHP()+"/"+getTarget().getMaxHP());
+				+ getTarget().getHP()+"/"+getTarget().getMaxHP());//NOPMD
 		restartAttackCoolDown();
 	}
 }

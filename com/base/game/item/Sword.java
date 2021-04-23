@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 /**
  * Class for a Sword that can be equipped and used
@@ -19,11 +19,11 @@ public class Sword extends EquippableItems {
     /**
      * The increased damage the sword lets the player deal
      */
-    private final int STRINCREASE;
+    private transient final int STRINCREASE;
     /**
      * The increased the range of the player attack.
      */
-    private final int ITEMRANGE;
+    private final int itemRange;
 
     /**
      * Constructor for a new Sword
@@ -31,11 +31,11 @@ public class Sword extends EquippableItems {
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public Sword (float xCoord, float yCoord){
+    public Sword (final float xCoord, final float yCoord){
         init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, WEAPON_SLOT);
         this.setItemName(ITEMNAME);
         STRINCREASE = 2;
-        this.ITEMRANGE=31;
+        this.itemRange =31;
     }
 
     /**
@@ -53,6 +53,6 @@ public class Sword extends EquippableItems {
      */
     public int getItemRange()
     {
-        return ITEMRANGE;
+        return itemRange;
     }
 }

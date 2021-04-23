@@ -11,7 +11,7 @@ public class BattleObject extends GameObject {
 	/**
 	 * The battle stats of the BattleObject
 	 */
-	protected Stats stats;
+	protected transient Stats stats;
 
 	/**
 	 * Returns the BattleObject's HP
@@ -85,7 +85,7 @@ public class BattleObject extends GameObject {
 	 *
 	 * @param dmg How much damage is being dealt
 	 */
-	public void damage(int dmg) {
+	public void damage(final int dmg) {
 		stats.damage(dmg);
 	}
 

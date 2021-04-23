@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 /**
  * A class representing chain mail which boosts player stats
@@ -17,7 +17,7 @@ public class ChainMail extends EquippableItems {
     /**
      * The increased damage the sword lets the player deal
      */
-    private final int DEFENSE;
+    private final int defense;
 
     /**
      * Constructor for a new Chain Mail Armor piece
@@ -25,11 +25,11 @@ public class ChainMail extends EquippableItems {
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public ChainMail (float xCoord, float yCoord){
+    public ChainMail (final float xCoord, final float yCoord){
 
         init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, ARMOR_SLOT);
         this.setItemName(ITEMNAME);
-        this.DEFENSE=3;
+        this.defense =3;
     }
 
 
@@ -38,6 +38,6 @@ public class ChainMail extends EquippableItems {
      * @return defense of the Item
      */
     public int getDefense() {
-        return DEFENSE;
+        return defense;
     }
 }
