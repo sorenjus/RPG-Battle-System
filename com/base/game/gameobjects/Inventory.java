@@ -16,7 +16,6 @@ public class Inventory {
         for (int i = 0; i < items.length; i++)
             if(items[i] == null) {
                 items[i] = itemToAdd;
-                System.out.println("Picked up a "+ itemToAdd.getItemName() +"!" );
                 return true;
             }
         return false;

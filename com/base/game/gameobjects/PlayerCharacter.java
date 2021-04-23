@@ -4,6 +4,7 @@ import com.base.engine.GameObject;
 import com.base.engine.Main;
 import com.base.engine.Physics;
 import com.base.game.Cooldown;
+import com.base.game.Game;
 import com.base.game.Item.Item;
 import org.lwjgl.input.Keyboard;
 
@@ -19,14 +20,14 @@ public class PlayerCharacter extends BattleObject {
     //String containing the characters name//
     private transient String name = "Lonk"; // temporary
 
-    private Inventory playerInventory;
+    private final Inventory playerInventory;
     public static final int UP = 0;
     public static final int DOWN = 1;
     public static final int LEFT = 2;
     public static final int RIGHT = 3;
     private int facing;
-    private int attackRange;
-    private Cooldown attackCoolDown;
+    private final int attackRange;
+    private final Cooldown attackCoolDown;
 
     public static final float SIZE = 32;
 
@@ -35,7 +36,7 @@ public class PlayerCharacter extends BattleObject {
      * This constructor creates a new character
      */
     public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
-        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE, 0);
+        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE,"Player");
         stats = new Stats(0, 3, 1, 50, true);
         playerInventory = new Inventory(10);
         facing = 0;
@@ -46,9 +47,21 @@ public class PlayerCharacter extends BattleObject {
 
     @Override
     public void update() {
+        ArrayList<GameObject> objects = Main.inFront(xCoordinate, yCoordinate, xCoordinate+SIZE, yCoordinate+SIZE);
+
+        for (GameObject go : objects)
+        {
+            if (go instanceof Item) {
+                System.out.println("you picked up a " + ((Item)go).getItemName() + "!");
+                go.setDeleteTrue();
+                pickUpItem((Item)go);
+            }
+        }
+
         if(stats.getHP() <= 0) {
             die();
         }
+        //getItem();
     }
 
     /**
@@ -130,19 +143,19 @@ public class PlayerCharacter extends BattleObject {
 
     public void attack() {
         System.out.println("Attacking");
-        ArrayList<GameObject> inRange = new ArrayList<GameObject>();
+        ArrayList<GameObject> inRange = new ArrayList<>();
 
         if(facing == UP) {
             inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
         } else if(facing == DOWN) {
-            inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() - attackRange);
+            inRange = Main.inFront(getX(), getY() - attackRange + SIZE, getX() + SIZE, getY());
         } else if(facing == LEFT) {
-            inRange = Main.inFront(getX(), getY(), getX() - attackRange, getY() + SIZE);
+            inRange = Main.inFront(getX() - attackRange +SIZE, getY(), getX(), getY() + SIZE);
         } else if(facing == RIGHT) {
             inRange = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
         }
 
-        ArrayList<Enemy> attackable = new ArrayList<Enemy>();
+        ArrayList<Enemy> attackable = new ArrayList<>();
 
         for(GameObject ob : inRange) {
             if(ob instanceof Enemy) {
@@ -174,5 +187,7 @@ public class PlayerCharacter extends BattleObject {
 
         attackCoolDown.start();
     }
+
+
 }
 

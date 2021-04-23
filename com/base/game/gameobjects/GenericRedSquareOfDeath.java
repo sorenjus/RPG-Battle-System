@@ -5,7 +5,7 @@ public class GenericRedSquareOfDeath extends Enemy {
 
 	public GenericRedSquareOfDeath(float x, float y, int exp, int str, int def, int th) {
 		super(x, y, exp, str, def, th);
-		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE, 0);
+		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE, "Enemy");
 		setAttackCoolDown(1000);
 	}
 

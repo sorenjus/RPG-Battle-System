@@ -1,17 +1,19 @@
 package com.base.game.Item;
 
 
-import com.base.game.gameobjects.PlayerCharacter;
+import com.base.engine.Sprite;
 
 public class Sword extends Item {
 
     public static final float SIZE = 32;
-    private static final String ITEMNAME = "Sword";
+    public static final String ITEMTYPE = "Item";
+    public static final String ITEMNAME = "Sword";
 
-    public Sword (float xCoord, float yCoord, PlayerCharacter player){
-        super(player);
-        init(xCoord, yCoord, .3f,.5f,.1f,SIZE,SIZE, 0 );
-        setItemName(ITEMNAME);
+
+    public Sword (float xCoord, float yCoord){
+
+        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, ITEMTYPE);
+        this.setItemName(ITEMNAME);
     }
 
 

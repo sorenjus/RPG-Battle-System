@@ -84,8 +84,8 @@ public class Main {
         Time.init();
         while (!Display.isCloseRequested()) {
             Time.update();
-            Display.update();
-            Display.sync(60);
+            //Display.update();
+            //Display.sync(60);
             getInput();
             update();
             render();

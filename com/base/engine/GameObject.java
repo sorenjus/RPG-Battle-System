@@ -14,8 +14,10 @@ public abstract class GameObject {
     protected transient float xCoordinate, yCoordinate;
     private Animation animation;
     protected transient Sprite sprite;
-    protected transient int typeItem;
     protected boolean delete = false;
+
+    protected transient String typeOfItem="";
+
 
     public void update() {
 
@@ -84,7 +86,7 @@ public abstract class GameObject {
      *
      * @return int
      */
-    public int getTypeItem(){ return typeItem; }
+    public String getTypeItem(){ return typeOfItem; }
 
     /**
      * Return the size value of Y
@@ -103,7 +105,7 @@ public abstract class GameObject {
 
     /**
      * Initialize the sprite
-     * @param type    is the type of item. 0 for non-pickable items
+     * @param typeOfItem  What the object is (item, player, enemy etc.)
      * @param xCord   default horizontal
      * @param yCord   default vertical location
      * @param red     Red value
@@ -112,10 +114,10 @@ public abstract class GameObject {
      * @param hLength Horizontal length
      * @param vLength Vertical height
      */
-    public void init(final float xCord, final float yCord, final float red, final float green, final float blue, final float hLength, final float vLength, final int type) {
+    public void init(final float xCord, final float yCord, final float red, final float green, final float blue, final float hLength, final float vLength, final String typeOfItem) {
         this.xCoordinate = xCord;
         this.yCoordinate = yCord;
-        this.typeItem = type;
+        this.typeOfItem = typeOfItem;
         this.sprite = new Sprite(red, green, blue, hLength, vLength);
     }
 }
