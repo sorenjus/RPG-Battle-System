@@ -122,26 +122,26 @@ public class Main {
     /**
      * Determines the GameObjects that fall within a certain radius of a starting point
      *
-     * @param x The x-coordinate of the point
-     * @param y The y-coordinate of the point
+     * @param xCoord The x-coordinate of the point
+     * @param yCoord The y-coordinate of the point
      * @param radius The radius of the area around the point being checked
      * @return An ArrayList of all the GameObjects in the radius
      */
-    public static ArrayList<GameObject> inRadius(float x, float y, float radius) {
-        return game.inRadius(x, y, radius);
+    public static ArrayList<GameObject> inRadius(final float xCoord, final float yCoord, final float radius) {
+        return game.inRadius(xCoord, yCoord, radius);
     }
 
     /**
      * Determines the GameObjects that are in front of a certain area
      *
-     * @param x1 The starting x coordinate of the area
-     * @param y1 The starting y coordinate of the area
-     * @param x2 The ending x coordinate of the area
-     * @param y2 The ending y coordinate of the area
+     * @param firstxCoord The starting x coordinate of the area
+     * @param firstyCoord The starting y coordinate of the area
+     * @param secondxCoord The ending x coordinate of the area
+     * @param secondyCoord The ending y coordinate of the area
      * @return An ArrayList of all the GameObjects in the area
      */
-    public static ArrayList<GameObject> inFront(float x1, float y1, float x2, float y2) {
-    	return game.inFront(x1, y1, x2, y2);
+    public static ArrayList<GameObject> inFront(final float firstxCoord, final float firstyCoord, final float secondxCoord, final float secondyCoord) {
+    	return game.inFront(firstxCoord, firstyCoord, secondxCoord, secondyCoord);
     }
 
     /**

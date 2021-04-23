@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 import com.base.game.gameobjects.Inventory;
 
@@ -15,14 +15,14 @@ public class Equipment {
     /**
      * The player's inventory
      */
-    private Inventory inventory;
+    private final Inventory inventory;
 
     /**
      * Constructor for a new set of equipment
      *
      * @param inventory The player's inventory
      */
-    public Equipment(Inventory inventory) {
+    public Equipment(final Inventory inventory) {
         equippableItems= new EquippableItems[EquippableItems.NUM_SLOTS];
         this.inventory = inventory;
     }
@@ -33,12 +33,16 @@ public class Equipment {
      * @param item The item being equipped
      * @return Whether the item was successfully equipped
      */
-    public boolean equipItem(EquippableItems item) {
-        int index = item.getSlot();
+    public boolean equipItem(final EquippableItems item) {
+        final int index = item.getSlot();
 
         if (equippableItems[index] != null) {
-            if(!deEquipItem(index))
-                return false;
+            {
+                if (!deEquipItem(index))
+                {
+                    return false;
+                }
+            }
         }
 
         inventory.dropItem(item);
@@ -52,7 +56,7 @@ public class Equipment {
      * @param slot The location of the item to unequip
      * @return Whether the item was successfully unequipped
      */
-    public boolean deEquipItem(int slot) {
+    public boolean deEquipItem(final int slot) {
         if(inventory.addItemToInventory(equippableItems[slot])) {
             equippableItems[slot] = null;
             return true;

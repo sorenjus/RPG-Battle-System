@@ -41,13 +41,13 @@ public class Enemy extends BattleObject {
 	/**
 	 * Constructor for a new Enemy
 	 *
-	 * @param exp The Enemy's experience points
-	 * @param str How much damage the Enemy deals
-	 * @param def How much damage the Enemy can nullify at a time
-	 * @param th The level threshold of the Enemy
+	 * @param experience The Enemy's experience points
+	 * @param strength How much damage the Enemy deals
+	 * @param defense How much damage the Enemy can nullify at a time
+	 * @param threshold The level threshold of the Enemy
 	 */
-	public Enemy(int exp, int str, int def, int th) {
-		stats = new Stats(exp, str, def, th, 50,false);
+	public Enemy(final int experience, final int strength, final int defense,final int threshold) {
+		stats = new Stats(experience, strength, defense, threshold, 50,false);
 		target = null;
 		attackRange = 50;
 		attackCoolDown = new Cooldown(0);
@@ -64,13 +64,17 @@ public class Enemy extends BattleObject {
 		} else if(Physics.inLineOfSight(this, target) &&
 				Physics.getDist(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
 			if(attackCoolDown.isCooldownOver())
+			{
 				attack();
+			}
 		} else {
 			chase();
 		}
 
 		if(stats.getHP() <= 0)
+		{
 			die();
+		}
 	}
 
 	/**
@@ -78,7 +82,7 @@ public class Enemy extends BattleObject {
 	 *
 	 * @param dist Desired attack range
 	 */
-	public void setAttackRange(int dist) {
+	public void setAttackRange(final int dist) {
 		attackRange = dist;
 	}
 
@@ -87,7 +91,7 @@ public class Enemy extends BattleObject {
 	 *
 	 * @param time Desired cooldown time
 	 */
-	public void setAttackCoolDown(int time) {
+	public void setAttackCoolDown(final int time) {
 		attackCoolDown = new Cooldown(time);
 		attackCoolDown.stop();
 	}
@@ -113,7 +117,7 @@ public class Enemy extends BattleObject {
 	 *
 	 * @param dmg Desired attack power
 	 */
-	public void setAttackPower(int dmg) {
+	public void setAttackPower(final int dmg) {
 		attackPower = dmg;
 	}
 
@@ -127,7 +131,7 @@ public class Enemy extends BattleObject {
 	 *
 	 * @param vis Desired vision
 	 */
-	public void setVision(float vis) {
+	public void setVision(final float vis) {
 		vision = vis;
 	}
 
@@ -135,9 +139,9 @@ public class Enemy extends BattleObject {
 	 * Makes the Enemy search for a target until one is in range
 	 */
 	protected void look() {
-		ArrayList<GameObject> seen = Main.inRadius(getX(), getY(), vision);
+		final ArrayList<GameObject> seen = Main.inRadius(getX(), getY(), vision);
 
-		for(GameObject seenOb : seen) {
+		for(final GameObject seenOb : seen) {
 			if(seenOb instanceof PlayerCharacter) {
 				setTarget((BattleObject)seenOb);
 			}
@@ -156,10 +160,10 @@ public class Enemy extends BattleObject {
 	/**
 	 * Changes the Enemy's target
 	 *
-	 * @param go New target
+	 * @param gameObject New target
 	 */
-	protected void setTarget(BattleObject go) {
-		target = go;
+	protected void setTarget(final BattleObject gameObject) {
+		target = gameObject;
 	}
 
 	/**
@@ -168,7 +172,7 @@ public class Enemy extends BattleObject {
 	protected void chase() {
 		float speedX = getTarget().getX() - getX();
 		float speedY = getTarget().getY() - getY();
-		float speedCap = 4f * SLOWDOWN;
+		final float speedCap = 4f * SLOWDOWN;
 
 		if(speedX > speedCap) {
 			speedX = speedCap;

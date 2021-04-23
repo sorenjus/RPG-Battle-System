@@ -2,10 +2,10 @@ package com.base.game;
 
 import com.base.engine.GameObject;
 import com.base.engine.Physics;
-import com.base.game.Item.Cap;
-import com.base.game.Item.ChainMail;
-import com.base.game.Item.ChainPants;
-import com.base.game.Item.Sword;
+import com.base.game.item.Cap;
+import com.base.game.item.ChainMail;
+import com.base.game.item.ChainPants;
+import com.base.game.item.Sword;
 import com.base.game.gameobjects.GenericRedSquareOfDeath;
 import com.base.game.gameobjects.PlayerCharacter;
 import org.lwjgl.opengl.Display;
@@ -64,14 +64,18 @@ public class Game {
     public void update() {
         for (final GameObject go : objects) {
             if(!go.getDelete())
+            {
                 go.update();
+            }
             else
             {
                 remove.add(go);
             }
         }
-        for(GameObject go : remove)
+        for(final GameObject go : remove)
+        {
             objects.remove(go);
+        }
     }
 
     /**
@@ -86,16 +90,16 @@ public class Game {
     /**
      * Determines all the GameObjects within a certain radius
      *
-     * @param x x coordinate of the center of the circle
-     * @param y y coordinate of the center of the circle
+     * @param xCoord x coordinate of the center of the circle
+     * @param yCoord y coordinate of the center of the circle
      * @param radius Radius around the center being checked
      * @return All of the GameObjects within the specified radius
      */
-    public ArrayList<GameObject> inRadius(float x, float y, float radius) {
-        ArrayList<GameObject> inRadius = new ArrayList<>();
+    public ArrayList<GameObject> inRadius(final float xCoord, final float yCoord, final float radius) {
+        final ArrayList<GameObject> inRadius = new ArrayList<>();
 
-        for(GameObject ob : objects) {
-            if(Physics.getDist(ob.getX(), ob.getY(), x, y) < radius) {
+        for(final GameObject ob : objects) {
+            if(Physics.getDist(ob.getX(), ob.getY(), xCoord, yCoord) < radius) {
                 inRadius.add(ob);
             }
         }
@@ -106,21 +110,21 @@ public class Game {
     /**
      * Determines all the GameObjects in a certain range in front of the player
      *
-     * @param x1 Starting x coordinate of detection box
-     * @param y1 Starting y coordinate of detection box
-     * @param x2 Ending x coordinate of detection box
-     * @param y2 Ending y coordinate of detection box
+     * @param firstxCoord Starting x coordinate of detection box
+     * @param firstyCoord Starting y coordinate of detection box
+     * @param secondxCoord Ending x coordinate of detection box
+     * @param secondyCoord Ending y coordinate of detection box
      * @return All of the GameObjects within the detection box
      */
-    public ArrayList<GameObject> inFront(float x1, float y1, float x2, float y2) {
-        ArrayList<GameObject> inFront = new ArrayList<>();
+    public ArrayList<GameObject> inFront(final float firstxCoord, final float firstyCoord, final float secondxCoord, final float secondyCoord) {
+        final ArrayList<GameObject> inFront = new ArrayList<>();
 
-        float sx = x2 - x1;
-        float sy = y2 - y1;
+        final float distX = secondxCoord - firstxCoord;
+        final float distY = secondyCoord - firstyCoord;
 
-        Rectangle detection = new Rectangle((int)x1, (int)y1, (int)sx, (int)sy);
+        final Rectangle detection = new Rectangle((int)firstxCoord, (int)firstyCoord, (int)distX, (int)distY);
 
-        for(GameObject ob : objects) {
+        for(final GameObject ob : objects) {
             if(Physics.areColliding(detection, ob) != null) {
                 inFront.add(ob);
             }

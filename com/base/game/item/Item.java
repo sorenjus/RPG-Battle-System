@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 import com.base.engine.GameObject;
 import com.base.engine.Sprite;
@@ -46,7 +46,7 @@ public class Item extends GameObject {
      *
      * @param name Desired new name
      */
-    public void setItemName(String name){
+    public void setItemName(final String name){
         this.itemName= name;
     }
 }

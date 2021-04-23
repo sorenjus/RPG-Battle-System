@@ -9,41 +9,41 @@ public class Stats {
 	/**
 	 * Numerical values for each stat
 	 */
-	private int exp, hp, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold, expWorth;
+	private int experience, healthPoints, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold, expWorth;
 
 	/**
 	 * Whether the GameObject can level up
 	 */
-	private boolean canLevel;
+	private final boolean canLevel;
 
 	/**
 	 * Constructor for a new set of stats
 	 *
-	 * @param exp Starting experience points
-	 * @param str Starting strength
-	 * @param def Starting defense
-	 * @param th Starting level-up threshold
+	 * @param experience Starting experience points
+	 * @param strength Starting strength
+	 * @param defense Starting defense
+	 * @param threshold Starting level-up threshold
 	 * @param expWorth How much EXP is given upon defeat
 	 * @param canLevel Whether the GameObject can level up
 	 */
-	public Stats(int exp, int str, int def, int th, int expWorth, boolean canLevel) {
+	public Stats(final int experience, final int strength, final int defense, final int threshold, final int expWorth, final boolean canLevel) {
 		this.canLevel = canLevel;
-		this.strength = str;
-		this.baseStr = str;
-		this.defense = def;
-		this.baseDef = def;
-		this.levelThreshold = th;
+		this.strength = strength;
+		this.baseStr = strength;
+		this.defense = defense;
+		this.baseDef = defense;
+		this.levelThreshold = threshold;
 
 		if(canLevel) {
-			this.exp = exp;
+			this.experience = experience;
 			this.level = 1;
 			this.expWorth = 0;
 		} else {
-			this.exp = -1;
-			this.level = exp;
+			this.experience = -1;
+			this.level = experience;
 			this.expWorth = expWorth;
 		}
-		this.hp = getMaxHP();
+		this.healthPoints = getMaxHP();
 	}
 
 	/**
@@ -52,11 +52,11 @@ public class Stats {
 	 * @return Current HP
 	 */
 	public int getHP() {
-		if(hp > getMaxHP()) {
-			hp = getMaxHP();
+		if(healthPoints > getMaxHP()) {
+			healthPoints = getMaxHP();
 		}
 
-		return hp;
+		return healthPoints;
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class Stats {
 	 * @return Experience points
 	 */
 	public int getExperience() {
-		return exp;
+		return experience;
 	}
 
 	/**
@@ -130,8 +130,8 @@ public class Stats {
 	 * @param battleExp battle experience
 	 */
 	public void setExperience(final int battleExp) {
-		exp += battleExp;
-		if (this.exp >= this.levelThreshold) {
+		experience += battleExp;
+		if (this.experience >= this.levelThreshold) {
 			this.levelUp();
 			System.out.println("Level Up! You're now Level " + getLevel());
 			System.out.println("HP: " + getHP());
@@ -146,7 +146,7 @@ public class Stats {
 	 */
 	private void levelUp() {
 		this.level += 1;
-		this.hp = incHP();
+		this.healthPoints = incHP();
 		this.strength = incStat(this.baseStr);
 		this.levelThreshold = returnThreshold(this.level);
 	}
@@ -156,20 +156,20 @@ public class Stats {
 	 *
 	 * @return Level threshold based on character level
 	 */
-	private int returnThreshold(int lvl) {
-		return (25 * lvl * lvl) - (25 * lvl) + 50;
+	private int returnThreshold( final int lvl) {
+		return 25 * lvl * lvl - 25 * lvl + 50;
 	}
 
 	/**
 	 * Changes the GameObject's current HP
 	 *
-	 * @param hp Desired HP
+	 * @param healthPoints Desired HP
 	 */
-	public void setHP(int hp) {
-		this.hp = hp;
+	public void setHP( final int healthPoints) {
+		this.healthPoints = healthPoints;
 	}
 
-	public void setDefense(int defense) {
+	public void setDefense(  final int defense) {
 		this.defense = defense;
 	}
 
@@ -201,7 +201,7 @@ public class Stats {
 		return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
 	}
 
-	public void setStrength(int strength) {
+	public void setStrength( final int strength) {
 		this.strength = strength;
 	}
 
@@ -210,7 +210,7 @@ public class Stats {
 	 *
 	 * @param dmg The amount of HP being taken away
 	 */
-	public void damage(int dmg) {
-		hp -= dmg;
+	public void damage( final int dmg) {
+		healthPoints -= dmg;
 	}
 }

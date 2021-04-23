@@ -14,16 +14,16 @@ public class GenericRedSquareOfDeath extends Enemy {
 	/**
 	 * Constructor for a new G.R.S.O.D.
 	 *
-	 * @param x Starting x-coordinate
-	 * @param y Starting y-coordinate
-	 * @param exp Experience points
-	 * @param str Strength stat
-	 * @param def Defense stat
-	 * @param th Level-up threshold
+	 * @param xCoord Starting x-coordinate
+	 * @param yCoord Starting y-coordinate
+	 * @param experience Experience points
+	 * @param strength Strength stat
+	 * @param defense Defense stat
+	 * @param threshold Level-up threshold
 	 */
-	public GenericRedSquareOfDeath(float x, float y, int exp, int str, int def, int th) {
-		super(exp, str, def, th);
-		this.init(x, y, 1f, 0f, 0f, SIZE, SIZE, "Enemy");
+	public GenericRedSquareOfDeath(final float xCoord, final float yCoord, final int experience, final int strength, final int defense, final int threshold) {
+		super(experience, strength, defense, threshold);
+		this.init(xCoord, yCoord, 1f, 0f, 0f, SIZE, SIZE, "Enemy");
 		setAttackCoolDown(1000);
 	}
 

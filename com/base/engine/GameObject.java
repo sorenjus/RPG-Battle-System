@@ -84,19 +84,19 @@ public abstract class GameObject {
     /**
      * Setter method for the GameObject's width
      *
-     * @param x The desired width of the GameObject
+     * @param xCoordinate The desired width of the GameObject
      */
-    protected void setX(float x) {
-        this.xCoordinate = x;
+    protected void setX(final float xCoordinate) {
+        this.xCoordinate = xCoordinate;
     }
 
     /**
      * Setter method for the GameObject's height
      *
-     * @param y The desired height of the GameObject
+     * @param yCoordinate The desired height of the GameObject
      */
-    protected void setY(float y) {
-        this.yCoordinate = y;
+    protected void setY(final float yCoordinate) {
+        this.yCoordinate = yCoordinate;
     }
 
     /**
@@ -129,18 +129,18 @@ public abstract class GameObject {
      *
      * @param xCord Horizontal position
      * @param yCord Vertical position
-     * @param r Red value of sprite color
-     * @param g Green value of sprite color
-     * @param b Blue value of sprite color
+     * @param red Red value of sprite color
+     * @param green Green value of sprite color
+     * @param blue Blue value of sprite color
      * @param hLength Horizontal length (width)
      * @param vLength Vertical length (height)
      * @param typeOfItem Whether the item is able to be picked up
      */
-    protected void init(final float xCord, final float yCord, final float r, final float g, final float b,
+    protected void init(final float xCord, final float yCord, final float red, final float green, final float blue,
                         final float hLength, final float vLength, final String typeOfItem) {
         this.xCoordinate = xCord;
         this.yCoordinate = yCord;
         this.typeOfItem = typeOfItem;
-        this.sprite = new Sprite(r, g, b, hLength, vLength);
+        this.sprite = new Sprite(red, green, blue, hLength, vLength);
     }
 }

@@ -5,8 +5,7 @@ import com.base.engine.Main;
 import com.base.engine.Physics;
 import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
-import com.base.game.Game;
-import com.base.game.Item.*;
+import com.base.game.item.*;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
@@ -32,10 +31,10 @@ public class PlayerCharacter extends BattleObject {
     /**
      * Numeric values for the four cardinal directions the character can face
      */
-    public static final int UP = 0;
-    public static final int DOWN = 1;
-    public static final int LEFT = 2;
-    public static final int RIGHT = 3;
+    public static final int LOOK_UP = 0;
+    public static final int LOOK_DOWN = 1;
+    public static final int LOOK_LEFT = 2;
+    public static final int LOOK_RIGHT = 3;
 
     /**
      * Numeric value for which way the character is currently facing
@@ -72,9 +71,9 @@ public class PlayerCharacter extends BattleObject {
      */
     @Override
     public void update() {
-        ArrayList<GameObject> objects = Main.inFront(xCoordinate, yCoordinate, xCoordinate+SIZE, yCoordinate+SIZE);
+        final ArrayList<GameObject> objects = Main.inFront(xCoordinate, yCoordinate, xCoordinate+SIZE, yCoordinate+SIZE);
 
-        for (GameObject go : objects)
+        for (final GameObject go : objects)
         {
             if (go instanceof Item) {
                 System.out.println("You picked up a " + ((Item)go).getItemName() + "!");
@@ -105,7 +104,7 @@ public class PlayerCharacter extends BattleObject {
 
         if(stats.getHP() <= 0) {
             die();
-            DeathScreen s = new DeathScreen();
+            final DeathScreen screen = new DeathScreen();
         }
     }
 
@@ -114,39 +113,53 @@ public class PlayerCharacter extends BattleObject {
      */
     public void returnInput() {
         if (Keyboard.isKeyDown(Keyboard.KEY_W))
+        {
             move(0, 1);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_S))
+        {
             move(0, -1);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_A))
+        {
             move(-1, 0);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_D))
+        {
             move(1, 0);
+        }
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && attackCoolDown.isCooldownOver())
+        {
             attack();
-        // TODO: Redo characterToString with new setup
-//        if (Keyboard.isKeyDown(Keyboard.KEY_1)) {
-//            System.out.println(this.characterToString());
-//        }
+        }
     }
 
     /**
      * Moves the character and makes them face the desired direction
      *
-     * @param x Horizontal movement
-     * @param y Vertical movement
+     * @param xCoord Horizontal movement
+     * @param yCoord Vertical movement
      */
-    private void move(final float x, final float y) {
-        if(x == 0 && y == 1)
-            facing = UP;
-        if(x == 0 && y == -1)
-            facing = DOWN;
-        if(x == -1 && y == 0)
-            facing = LEFT;
-        if(x == 1 && y == 0)
-            facing = RIGHT;
+    private void move(final float xCoord, final float yCoord) {
+        if(xCoord == 0 && yCoord == 1)
+        {
+            facing = LOOK_UP;
+        }
+        if(xCoord == 0 && yCoord == -1)
+        {
+            facing = LOOK_DOWN;
+        }
+        if(xCoord == -1 && yCoord == 0)
+        {
+            facing = LOOK_LEFT;
+        }
+        if(xCoord == 1 && yCoord == 0)
+        {
+            facing = LOOK_RIGHT;
+        }
 
-        this.xCoordinate += getSpeed() * x;
-        this.yCoordinate += getSpeed() * y;
+        this.xCoordinate += getSpeed() * xCoord;
+        this.yCoordinate += getSpeed() * yCoord;
     }
 
     /**
@@ -183,7 +196,7 @@ public class PlayerCharacter extends BattleObject {
      *
      * @param item The item being picked up
      */
-    public void pickUpItem(Item item) {
+    public void pickUpItem(final Item item) {
         playerInventory.addItemToInventory(item);
     }
 
@@ -195,20 +208,20 @@ public class PlayerCharacter extends BattleObject {
         ArrayList<GameObject> inRange = new ArrayList<>();
 
         // Determines which direction the attack collision detection box should be in
-        if(facing == UP) {
+        if(facing == LOOK_UP) {
             inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
-        } else if(facing == DOWN) {
+        } else if(facing == LOOK_DOWN) {
             inRange = Main.inFront(getX(), getY() - attackRange + SIZE, getX() + SIZE, getY());
-        } else if(facing == LEFT) {
+        } else if(facing == LOOK_LEFT) {
             inRange = Main.inFront(getX() - attackRange +SIZE, getY(), getX(), getY() + SIZE);
-        } else if(facing == RIGHT) {
+        } else if(facing == LOOK_RIGHT) {
             inRange = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
         }
 
         // Creates a list of enemies in range
-        ArrayList<Enemy> attackable = new ArrayList<>();
+        final ArrayList<Enemy> attackable = new ArrayList<>();
 
-        for(GameObject ob : inRange) {
+        for(final GameObject ob : inRange) {
             if(ob instanceof Enemy) {
                 attackable.add((Enemy)ob);
             }
@@ -220,7 +233,7 @@ public class PlayerCharacter extends BattleObject {
             Enemy target = attackable.get(0);
 
             if(attackable.size() > 1) {
-                for(GameObject en : attackable) {
+                for(final GameObject en : attackable) {
                     if(Physics.getDist(getX(), getY(), en.getX(), en.getY()) < Physics.getDist(getX(), getY(), target.getX(), target.getY())) {
                         target = (Enemy)en;
                     }

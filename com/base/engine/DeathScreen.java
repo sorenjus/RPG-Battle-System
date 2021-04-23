@@ -29,7 +29,7 @@ public class DeathScreen extends JFrame implements ActionListener{
         this.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
         if(e.getSource() == restart) {
             this.setVisible(false);
             Main.initGame();

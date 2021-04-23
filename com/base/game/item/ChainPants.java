@@ -1,6 +1,7 @@
-package com.base.game.Item;
+package com.base.game.item;
 
-public class ChainMail extends EquippableItems {
+public class ChainPants extends EquippableItems{
+
 
     /**
      * The size of the sword
@@ -9,25 +10,25 @@ public class ChainMail extends EquippableItems {
     /**
      * The name of the item
      */
-    public static final String ITEMNAME = "Chain Mail";
+    public static final String ITEMNAME = "Chain Mail Pants";
     /**
      * The increased damage the sword lets the player deal
      */
     private final int DEFENSE;
 
+
     /**
-     * Constructor for a new Chain Mail Armor piece
+     * Constructor for a new pair of Chain Pants
      *
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public ChainMail (float xCoord, float yCoord){
+    public ChainPants (final float xCoord, final float yCoord){
 
-        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, ARMOR_SLOT);
+        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, LEG_SLOT);
         this.setItemName(ITEMNAME);
-        this.DEFENSE=3;
+        this.DEFENSE=2;
     }
-
 
     /**
      * Getter method for the defense stat of the weapon
