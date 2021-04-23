@@ -19,7 +19,11 @@ public class Sword extends EquippableItems {
     /**
      * The increased damage the sword lets the player deal
      */
-    private int damage;
+    private final int STRINCREASE;
+    /**
+     * The increased the range of the player attack.
+     */
+    private final int ITEMRANGE;
 
     /**
      * Constructor for a new Sword
@@ -30,6 +34,25 @@ public class Sword extends EquippableItems {
     public Sword (float xCoord, float yCoord){
         init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, WEAPON_SLOT);
         this.setItemName(ITEMNAME);
-        damage = 3;
+        STRINCREASE = 2;
+        this.ITEMRANGE=31;
+    }
+
+    /**
+     * Getter method for the Str increase stat of the weapon
+     * @return Str increase of the Item
+     */
+    public int getStrIncrease()
+    {
+        return STRINCREASE;
+    }
+
+    /**
+     * Getter method for the Range Stat stat of the weapon
+     * @return Item range of the weapon
+     */
+    public int getItemRange()
+    {
+        return ITEMRANGE;
     }
 }

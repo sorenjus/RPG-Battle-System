@@ -2,6 +2,9 @@ package com.base.game;
 
 import com.base.engine.GameObject;
 import com.base.engine.Physics;
+import com.base.game.Item.Cap;
+import com.base.game.Item.ChainMail;
+import com.base.game.Item.ChainPants;
 import com.base.game.Item.Sword;
 import com.base.game.gameobjects.GenericRedSquareOfDeath;
 import com.base.game.gameobjects.PlayerCharacter;
@@ -39,6 +42,9 @@ public class Game {
         player = new PlayerCharacter(Display.getWidth() / 2 - PlayerCharacter.SIZE / 2, Display.getHeight() / 2 - PlayerCharacter.SIZE / 2);
         objects.add(player);
         objects.add(new Sword(350,400));
+        objects.add(new ChainMail(50,400));
+        objects.add(new ChainPants(100,500));
+        objects.add(new Cap(150,300));
         objects.add(new GenericRedSquareOfDeath(150, 250, 1, 2, 1, 50));
         objects.add(new GenericRedSquareOfDeath(200, 500, 1, 2, 1, 50));
         objects.add(new GenericRedSquareOfDeath(500, 450, 1, 2, 1, 50));

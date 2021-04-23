@@ -6,8 +6,7 @@ import com.base.engine.Physics;
 import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
 import com.base.game.Game;
-import com.base.game.Item.Equipment;
-import com.base.game.Item.Item;
+import com.base.game.Item.*;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;
@@ -45,11 +44,6 @@ public class PlayerCharacter extends BattleObject {
     private int attackRange;
 
     /**
-     * How far away the player can reach enemies to attack
-     */
-    private final int attackRange;
-
-    /**
      * How long the player has to wait between attacks
      */
     private final Cooldown attackCoolDown;
@@ -83,22 +77,26 @@ public class PlayerCharacter extends BattleObject {
         for (GameObject go : objects)
         {
             if (go instanceof Item) {
-                System.out.println("you picked up a " + ((Item)go).getItemName() + "!");
+                System.out.println("You picked up a " + ((Item)go).getItemName() + "!");
                     if(((Item)go).getItemName().equals("Sword"))
                     {
-                        attackRange = attackRange+31;
-                        stats.setStrength(getStrength()+2);
+                        this.attackRange = this.attackRange + ((Sword)go).getItemRange();
+                        stats.setStrength(getStrength()+((Sword)go).getStrIncrease());
+                        System.out.println("Your Strength increased by " + ((Sword)go).getStrIncrease() + "!");
                     }
                     if(((Item)go).getItemName().equals("Chain Mail Pants"))
                     {
-                        stats.setDefense(getDefense()+2);
+                        stats.setDefense(getDefense()+((ChainPants)go).getDefense());
+                        System.out.println("Your Defense increased by " + ((ChainPants)go).getDefense() + "!");
                     }
                     if(((Item)go).getItemName().equals("Chain Mail")) {
-                        stats.setDefense(getDefense() + 3);
+                        stats.setDefense(getDefense()+((ChainMail)go).getDefense());
+                        System.out.println("Your Defense increased by " + ((ChainMail)go).getDefense() + "!");
                     }
                     if(((Item)go).getItemName().equals("Cap"))
                     {
-                        stats.setDefense(getDefense()+1);
+                        stats.setDefense(getDefense()+((Cap)go).getDefense());
+                        System.out.println("Your Defense increased by " + ((Cap)go).getDefense() + "!");
                     }
                 go.setDeleteTrue();
                 pickUpItem((Item)go);
