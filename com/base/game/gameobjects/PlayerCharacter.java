@@ -5,7 +5,6 @@ import com.base.engine.Main;
 import com.base.engine.Physics;
 import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
-import com.base.game.Game;
 import com.base.game.Item.*;
 import org.lwjgl.input.Keyboard;
 
@@ -32,10 +31,10 @@ public class PlayerCharacter extends BattleObject {
     /**
      * Numeric values for the four cardinal directions the character can face
      */
-    public static final int UP = 0;
-    public static final int DOWN = 1;
-    public static final int LEFT = 2;
-    public static final int RIGHT = 3;
+    public static final int LOOK_UP = 0;
+    public static final int LOOK_DOWN = 1;
+    public static final int LOOK_LEFT = 2;
+    public static final int LOOK_RIGHT = 3;
 
     /**
      * Numeric value for which way the character is currently facing
@@ -105,7 +104,7 @@ public class PlayerCharacter extends BattleObject {
 
         if(stats.getHP() <= 0) {
             die();
-            DeathScreen s = new DeathScreen();
+            DeathScreen screen = new DeathScreen();
         }
     }
 
@@ -137,14 +136,21 @@ public class PlayerCharacter extends BattleObject {
      */
     private void move(final float x, final float y) {
         if(x == 0 && y == 1)
-            facing = UP;
+        {
+            facing = LOOK_UP;
+        }
         if(x == 0 && y == -1)
-            facing = DOWN;
+        {
+            facing = LOOK_DOWN;
+        }
         if(x == -1 && y == 0)
-            facing = LEFT;
+        {
+            facing = LOOK_LEFT;
+        }
         if(x == 1 && y == 0)
-            facing = RIGHT;
-
+        {
+            facing = LOOK_RIGHT;
+        }
         this.xCoordinate += getSpeed() * x;
         this.yCoordinate += getSpeed() * y;
     }
@@ -195,13 +201,13 @@ public class PlayerCharacter extends BattleObject {
         ArrayList<GameObject> inRange = new ArrayList<>();
 
         // Determines which direction the attack collision detection box should be in
-        if(facing == UP) {
+        if(facing == LOOK_UP) {
             inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
-        } else if(facing == DOWN) {
+        } else if(facing == LOOK_DOWN) {
             inRange = Main.inFront(getX(), getY() - attackRange + SIZE, getX() + SIZE, getY());
-        } else if(facing == LEFT) {
+        } else if(facing == LOOK_LEFT) {
             inRange = Main.inFront(getX() - attackRange +SIZE, getY(), getX(), getY() + SIZE);
-        } else if(facing == RIGHT) {
+        } else if(facing == LOOK_RIGHT) {
             inRange = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
         }
 

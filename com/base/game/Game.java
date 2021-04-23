@@ -115,10 +115,10 @@ public class Game {
     public ArrayList<GameObject> inFront(final float firstxCoord, final float firstyCoord, final float secondxCoord, final float secondyCoord) {
         ArrayList<GameObject> inFront = new ArrayList<>();
 
-        float sx = secondxCoord - firstxCoord;
-        float sy = secondyCoord - firstyCoord;
+        float width = secondxCoord - firstxCoord;
+        float height = secondyCoord - firstyCoord;
 
-        Rectangle detection = new Rectangle((int)firstxCoord, (int)firstyCoord, (int)sx, (int)sy);
+        Rectangle detection = new Rectangle((int)firstxCoord, (int)firstyCoord, (int)width, (int)height);
 
         for(GameObject ob : objects) {
             if(Physics.areColliding(detection, ob) != null) {

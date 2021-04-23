@@ -1,0 +1,51 @@
+@startgantt
+'https://plantuml.com/gantt-diagram
+Project starts 2021-03-01
+[Open Program] lasts 21 days and is colored in Turquoise and is 80% complete
+[New Game] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
+[Exit Game] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
+[Save Game] starts 2021-04-02 and lasts 21 days and is colored in Turquoise
+[Load Game] starts 2021-04-02 and lasts 21 days and is colored in Turquoise
+[Move Char] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
+[Engange Enemy] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
+[Fight Enemy] starts 2021-04-2 and lasts 21 days and is colored in Turquoise
+[Select Attack] starts 2021-04-2 and lasts 14 days and is colored in Turquoise
+[Select Item] starts 2021-04-2 and lasts 14 days and is colored in Turquoise
+[Select Target] starts 2021-04-7 and lasts 14 days and is colored in Turquoise
+[Accept Winnings] starts 2021-04-2 and lasts 7 days and is colored in Turquoise
+[Gain Xp] starts 2021-04-2 and lasts 7 days and is colored in Turquoise
+[Open Menu] starts 2021-03-08 and lasts 21 days and is colored in Turquoise
+[Drop Item] starts 2021-04-2 and lasts 21 days and is colored in Turquoise
+[Talk to NPC] starts 2021-04-2 and lasts 14 days and is colored in Turquoise
+[Gain lvl] starts 2021-04-2 and lasts 14 days and is colored in Turquoise
+[Pickup Item] starts 2021-04-8 and lasts 14 days and is colored in Turquoise
+[Char Dies] starts 2021-04-8 and lasts 14 days and is colored in Turquoise
+
+[Documentation] lasts 54 days and is colored in Black
+
+[Release 01] happens at 2021-03-1
+[Release 02] happens on 32 days after [Release 01]'s end
+[Release 03] happens on 21 days after [Release 02]'s end
+
+[Screenshots] starts 2021-04-2 and ends 2021-04-23
+[Screenshots] is colored in Turquoise
+
+[New Game] is 100% complete
+[Exit Game] is 100% complete
+[Save Game] is 0% complete
+[Load Game] is 0% complete
+[Move Char] is 80% complete
+[Engange Enemy] is 30% complete
+[Fight Enemy] is 0% complete
+[Select Attack] is 0% complete
+[Select Item] is 0% complete
+[Select Target] is 0% complete
+[Accept Winnings] is 0% complete
+[Gain Xp] is 0% complete
+[Open Menu] is 0% complete
+[Drop Item] is 0% complete
+[Talk to NPC] is 0% complete
+[Gain lvl] is 0% complete
+[Pickup Item] is 0% complete
+[Char Dies] is 0% complete
+@endgantt
