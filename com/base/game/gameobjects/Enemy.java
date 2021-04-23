@@ -41,13 +41,13 @@ public class Enemy extends BattleObject {
 	/**
 	 * Constructor for a new Enemy
 	 *
-	 * @param exp The Enemy's experience points
-	 * @param str How much damage the Enemy deals
-	 * @param def How much damage the Enemy can nullify at a time
-	 * @param th The level threshold of the Enemy
+	 * @param experience The Enemy's experience points
+	 * @param strength How much damage the Enemy deals
+	 * @param defense How much damage the Enemy can nullify at a time
+	 * @param threshold The level threshold of the Enemy
 	 */
-	public Enemy(int exp, int str, int def, int th) {
-		stats = new Stats(exp, str, def, th, 50,false);
+	public Enemy(int experience, int strength, int defense, int threshold) {
+		stats = new Stats(experience, strength, defense, threshold, 50,false);
 		target = null;
 		attackRange = 50;
 		attackCoolDown = new Cooldown(0);
@@ -156,10 +156,10 @@ public class Enemy extends BattleObject {
 	/**
 	 * Changes the Enemy's target
 	 *
-	 * @param go New target
+	 * @param gameobject New target
 	 */
-	protected void setTarget(BattleObject go) {
-		target = go;
+	protected void setTarget(BattleObject gameobject) {
+		target = gameobject;
 	}
 
 	/**

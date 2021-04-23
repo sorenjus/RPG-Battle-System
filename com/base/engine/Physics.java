@@ -25,15 +25,15 @@ public class Physics {
      * (either another GameObject or a detection box) is colliding with a second
      * GameObject
      *
-     * @param r The collision detection box
-     * @param g The GameObject that is being checked with the collision box
+     * @param collisionBox The collision detection box
+     * @param gameObject The GameObject that is being checked with the collision box
      * @return Whether the GameObject is inside the detection box
      */
-    public static GameObject areColliding(Rectangle r, GameObject g) {
-        final Rectangle hitbox = new Rectangle((int) g.getX(), (int) g.getY(), (int) g.getSizeX(), (int) g.getSizeY());
+    public static GameObject areColliding(Rectangle collisionBox, GameObject gameObject) {
+        final Rectangle hitbox = new Rectangle((int) gameObject.getX(), (int) gameObject.getY(), (int) gameObject.getSizeX(), (int) gameObject.getSizeY());
 
-        if(r.intersects(hitbox)) {
-            return g;
+        if(collisionBox.intersects(hitbox)) {
+            return gameObject;
         } else {
             return null;
         }
@@ -46,13 +46,13 @@ public class Physics {
     /**
      * Calculates the distance between two points
      *
-     * @param x1 The starting x coordinate
-     * @param y1 The starting y coordinate
-     * @param x2 The ending x coordinate
-     * @param y2 The ending y coordinate
+     * @param firstxCoord The starting x coordinate
+     * @param firstyCoord The starting y coordinate
+     * @param secondxCoord The ending x coordinate
+     * @param secondyCoord The ending y coordinate
      * @return The calculated distance between (x1, y1) and (x2, y2)
      */
-    public static float getDist(float x1, float y1, float x2, float y2) {
-        return (float)Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+    public static float getDist(float firstxCoord, float firstyCoord, float secondxCoord, float secondyCoord) {
+        return (float)Math.sqrt(((secondxCoord - firstxCoord) * (secondxCoord - firstxCoord)) + ((secondyCoord - firstyCoord) * (secondyCoord - firstyCoord)));
     }
 }
