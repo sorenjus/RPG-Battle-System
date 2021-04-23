@@ -5,34 +5,54 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Displays a death message when the player dies
+ * Displays a death menu when the player dies
  *
  * @author Jacob Kucinski
  */
 public class DeathScreen extends JFrame implements ActionListener{
 
-    private final JLabel message;
-    private final JButton restart;
+    private JLabel message;
+    private JButton restart;
+    private JButton closeGame;
 
+    /**
+     * Constructor method to display a menu screen once the character had died
+     */
     public DeathScreen() {
         setLayout(null);
         setSize(300, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        message = new JLabel("You have died. Git gud.", SwingConstants.CENTER);
+
+        message = new JLabel("You have been defeated.", SwingConstants.CENTER);
         restart = new JButton("Restart");
+        closeGame = new JButton("Exit");
+
         message.setBounds(75, 30, 150, 30);
-        restart.setBounds(100, 75, 100, 50);
+        restart.setBounds(40, 75, 100, 50);
+        closeGame.setBounds(160, 75, 100, 50);
+
         restart.addActionListener(this);
+        closeGame.addActionListener(this);
+
         add(restart);
         add(message);
+        add(closeGame);
         this.setVisible(true);
     }
 
+    /**
+     * Method for detecting an input within the menu screen
+     *
+     * @param e Input from user
+     */
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == restart) {
             this.setVisible(false);
             Main.initGame();
+        }
+        if(e.getSource() == closeGame) {
+            System.exit(0);
         }
     }
 }
