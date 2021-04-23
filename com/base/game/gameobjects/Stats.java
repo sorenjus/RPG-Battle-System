@@ -171,7 +171,7 @@ public class Stats {
 
 	/**
 	 * Function sets the character's defense
-	 * @param defense
+	 * @param defense new defense value
 	 */
 	public void setDefense( final int defense) {
 		this.defense = defense;
@@ -207,7 +207,7 @@ public class Stats {
 
 	/**
 	 * function which increases the character's strength
-	 * @param strength
+	 * @param strength new strength value
 	 */
 	public void setStrength( final int strength) {
 		this.strength = strength;

@@ -36,6 +36,11 @@ public class Item extends GameObject {
         typeOfItem= "Item";
         this.sprite = new Sprite(red, green, blue, hLength, vLength);
     }
+
+    /**
+     * Function returns the name of an item
+     * @return String
+     */
        public String getItemName()
     {
         return itemName;

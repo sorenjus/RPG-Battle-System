@@ -50,6 +50,8 @@ public class PlayerCharacter extends BattleObject {
 
     /**
      * This constructor creates a new character
+     * @param xCoordinate location on x axis
+     * @param yCoordinate location on y axis
      */
     public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
         init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE, "Player" );
