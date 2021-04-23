@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class for a Sword that can be equipped and used
+ *
+ * @author Adrian Croitoru
+ */
 public class SwordTest {
 
     @Test
