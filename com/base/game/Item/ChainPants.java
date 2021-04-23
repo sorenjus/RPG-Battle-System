@@ -1,5 +1,9 @@
 package com.base.game.Item;
 
+/**
+ * A class representing chain mail pants which boost player stats
+ *
+ */
 public class ChainPants extends EquippableItems{
 
 

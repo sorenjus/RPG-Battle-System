@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * A test class for PlayerCharacter class
+ *
+ * @author Justin Soreen
+ */
 public class PlayerCharacterTest {
 
     @Test
