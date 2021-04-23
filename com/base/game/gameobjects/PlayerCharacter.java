@@ -137,9 +137,9 @@ public class PlayerCharacter extends BattleObject {
         if(facing == UP) {
             inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
         } else if(facing == DOWN) {
-            inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() - attackRange);
+            inRange = Main.inFront(getX(), getY() - attackRange + SIZE, getX() + SIZE, getY());
         } else if(facing == LEFT) {
-            inRange = Main.inFront(getX(), getY(), getX() - attackRange, getY() + SIZE);
+            inRange = Main.inFront(getX() - attackRange + SIZE, getY(), getX(), getY() + SIZE);
         } else if(facing == RIGHT) {
             inRange = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
         }
