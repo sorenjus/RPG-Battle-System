@@ -2,13 +2,21 @@ package com.base.game.gameobjects;
 
 import com.base.engine.GameObject;
 
+/**
+ * A class for PlayerCharacters and Enemies that can battle each other
+ *
+ * @author Justin Sorensen, Jason Truskowski
+ */
 public class BattleObject extends GameObject {
+	/**
+	 * The battle stats of the BattleObject
+	 */
 	protected Stats stats;
 
 	/**
-	 * Function returning the character's HP
+	 * Returns the BattleObject's HP
 	 *
-	 * @return int
+	 * @return Current HP
 	 */
 	public int getHP() {
 		if(stats.getHP() > getMaxHP()) {
@@ -18,49 +26,72 @@ public class BattleObject extends GameObject {
 		return stats.getHP();
 	}
 
+	/**
+	 * Returns the maximum HP the BattleObject can have
+	 *
+	 * @return Maximum HP
+	 */
 	public int getMaxHP() {
 		return getLevel() * 10;
 	}
 
+	/**
+	 * Returns the BattleObject's current level
+	 *
+	 * @return Current level
+	 */
 	public int getLevel() {
 		return stats.getLevel();
 	}
 
 	/**
-	 * Function returning the character's strength
+	 * Function returning the BattleObject's Strength stat
 	 *
-	 * @return int
+	 * @return Current strength
 	 */
 	public int getStrength() {
 		return stats.getStrength();
 	}
 
 	/**
-	 * Function returning the character's defense
+	 * Function returning the BattleObject's Defense stat
 	 *
-	 * @return int
+	 * @return Current defense
 	 */
 	public int getDefense() {
 		return stats.getDefense();
 	}
 
 	/**
-	 * Function returning the characters amount of experience
+	 * Function returning the BattleObject's experience points
 	 *
-	 * @return int
+	 * @return Current amount of EXP
 	 */
 	public int getExperience() {
 		return stats.getExperience();
 	}
 
+	/**
+	 * Function returning how much EXP the BattleObject gives when defeated
+	 *
+	 * @return Amount of EXP awarded upon defeat
+	 */
 	public int getExpWorth () {
 		return stats.getExpWorth();
 	}
 
+	/**
+	 * Deals damage to a target
+	 *
+	 * @param dmg How much damage is being dealt
+	 */
 	public void damage(int dmg) {
 		stats.damage(dmg);
 	}
 
+	/**
+	 * "Kills" the BattleObject by removing it from the game
+	 */
 	protected void die() {
 		setDeleteTrue();
 	}

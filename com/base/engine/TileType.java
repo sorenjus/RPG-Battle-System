@@ -1,10 +1,10 @@
 package com.base.engine;
 
-
 /**
  * Class allows for easier calling of tiles
+ *
+ * @author Ali Akid
  */
-
 public enum TileType {
 
     Grass("grass1", true), Bricks("bricksx64", false);

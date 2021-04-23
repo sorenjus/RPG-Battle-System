@@ -77,6 +77,14 @@ public class Game {
         }
     }
 
+    /**
+     * Determines all the GameObjects within a certain radius
+     *
+     * @param x x coordinate of the center of the circle
+     * @param y y coordinate of the center of the circle
+     * @param radius Radius around the center being checked
+     * @return All of the GameObjects within the specified radius
+     */
     public ArrayList<GameObject> inRadius(float x, float y, float radius) {
         ArrayList<GameObject> inRadius = new ArrayList<>();
 
@@ -89,6 +97,15 @@ public class Game {
         return inRadius;
     }
 
+    /**
+     * Determines all the GameObjects in a certain range in front of the player
+     *
+     * @param x1 Starting x coordinate of detection box
+     * @param y1 Starting y coordinate of detection box
+     * @param x2 Ending x coordinate of detection box
+     * @param y2 Ending y coordinate of detection box
+     * @return All of the GameObjects within the detection box
+     */
     public ArrayList<GameObject> inFront(float x1, float y1, float x2, float y2) {
         ArrayList<GameObject> inFront = new ArrayList<>();
 

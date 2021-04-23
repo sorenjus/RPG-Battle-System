@@ -4,6 +4,8 @@ import org.newdawn.slick.opengl.Texture;
 
 /**
  * This class creates a tile based on the parameters  and draws it
+ *
+ * @author Ali Akid
  */
 public class Tile {
 

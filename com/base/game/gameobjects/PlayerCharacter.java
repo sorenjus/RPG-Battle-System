@@ -13,30 +13,52 @@ import org.lwjgl.input.Keyboard;
 import java.util.ArrayList;
 
 /**
- * This class simulates the character and manages the stats
+ * This class simulates the character and manages the stats and behavior
  *
- * @author Justin Sorensen
+ * @author Justin Sorensen, Jason Truskowski
  */
 public class PlayerCharacter extends BattleObject {
-
     //String containing the characters name//
-    private transient String name = "Lonk"; // temporary
+    private transient String name = "Lonk";
 
+    /**
+     * The PlayerCharacter's inventory
+     */
     private final Inventory playerInventory;
+    /**
+     * The items the PlayerCharacter has equipped
+     */
     private final Equipment equipment;
 
+    /**
+     * Numeric values for the four cardinal directions the character can face
+     */
     public static final int UP = 0;
     public static final int DOWN = 1;
     public static final int LEFT = 2;
     public static final int RIGHT = 3;
+
+    /**
+     * Numeric value for which way the character is currently facing
+     */
     private int facing;
+
+    /**
+     * How far away the player can reach enemies to attack
+     */
     private final int attackRange;
+
+    /**
+     * How long the player has to wait between attacks
+     */
     private final Cooldown attackCoolDown;
 
+    /**
+     * The size of the player
+     */
     public static final float SIZE = 32;
 
     /**
-     * /*
      * This constructor creates a new character
      */
     public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
@@ -50,6 +72,9 @@ public class PlayerCharacter extends BattleObject {
         equipment = new Equipment(playerInventory);
     }
 
+    /**
+     * Checks for important changes in character state (picking up an item, dying)
+     */
     @Override
     public void update() {
         ArrayList<GameObject> objects = Main.inFront(xCoordinate, yCoordinate, xCoordinate+SIZE, yCoordinate+SIZE);
@@ -73,49 +98,46 @@ public class PlayerCharacter extends BattleObject {
      * Move the character and display character stats based on input key
      */
     public void returnInput() {
-        if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_W))
             move(0, 1);
-        }
-        if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_S))
             move(0, -1);
-        }
-        if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_A))
             move(-1, 0);
-        }
-        if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_D))
             move(1, 0);
-        }
-        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && attackCoolDown.isCooldownOver()) {
+        if (Keyboard.isKeyDown(Keyboard.KEY_SPACE) && attackCoolDown.isCooldownOver())
             attack();
-        }
         // TODO: Redo characterToString with new setup
 //        if (Keyboard.isKeyDown(Keyboard.KEY_1)) {
 //            System.out.println(this.characterToString());
 //        }
     }
 
-    private void move(final float magX, final float magY) {
-        if(magX == 0 && magY == 1) {
+    /**
+     * Moves the character and makes them face the desired direction
+     *
+     * @param x Horizontal movement
+     * @param y Vertical movement
+     */
+    private void move(final float x, final float y) {
+        if(x == 0 && y == 1)
             facing = UP;
-        }
-        if(magX == 0 && magY == -1) {
+        if(x == 0 && y == -1)
             facing = DOWN;
-        }
-        if(magX == -1 && magY == 0) {
+        if(x == -1 && y == 0)
             facing = LEFT;
-        }
-        if(magX == 1 && magY == 0) {
+        if(x == 1 && y == 0)
             facing = RIGHT;
-        }
 
-        this.xCoordinate += getSpeed() * magX;
-        this.yCoordinate += getSpeed() * magY;
+        this.xCoordinate += getSpeed() * x;
+        this.yCoordinate += getSpeed() * y;
     }
 
     /**
-     * default speed the sprite moves on the map
+     * Default speed the character sprite moves on the map
      *
-     * @return float
+     * @return Player speed
      */
     public float getSpeed() {
         return 4f;
@@ -135,21 +157,29 @@ public class PlayerCharacter extends BattleObject {
     /**
      * Function returning the character's name
      *
-     * @return String
+     * @return Character name
      */
     public String getName() {
         return this.name;
     }
 
-    public void pickUpItem(Item item)
-    {
+    /**
+     * Adds an item to the player's inventory
+     *
+     * @param item The item being picked up
+     */
+    public void pickUpItem(Item item) {
         playerInventory.addItemToInventory(item);
     }
 
+    /**
+     * Makes the player attack
+     */
     public void attack() {
         System.out.println("Attacking");
         ArrayList<GameObject> inRange = new ArrayList<>();
 
+        // Determines which direction the attack collision detection box should be in
         if(facing == UP) {
             inRange = Main.inFront(getX(), getY(), getX() + SIZE, getY() + attackRange);
         } else if(facing == DOWN) {
@@ -160,6 +190,7 @@ public class PlayerCharacter extends BattleObject {
             inRange = Main.inFront(getX(), getY(), getX() + attackRange, getY() + SIZE);
         }
 
+        // Creates a list of enemies in range
         ArrayList<Enemy> attackable = new ArrayList<>();
 
         for(GameObject ob : inRange) {
@@ -168,6 +199,7 @@ public class PlayerCharacter extends BattleObject {
             }
         }
 
+        // Determines the closest enemy and attacks it
         if(attackable.size() > 0) {
 
             Enemy target = attackable.get(0);
@@ -192,7 +224,4 @@ public class PlayerCharacter extends BattleObject {
 
         attackCoolDown.start();
     }
-
-
 }
-

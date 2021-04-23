@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 
 import static org.lwjgl.opengl.GL11.*;
 
-
 /**
  * This class stores functions in a package for ease of use and funneling
  */
@@ -48,7 +47,6 @@ public class Store {
     /**
      * Draws the overworld with tiles
      */
-
     public static void drawQuad(final float xCord, final float yCord, final float width, final float height) {
         glBegin(GL_QUADS);
         glVertex2f(xCord, yCord);
@@ -61,7 +59,6 @@ public class Store {
     /**
      * Renders all the tiles drawn
      */
-
     public static void drawQuadTex(final Texture tex, final float xCord, final float yCord, final float width, final float height) {
         tex.bind();
         glTranslatef(xCord, yCord, 0); // 0 is for 3d
@@ -95,8 +92,6 @@ public class Store {
 
         }
 
-
-
         return tex;
     }
 
@@ -111,5 +106,4 @@ public class Store {
         tex = loadTexture("com/base/Resources/" + name + ".png", "PNG");
         return tex;
     }
-
 }

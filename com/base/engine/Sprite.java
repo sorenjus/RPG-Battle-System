@@ -3,7 +3,7 @@ package com.base.engine;
 import static org.lwjgl.opengl.GL11.*;
 
 /**
- * This class handles the drawing and size of ingame sprites
+ * This class handles the drawing and size of in-game sprites
  *
  * @author Jason Truskowski
  */
@@ -71,7 +71,6 @@ public class Sprite {
         glColor3f(red, green, blue);
         glBegin(GL_QUADS);
 
-        // Drawing a simple rectangle as a placeholder
         glVertex2f(0, 0);
         glVertex2f(0, sizey);
         glVertex2f(sizex, sizey);

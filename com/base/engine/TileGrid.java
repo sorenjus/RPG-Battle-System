@@ -1,9 +1,9 @@
 package com.base.engine;
 
-//import static Store.Tex.*;
-
 /**
  * Populates the overworld with tiles
+ *
+ * @author Ali Akid
  */
 
 public class TileGrid {

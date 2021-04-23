@@ -4,6 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Displays a death message when the player dies
+ *
+ * @author Jacob Kucinski
+ */
 public class DeathScreen extends JFrame implements ActionListener{
 
     private final JLabel message;

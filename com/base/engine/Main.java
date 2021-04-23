@@ -20,6 +20,11 @@ public class Main {
      */
     private static Game game;
 
+    /**
+     * Creates the game, calls the game loop, and cleans up everything on game close
+     *
+     * @param args
+     */
     public static void main(final String[] args) {
         initDisplay();
         initGL();
@@ -32,10 +37,7 @@ public class Main {
      * Creates the display window for the game
      */
     private static void initDisplay() {
-        //Display.setDisplayMode(new DisplayMode(800, 600));
-        //Display.create();
         Store.beginSession();
-        //new Main();
     }
 
     /**
@@ -84,8 +86,6 @@ public class Main {
         Time.init();
         while (!Display.isCloseRequested()) {
             Time.update();
-            //Display.update();
-            //Display.sync(60);
             getInput();
             update();
             render();
@@ -116,10 +116,27 @@ public class Main {
         Display.update();
     }
 
+    /**
+     * Determines the GameObjects that fall within a certain radius of a starting point
+     *
+     * @param x The x-coordinate of the point
+     * @param y The y-coordinate of the point
+     * @param radius The radius of the area around the point being checked
+     * @return An ArrayList of all the GameObjects in the radius
+     */
     public static ArrayList<GameObject> inRadius(float x, float y, float radius) {
         return game.inRadius(x, y, radius);
     }
 
+    /**
+     * Determines the GameObjects that are in front of a certain area
+     *
+     * @param x1 The starting x coordinate of the area
+     * @param y1 The starting y coordinate of the area
+     * @param x2 The ending x coordinate of the area
+     * @param y2 The ending y coordinate of the area
+     * @return An ArrayList of all the GameObjects in the area
+     */
     public static ArrayList<GameObject> inFront(float x1, float y1, float x2, float y2) {
     	return game.inFront(x1, y1, x2, y2);
     }

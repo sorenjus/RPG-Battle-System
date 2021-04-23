@@ -1,9 +1,31 @@
 package com.base.game.gameobjects;
 
+/**
+ * Class for managing the various stats of GameObjects
+ *
+ * @author Justin Sorensen, Jason Truskowski
+ */
 public class Stats {
+	/**
+	 * Numerical values for each stat
+	 */
 	private int exp, hp, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold, expWorth;
+
+	/**
+	 * Whether the GameObject can level up
+	 */
 	private boolean canLevel;
 
+	/**
+	 * Constructor for a new set of stats
+	 *
+	 * @param exp Starting experience points
+	 * @param str Starting strength
+	 * @param def Starting defense
+	 * @param th Starting level-up threshold
+	 * @param expWorth How much EXP is given upon defeat
+	 * @param canLevel Whether the GameObject can level up
+	 */
 	public Stats(int exp, int str, int def, int th, int expWorth, boolean canLevel) {
 		this.canLevel = canLevel;
 		this.strength = str;
@@ -27,7 +49,7 @@ public class Stats {
 	/**
 	 * Function returning the character's HP
 	 *
-	 * @return int
+	 * @return Current HP
 	 */
 	public int getHP() {
 		if(hp > getMaxHP()) {
@@ -37,45 +59,65 @@ public class Stats {
 		return hp;
 	}
 
+	/**
+	 * Determines the maximum HP the GameObject can ever have
+	 *
+	 * @return Maximum HP
+	 */
 	public int getMaxHP() {
-		return getLevel() * 10; // arbitrary value, may change for balance
+		return getLevel() * 10;
 	}
 
+	/**
+	 * Returns the current level of the GameObject
+	 *
+	 * @return Current level
+	 */
 	public int getLevel() {
 		return level;
 	}
 
 	/**
-	 * Function returning the character's strength
+	 * Function returning the GameObject's strength
 	 *
-	 * @return int
+	 * @return Strength stat
 	 */
 	public int getStrength() {
 		return strength;
 	}
 
 	/**
-	 * Function returning the character's defense
+	 * Function returning the GameObject's defense
 	 *
-	 * @return int
+	 * @return Defense stat
 	 */
 	public int getDefense() {
 		return defense;
 	}
 
+	/**
+	 * Determines if the GameObject can level up
+	 *
+	 * @return Whether the GameObject can level up
+	 */
 	public boolean getCanLevel() {
 		return canLevel;
 	}
 
 	/**
-	 * Function returning the characters amount of experience
+	 * Function returning the GameObject's amount of experience
 	 *
-	 * @return int
+	 * @return Experience points
 	 */
 	public int getExperience() {
 		return exp;
 	}
 
+	/**
+	 * Returns how much EXP the GameObject gives upon its defeat
+	 *
+	 * @return Amount of EXP given
+	 */
 	public int getExpWorth() {
 		return expWorth;
 	}
@@ -83,7 +125,7 @@ public class Stats {
 	/**
 	 * This function raises the characters experience by the amount of experience gained
 	 * in battle. It then evaluates if the amount of experience meets the current level threshold.
-	 * If so the character levels up
+	 * If so, the character levels up
 	 *
 	 * @param battleExp battle experience
 	 */
@@ -110,29 +152,27 @@ public class Stats {
 	}
 
 	/**
-	 * Level threshold is set based on character level
+	 * Determines how much EXP is needed to level up to the next level
 	 *
-	 * @return int
+	 * @return Level threshold based on character level
 	 */
 	private int returnThreshold(int lvl) {
 		return (25 * lvl * lvl) - (25 * lvl) + 50;
 	}
 
 	/**
-	 * Function reducing the characters healthpoint
+	 * Changes the GameObject's current HP
+	 *
+	 * @param hp Desired HP
 	 */
-	public void decHP(){
-		hp = hp - 10;
-	}
-
 	public void setHP(int hp) {
 		this.hp = hp;
 	}
 
 	/**
-	 * Function returning the characters experience threshold
+	 * Function returning the character's experience threshold
 	 *
-	 * @return int
+	 * @return Threshold to level up
 	 */
 	public int getThreshold() {
 		return levelThreshold;
@@ -141,22 +181,27 @@ public class Stats {
 	/**
 	 * Increases Character stats
 	 *
-	 * @param stat Character stat
-	 * @return int
+	 * @param stat The stat being increased
+	 * @return The new value of the stat
 	 */
 	private int incStat(final int stat) {
 		return (stat * this.level) / 2 + 2;
 	}
 
 	/**
-	 * Increase Character HP
+	 * Increases Character HP
 	 *
-	 * @return int
+	 * @return New HP amount
 	 */
 	private int incHP() {
 		return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
 	}
 
+	/**
+	 * Deals damage to the target
+	 *
+	 * @param dmg The amount of HP being taken away
+	 */
 	public void damage(int dmg) {
 		hp -= dmg;
 	}

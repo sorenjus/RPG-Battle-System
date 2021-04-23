@@ -12,20 +12,30 @@ public abstract class GameObject {
      * Coordinates of the GameObject on the overworld
      */
     protected transient float xCoordinate, yCoordinate;
-    private Animation animation;
-    protected transient Sprite sprite;
-    protected boolean delete = false;
-    protected transient String typeOfItem="";
-
-
-    public void update() {
-
-    }
 
     /**
-     * Renders the sprites for game objects
+     * The GameObject's sprite
      */
+    protected transient Sprite sprite;
 
+    /**
+     * Whether the GameObject has been deleted
+     */
+    protected boolean delete = false;
+
+    /**
+     * The type of item (whether it can be picked up or not)
+     */
+    protected transient String typeOfItem="";
+
+    /**
+     * Updates the state of the GameObject
+     */
+    public void update() { }
+
+    /**
+     * Renders the sprites for GameObjects
+     */
     public void render() {
         glPushMatrix();
 
@@ -36,87 +46,101 @@ public abstract class GameObject {
     }
 
     /**
-     * Return the value of X
+     * Getter method for the GameObject's x coordinate
      *
-     * @return float
+     * @return The x-coordinate position of the GameObject
      */
     public float getX() {
         return xCoordinate;
     }
 
     /**
-     * Return the value of Y
+     * Getter method for the GameObject's y coordinate
      *
-     * @return float
+     * @return The y-coordinate position of the GameObject
      */
     public float getY() {
         return yCoordinate;
     }
 
     /**
-     * Return the size value of X
+     * Getter method for the GameObject's width
      *
-     * @return float
+     * @return The width of the GameObject
      */
     public float getSizeX() {
         return sprite.getSizeX();
     }
 
     /**
-     * Return the size value of Y
+     * Getter method for the GameObject's height
      *
-     * @return float
+     * @return The height of the GameObject
      */
     public float getSizeY() {
         return sprite.getSizeY();
     }
 
-
+    /**
+     * Setter method for the GameObject's width
+     *
+     * @param x The desired width of the GameObject
+     */
     protected void setX(float x) {
         this.xCoordinate = x;
     }
 
+    /**
+     * Setter method for the GameObject's height
+     *
+     * @param y The desired height of the GameObject
+     */
     protected void setY(float y) {
         this.yCoordinate = y;
     }
 
     /**
-     * Return the item type (0 for non pickable items and 1 for pickable items)
+     * Returns the item type
      *
-     * @return int
+     * @return 0 for items that cannot be picked up, 1 for items that can
      */
     public String getTypeItem(){ return typeOfItem; }
 
     /**
-     * Return the size value of Y
+     * Determines if the GameObject has been deleted
      *
-     * @return float
+     * @return Whether the GameObject is deleted
      */
     public boolean getDelete()
     {
         return delete;
     }
 
+    /**
+     * Deletes the GameObject
+     */
     public void setDeleteTrue()
     {
         delete = true;
     }
 
     /**
-     * Initialize the sprite
-     * @param typeOfItem  What the object is (item, player, enemy etc.)
-     * @param xCord   default horizontal
-     * @param yCord   default vertical location
-     * @param red     Red value
-     * @param green   Green value
-     * @param blue    Blue value
-     * @param hLength Horizontal length
-     * @param vLength Vertical height
+     * Initializes information about the sprite
+     *
+     * @param xCord Horizontal position
+     * @param yCord Vertical position
+     * @param r Red value of sprite color
+     * @param g Green value of sprite color
+     * @param b Blue value of sprite color
+     * @param hLength Horizontal length (width)
+     * @param vLength Vertical length (height)
+     * @param typeOfItem Whether the item is able to be picked up
      */
-    public void init(final float xCord, final float yCord, final float red, final float green, final float blue, final float hLength, final float vLength, final String typeOfItem) {
+    protected void init(final float xCord, final float yCord, final float r, final float g, final float b,
+                        final float hLength, final float vLength, final String typeOfItem) {
         this.xCoordinate = xCord;
         this.yCoordinate = yCord;
         this.typeOfItem = typeOfItem;
-        this.sprite = new Sprite(red, green, blue, hLength, vLength);
+        this.sprite = new Sprite(r, g, b, hLength, vLength);
     }
 }
