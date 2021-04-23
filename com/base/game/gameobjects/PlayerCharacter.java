@@ -3,6 +3,7 @@ package com.base.game.gameobjects;
 import com.base.engine.GameObject;
 import com.base.engine.Main;
 import com.base.engine.Physics;
+import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
 import com.base.game.Game;
 import com.base.game.Item.Item;
@@ -60,8 +61,8 @@ public class PlayerCharacter extends BattleObject {
 
         if(stats.getHP() <= 0) {
             die();
+            DeathScreen s = new DeathScreen();
         }
-        //getItem();
     }
 
     /**
