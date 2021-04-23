@@ -15,7 +15,6 @@ public abstract class GameObject {
     private Animation animation;
     protected transient Sprite sprite;
     protected boolean delete = false;
-
     protected transient String typeOfItem="";
 
 

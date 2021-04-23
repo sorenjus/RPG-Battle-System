@@ -19,15 +19,10 @@ public class BattleObject extends GameObject {
 	}
 
 	public int getMaxHP() {
-		return getLevel() * 10; // arbitrary value, may change for balance
+		return getLevel() * 10;
 	}
 
 	public int getLevel() {
-		if(!stats.getCanLevel()) {
-			return stats.getLevel();
-		}
-
-		// TODO: Determine calculation for level if canLevel
 		return stats.getLevel();
 	}
 
@@ -56,6 +51,10 @@ public class BattleObject extends GameObject {
 	 */
 	public int getExperience() {
 		return stats.getExperience();
+	}
+
+	public int getExpWorth () {
+		return stats.getExpWorth();
 	}
 
 	public void damage(int dmg) {

@@ -1,10 +1,10 @@
 package com.base.game.gameobjects;
 
 public class Stats {
-	private int exp, hp, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold;
+	private int exp, hp, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold, expWorth;
 	private boolean canLevel;
 
-	public Stats(int exp, int str, int def, int th, boolean canLevel) {
+	public Stats(int exp, int str, int def, int th, int expWorth, boolean canLevel) {
 		this.canLevel = canLevel;
 		this.strength = str;
 		this.baseStr = str;
@@ -15,9 +15,11 @@ public class Stats {
 		if(canLevel) {
 			this.exp = exp;
 			this.level = 1;
+			this.expWorth = 0;
 		} else {
 			this.exp = -1;
 			this.level = exp;
+			this.expWorth = expWorth;
 		}
 		this.hp = getMaxHP();
 	}
@@ -74,6 +76,10 @@ public class Stats {
 		return exp;
 	}
 
+	public int getExpWorth() {
+		return expWorth;
+	}
+
 	/**
 	 * This function raises the characters experience by the amount of experience gained
 	 * in battle. It then evaluates if the amount of experience meets the current level threshold.
@@ -100,8 +106,7 @@ public class Stats {
 		this.level += 1;
 		this.hp = incHP();
 		this.strength = incStat(this.baseStr);
-		this.defense = incStat(this.baseDef);
-		this.levelThreshold = returnThreshold() + 50;
+		this.levelThreshold = returnThreshold(this.level);
 	}
 
 	/**
@@ -109,8 +114,8 @@ public class Stats {
 	 *
 	 * @return int
 	 */
-	private int returnThreshold() {
-		return 25 * this.level * this.level - 25 * this.level;
+	private int returnThreshold(int lvl) {
+		return (25 * lvl * lvl) - (25 * lvl) + 50;
 	}
 
 	/**

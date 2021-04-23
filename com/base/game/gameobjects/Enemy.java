@@ -16,7 +16,7 @@ public class Enemy extends BattleObject {
 	public static float vision = 150f;
 
 	public Enemy(float x, float y, int exp, int str, int def, int th) {
-		stats = new Stats(exp, str, def, th, false);
+		stats = new Stats(exp, str, def, th, 50,false);
 		target = null;
 		attackRange = 50;
 		attackCoolDown = new Cooldown(0);

@@ -42,6 +42,7 @@ public class Game {
         objects.add(new GenericRedSquareOfDeath(150, 250, 1, 2, 1, 50));
         objects.add(new GenericRedSquareOfDeath(200, 500, 1, 2, 1, 50));
         objects.add(new GenericRedSquareOfDeath(500, 450, 1, 2, 1, 50));
+        objects.add(new GenericRedSquareOfDeath(600, 100, 1, 2, 1, 50));
     }
 
     /**

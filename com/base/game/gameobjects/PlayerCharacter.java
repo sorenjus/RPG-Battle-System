@@ -41,7 +41,7 @@ public class PlayerCharacter extends BattleObject {
      */
     public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
         init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE, "Player" );
-        stats = new Stats(0, 3, 1, 50, true);
+        stats = new Stats(0, 3, 1, 50, 0, true);
         playerInventory = new Inventory(10);
         facing = 0;
         attackRange = 69;
@@ -183,8 +183,8 @@ public class PlayerCharacter extends BattleObject {
             System.out.println("Enemy Hit! Enemy health: " + target.getHP() + "/" + target.getMaxHP());
 
             if(target.getHP() <= 0) {
-                System.out.println("Enemy Killed! Gained " + target.stats.getThreshold() + " EXP");
-                stats.setExperience(getExperience() + target.stats.getThreshold());
+                System.out.println("Enemy Killed! Gained " + target.stats.getExpWorth() + " EXP");
+                stats.setExperience(target.stats.getExpWorth());
             }
         } else {
             System.out.println("Missed!");
