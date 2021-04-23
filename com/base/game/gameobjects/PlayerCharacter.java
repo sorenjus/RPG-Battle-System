@@ -89,6 +89,17 @@ public class PlayerCharacter extends BattleObject {
                         attackRange = attackRange+31;
                         stats.setStrength(getStrength()+2);
                     }
+                    if(((Item)go).getItemName().equals("Chain Mail Pants"))
+                    {
+                        stats.setDefense(getDefense()+2);
+                    }
+                    if(((Item)go).getItemName().equals("Chain Mail")) {
+                        stats.setDefense(getDefense() + 3);
+                    }
+                    if(((Item)go).getItemName().equals("Cap"))
+                    {
+                        stats.setDefense(getDefense()+1);
+                    }
                 go.setDeleteTrue();
                 pickUpItem((Item)go);
             }

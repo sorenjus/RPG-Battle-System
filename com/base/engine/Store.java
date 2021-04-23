@@ -89,7 +89,6 @@ public class Store {
             streamIn.close();
         } catch (IOException e) {
             e.printStackTrace();
-
         }
 
         return tex;

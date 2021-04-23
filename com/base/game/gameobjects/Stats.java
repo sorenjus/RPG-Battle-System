@@ -169,6 +169,10 @@ public class Stats {
 		this.hp = hp;
 	}
 
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
 	/**
 	 * Function returning the character's experience threshold
 	 *
