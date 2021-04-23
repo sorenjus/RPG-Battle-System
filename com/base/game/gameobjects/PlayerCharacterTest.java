@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class PlayerCharacterTest {
 
+    /**
+     * Test the constructor of player and all attributes
+     */
     @Test
     public void CharacterConstructor() {
 
@@ -23,6 +26,9 @@ public class PlayerCharacterTest {
 //        assertEquals(50, player.getThreshold());
     }
 
+    /**
+     * Test the level up mechanic
+     */
     @Test
     public void levelUp() {
         final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
