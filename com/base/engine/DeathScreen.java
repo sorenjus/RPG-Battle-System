@@ -29,7 +29,7 @@ public class DeathScreen extends JFrame implements ActionListener{
         closeGame = new JButton("Exit");
 
         message.setBounds(75, 30, 150, 30);
-        restart.setBounds(100, 75, 100, 50);
+        restart.setBounds(40, 75, 100, 50);
         closeGame.setBounds(160, 75, 100, 50);
 
         restart.addActionListener(this);
