@@ -169,6 +169,10 @@ public class Stats {
 		this.healthPoints = healtPoints;
 	}
 
+	/**
+	 * Function sets the character's defense
+	 * @param defense new defense value
+	 */
 	public void setDefense( final int defense) {
 		this.defense = defense;
 	}
@@ -201,6 +205,10 @@ public class Stats {
 		return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
 	}
 
+	/**
+	 * function which increases the character's strength
+	 * @param strength new strength value
+	 */
 	public void setStrength( final int strength) {
 		this.strength = strength;
 	}

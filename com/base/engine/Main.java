@@ -37,10 +37,7 @@ public class Main {
      * Creates the display window for the game
      */
     private static void initDisplay() {
-        //Display.setDisplayMode(new DisplayMode(800, 600));
-        //Display.create();
         Store.beginSession();
-        //new Main();
     }
 
     /**
@@ -87,6 +84,7 @@ public class Main {
         final TileGrid grid = new TileGrid(map);
         grid.draw();
         Time.init();
+        System.out.println("WASD keys: Move | Space: Attack");
         while (!Display.isCloseRequested()) {
             Time.update();
             returnInput();

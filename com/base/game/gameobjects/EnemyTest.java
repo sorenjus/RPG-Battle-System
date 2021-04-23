@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * A test class to test the Enemy class
+ *
+ * @author Jason Truskowski
+ */
 public class EnemyTest {
 
     @Test
