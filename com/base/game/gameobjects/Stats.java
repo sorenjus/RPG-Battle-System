@@ -20,19 +20,19 @@ public class Stats {
 	 * Constructor for a new set of stats
 	 *
 	 * @param experience Starting experience points
-	 * @param str Starting strength
-	 * @param def Starting defense
-	 * @param th Starting level-up threshold
+	 * @param strength Starting strength
+	 * @param defense Starting defense
+	 * @param threshold Starting level-up threshold
 	 * @param expWorth How much EXP is given upon defeat
 	 * @param canLevel Whether the GameObject can level up
 	 */
-	public Stats(int experience, int str, int def, int th, int expWorth, boolean canLevel) {
+	public Stats( final int experience, final int strength, final int defense, final int threshold, final int expWorth, final boolean canLevel) {
 		this.canLevel = canLevel;
-		this.strength = str;
-		this.baseStr = str;
-		this.defense = def;
-		this.baseDef = def;
-		this.levelThreshold = th;
+		this.strength = strength;
+		this.baseStr = strength;
+		this.defense = defense;
+		this.baseDef = defense;
+		this.levelThreshold = threshold;
 
 		if(canLevel) {
 			this.experience = experience;
@@ -156,20 +156,20 @@ public class Stats {
 	 *
 	 * @return Level threshold based on character level
 	 */
-	private int returnThreshold(int lvl) {
-		return (25 * lvl * lvl) - (25 * lvl) + 50;
+	private int returnThreshold( final int lvl) {
+		return 25 * lvl * lvl - 25 * lvl + 50;
 	}
 
 	/**
 	 * Changes the GameObject's current HP
 	 *
-	 * @param hp Desired HP
+	 * @param healtPoints Desired HP
 	 */
-	public void setHP(int hp) {
-		this.healthPoints = hp;
+	public void setHP( final int healtPoints) {
+		this.healthPoints = healtPoints;
 	}
 
-	public void setDefense(int defense) {
+	public void setDefense( final int defense) {
 		this.defense = defense;
 	}
 
@@ -201,7 +201,7 @@ public class Stats {
 		return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
 	}
 
-	public void setStrength(int strength) {
+	public void setStrength( final int strength) {
 		this.strength = strength;
 	}
 
@@ -210,7 +210,7 @@ public class Stats {
 	 *
 	 * @param dmg The amount of HP being taken away
 	 */
-	public void damage(int dmg) {
+	public void damage( final int dmg) {
 		healthPoints -= dmg;
 	}
 }

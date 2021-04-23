@@ -1,6 +1,6 @@
 package com.base.game.gameobjects;
 
-import com.base.game.Item.Item;
+import com.base.game.item.Item;
 
 /**
  * A class that manages the player's inventory
@@ -18,7 +18,7 @@ public class Inventory {
      *
      * @param sizeOfInventory The maximum number of items that can be in the inventory
      */
-    public Inventory(int sizeOfInventory)
+    public Inventory( final int sizeOfInventory)
     {
         this.items = new Item[sizeOfInventory];
     }
@@ -29,13 +29,15 @@ public class Inventory {
      * @param itemToAdd The Item being added
      * @return Whether the item was successfully added
      */
-    public boolean addItemToInventory (Item itemToAdd)
+    public boolean addItemToInventory ( final Item itemToAdd)
     {
         for (int i = 0; i < items.length; i++)
+        {
             if(items[i] == null) {
                 items[i] = itemToAdd;
                 return true;
             }
+        }
         return false;
     }
 
@@ -45,7 +47,7 @@ public class Inventory {
      * @param index The index being accessed
      * @return The item in that index
      */
-    public Item getItem (int index)
+    public Item getItem ( final int index)
     {
         return items[index];
     }
@@ -56,7 +58,7 @@ public class Inventory {
      * @param itemToDrop The item to get rid of
      * @return Whether the item was successfully dropped
      */
-    public boolean dropItem (Item itemToDrop)
+    public boolean dropItem ( final Item itemToDrop)
     {
         for (int i = 0; i<items.length; i++)
         {

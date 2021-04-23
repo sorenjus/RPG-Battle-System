@@ -1,8 +1,10 @@
-package com.base.game.Item;
-
-public class ChainPants extends EquippableItems{
-
-
+package com.base.game.item;
+/**
+ * Class for a Sword that can be equipped and used
+ *
+ * @author Adrian Croitoru
+ */
+public class Cap extends EquippableItems{
     /**
      * The size of the sword
      */
@@ -10,24 +12,23 @@ public class ChainPants extends EquippableItems{
     /**
      * The name of the item
      */
-    public static final String ITEMNAME = "Chain Mail Pants";
+    public static final String ITEMNAME = "Cap";
     /**
      * The increased damage the sword lets the player deal
      */
-    private final int DEFENSE;
-
+    private final int defense;
 
     /**
-     * Constructor for a new pair of Chain Pants
+     * Constructor for a new Cap hat
      *
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public ChainPants (float xCoord, float yCoord){
+    public Cap (final float xCoord, final float yCoord){
 
-        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, LEG_SLOT);
+        init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, HEAD_SLOT);
         this.setItemName(ITEMNAME);
-        this.DEFENSE=2;
+        this.defense =1;
     }
 
     /**
@@ -35,6 +36,6 @@ public class ChainPants extends EquippableItems{
      * @return defense of the Item
      */
     public int getDefense() {
-        return DEFENSE;
+        return defense;
     }
 }

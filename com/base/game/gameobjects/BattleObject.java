@@ -85,7 +85,7 @@ public class BattleObject extends GameObject {
 	 *
 	 * @param dmg How much damage is being dealt
 	 */
-	public void damage(int dmg) {
+	public void damage(final int dmg) {
 		stats.damage(dmg);
 	}
 

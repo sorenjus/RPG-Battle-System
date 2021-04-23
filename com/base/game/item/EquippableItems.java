@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 import com.base.engine.Sprite;
 
@@ -37,7 +37,7 @@ public class EquippableItems extends Item {
      * @param slot Slot number being equipped to
      */
     public void init(final float xCord, final float yCord, final float red, final float green, final float blue,
-                     final float hLength, final float vLength, int slot) {
+                     final float hLength, final float vLength, final int slot) {
         this.xCoordinate = xCord;
         this.yCoordinate = yCord;
         this.slot = slot;

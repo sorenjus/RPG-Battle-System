@@ -2,10 +2,10 @@ package com.base.game;
 
 import com.base.engine.GameObject;
 import com.base.engine.Physics;
-import com.base.game.Item.Cap;
-import com.base.game.Item.ChainMail;
-import com.base.game.Item.ChainPants;
-import com.base.game.Item.Sword;
+import com.base.game.item.Cap;
+import com.base.game.item.ChainMail;
+import com.base.game.item.ChainPants;
+import com.base.game.item.Sword;
 import com.base.game.gameobjects.GenericRedSquareOfDeath;
 import com.base.game.gameobjects.PlayerCharacter;
 import org.lwjgl.opengl.Display;
@@ -64,14 +64,18 @@ public class Game {
     public void update() {
         for (final GameObject go : objects) {
             if(!go.getDelete())
+            {
                 go.update();
+            }
             else
             {
                 remove.add(go);
             }
         }
-        for(GameObject go : remove)
+        for(final GameObject go : remove)
+        {
             objects.remove(go);
+        }
     }
 
     /**
@@ -91,10 +95,10 @@ public class Game {
      * @param radius Radius around the center being checked
      * @return All of the GameObjects within the specified radius
      */
-    public ArrayList<GameObject> inRadius(float xCoord, float yCoord, float radius) {
-        ArrayList<GameObject> inRadius = new ArrayList<>();
+    public ArrayList<GameObject> inRadius(final float xCoord, final float yCoord, final float radius) {
+        final ArrayList<GameObject> inRadius = new ArrayList<>();
 
-        for(GameObject ob : objects) {
+        for(final GameObject ob : objects) {
             if(Physics.getDist(ob.getX(), ob.getY(), xCoord, yCoord) < radius) {
                 inRadius.add(ob);
             }
@@ -113,14 +117,14 @@ public class Game {
      * @return All of the GameObjects within the detection box
      */
     public ArrayList<GameObject> inFront(final float firstxCoord, final float firstyCoord, final float secondxCoord, final float secondyCoord) {
-        ArrayList<GameObject> inFront = new ArrayList<>();
+        final ArrayList<GameObject> inFront = new ArrayList<>();
 
-        float width = secondxCoord - firstxCoord;
-        float height = secondyCoord - firstyCoord;
+        final float width = secondxCoord - firstxCoord;
+        final float height = secondyCoord - firstyCoord;
 
-        Rectangle detection = new Rectangle((int)firstxCoord, (int)firstyCoord, (int)width, (int)height);
+        final Rectangle detection = new Rectangle((int)firstxCoord, (int)firstyCoord, (int)width, (int)height);
 
-        for(GameObject ob : objects) {
+        for(final GameObject ob : objects) {
             if(Physics.areColliding(detection, ob) != null) {
                 inFront.add(ob);
             }

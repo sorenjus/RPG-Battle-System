@@ -7,7 +7,7 @@ package com.base.engine;
  */
 public enum TileType {
 
-    Grass("grass1", true), Bricks("bricksx64", false);
+    grass("grass1", true), bricks("bricksx64", false);
     String textureName;
     boolean build;
 

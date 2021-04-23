@@ -20,7 +20,7 @@ public class TileGrid {
         map = new Tile[20][15];
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                map[i][j] = new Tile(i * 64, j * 64, 64, 64, TileType.Grass);
+                map[i][j] = new Tile(i * 64, j * 64, 64, 64, TileType.grass);
             }
         }
     }
@@ -34,10 +34,10 @@ public class TileGrid {
             for (int j = 0; j < map[i].length; j++) {
                 switch (newMap[j][i]) {
                     case 0:
-                        map[i][j] = new Tile(i * 64, j * 64, 64, 64, TileType.Grass);
+                        map[i][j] = new Tile(i * 64, j * 64, 64, 64, TileType.grass);
                         break;
                     case 1:
-                        map[i][j] = new Tile(i * 64, j * 64, 64, 64, TileType.Bricks);
+                        map[i][j] = new Tile(i * 64, j * 64, 64, 64, TileType.bricks);
                         break;
                 }
             }
