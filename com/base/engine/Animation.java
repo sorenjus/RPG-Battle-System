@@ -31,7 +31,7 @@ public class Animation {
     public void render() {
         final Frame temp = frames.get(currentFrame);
 
-        if (temp.render()) {
+        if (temp.render()) {//NOPMD
             // Advance to the next frame, or return to the first frame if on the last
             currentFrame++;
             currentFrame %= frames.size();

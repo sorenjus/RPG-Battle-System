@@ -51,7 +51,7 @@ public class TileGrid {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 final Tile tile = map[i][j];
-                Store.drawQuadTex(tile.getTexture(), tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight());
+                Store.drawQuadTex(tile.getTexture(), tile.getX(), tile.getY(), tile.getWidth(), tile.getHeight());//NOPMD
             }
         }
     }

@@ -11,7 +11,7 @@ public class Inventory {
     /**
      * An array of all the Items in the inventory
      */
-    private final Item[] items;
+    private transient final Item[] items;
 
     /**
      * Creates the player's inventory

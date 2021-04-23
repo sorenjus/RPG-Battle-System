@@ -19,7 +19,7 @@ public class Sword extends EquippableItems {
     /**
      * The increased damage the sword lets the player deal
      */
-    private final int STRINCREASE;
+    private transient final int STRINCREASE;
     /**
      * The increased the range of the player attack.
      */

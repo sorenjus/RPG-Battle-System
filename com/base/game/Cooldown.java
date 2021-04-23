@@ -9,17 +9,17 @@ public class Cooldown {
 	/**
 	 * The amount of time elapsed in ms
 	 */
-	private int time;
+	private final transient int time;
 
 	/**
 	 * When the cooldown ends
 	 */
-	private long coolDownEnd;
+	private transient long coolDownEnd;
 
 	/**
 	 * Whether cooldown has started
 	 */
-	private boolean started;
+	private transient boolean started;
 
 	/**
 	 * Constructs a new cooldown timer

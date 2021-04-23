@@ -22,7 +22,7 @@ public class EquippableItems extends Item {
     /**
      * The slot an item is being equipped to
      */
-    private int slot;
+    private transient int slot;
 
     /**
      * Initializes a new equippaable item

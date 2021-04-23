@@ -21,7 +21,7 @@ public abstract class GameObject {
     /**
      * Whether the GameObject has been deleted
      */
-    protected boolean delete = false;
+    protected transient boolean delete = false;
 
     /**
      * The type of item (whether it can be picked up or not)

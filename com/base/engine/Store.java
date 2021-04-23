@@ -33,7 +33,7 @@ public class Store {
             Keyboard.create();
             Display.setVSyncEnabled(true);
         } catch (LWJGLException e) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);//NOPMD
         }
 
         glMatrixMode(GL_PROJECTION);

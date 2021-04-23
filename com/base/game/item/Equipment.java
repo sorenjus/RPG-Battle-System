@@ -11,11 +11,11 @@ public class Equipment {
     /**
      * Array of which items cam be equipped
      */
-    private EquippableItems[] equippableItems;
+    private transient EquippableItems[] equippableItems;
     /**
      * The player's inventory
      */
-    private Inventory inventory;
+    private transient final Inventory inventory;
 
     /**
      * Constructor for a new set of equipment
@@ -36,11 +36,8 @@ public class Equipment {
     public boolean equipItem(final EquippableItems item) {
         final int index = item.getSlot();
 
-        if (equippableItems[index] != null) {
-            if(!deEquipItem(index))
-            {
+        if (equippableItems[index] != null && !deEquipItem(index)) {
                 return false;
-            }
         }
 
         inventory.dropItem(item);

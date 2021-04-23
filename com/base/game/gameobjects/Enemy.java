@@ -21,12 +21,12 @@ public class Enemy extends BattleObject {
 	/**
 	 * The distance and strength of the Enemy's attacks
 	 */
-	private int attackRange, attackPower;
+	private transient int attackRange, attackPower;
 
 	/**
 	 * How long the Enemy has to wait between attacks
 	 */
-	private Cooldown attackCoolDown;
+	private transient Cooldown attackCoolDown;
 
 	/**
 	 * Factor by which the Enemy is slower than the PlayerCharacter
@@ -62,7 +62,7 @@ public class Enemy extends BattleObject {
 		if(target == null || target.getHP() <= 0) {
 			look();
 		} else if(Physics.inLineOfSight(this, target) &&
-				Physics.getDist(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {
+				Physics.getDist(xCoordinate, yCoordinate, getTarget().getX(), getTarget().getY()) <= attackRange) {//NOPMD
 			if(attackCoolDown.isCooldownOver())
 			{
 				attack();
@@ -170,8 +170,8 @@ public class Enemy extends BattleObject {
 	 * Changes the Enemy's position to get closer to its target
 	 */
 	protected void chase() {
-		float speedX = getTarget().getX() - getX();
-		float speedY = getTarget().getY() - getY();
+		float speedX = getTarget().getX() - getX();//NOPMD
+		float speedY = getTarget().getY() - getY();//NOPMD
 		final float speedCap = 4f * SLOWDOWN;
 
 		if(speedX > speedCap) {

@@ -11,7 +11,7 @@ public class BattleObject extends GameObject {
 	/**
 	 * The battle stats of the BattleObject
 	 */
-	protected Stats stats;
+	protected transient Stats stats;
 
 	/**
 	 * Returns the BattleObject's HP

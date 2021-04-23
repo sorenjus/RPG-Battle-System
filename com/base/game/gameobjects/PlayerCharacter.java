@@ -17,16 +17,12 @@ import java.util.ArrayList;
  */
 public class PlayerCharacter extends BattleObject {
     //String containing the characters name//
-    private transient String name = "Lonk";
+    private static transient final String name = "Lonk";
 
     /**
      * The PlayerCharacter's inventory
      */
-    private final Inventory playerInventory;
-    /**
-     * The items the PlayerCharacter has equipped
-     */
-    private final Equipment equipment;
+    private transient final Inventory playerInventory;
 
     /**
      * Numeric values for the four cardinal directions the character can face
@@ -39,13 +35,13 @@ public class PlayerCharacter extends BattleObject {
     /**
      * Numeric value for which way the character is currently facing
      */
-    private int facing;
-    private int attackRange;
+    private transient int facing;
+    private transient int attackRange;
 
     /**
      * How long the player has to wait between attacks
      */
-    private final Cooldown attackCoolDown;
+    private transient final Cooldown attackCoolDown;
 
     /**
      * The size of the player
@@ -63,7 +59,10 @@ public class PlayerCharacter extends BattleObject {
         attackRange = 69;
         attackCoolDown = new Cooldown(500);
         attackCoolDown.stop();
-        equipment = new Equipment(playerInventory);
+        /**
+         * The items the PlayerCharacter has equipped
+         */
+        Equipment equipment = new Equipment(playerInventory);
     }
 
     /**
@@ -233,17 +232,17 @@ public class PlayerCharacter extends BattleObject {
 
             if(attackable.size() > 1) {
                 for(final GameObject en : attackable) {
-                    if(Physics.getDist(getX(), getY(), en.getX(), en.getY()) < Physics.getDist(getX(), getY(), target.getX(), target.getY())) {
+                    if(Physics.getDist(getX(), getY(), en.getX(), en.getY()) < Physics.getDist(getX(), getY(), target.getX(), target.getY())) {//NOPMD
                         target = (Enemy)en;
                     }
                 }
             }
-            target.damage(getStrength() - target.getDefense());
-            System.out.println("Enemy Hit! Enemy health: " + target.getHP() + "/" + target.getMaxHP());
+            target.damage(getStrength() - target.getDefense());//NOPMD
+            System.out.println("Enemy Hit! Enemy health: " + target.getHP() + "/" + target.getMaxHP());//NOPMD
 
-            if(target.getHP() <= 0) {
-                System.out.println("Enemy Killed! Gained " + target.stats.getExpWorth() + " EXP");
-                stats.setExperience(target.stats.getExpWorth());
+            if(target.getHP() <= 0) {//NOPMD
+                System.out.println("Enemy Killed! Gained " + target.stats.getExpWorth() + " EXP");//NOPMD
+                stats.setExperience(target.stats.getExpWorth());//NOPMD
             }
         } else {
             System.out.println("Missed!");

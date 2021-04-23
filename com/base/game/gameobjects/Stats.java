@@ -9,12 +9,12 @@ public class Stats {
 	/**
 	 * Numerical values for each stat
 	 */
-	private int experience, healthPoints, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold, expWorth;
+	private transient int experience, healthPoints, level, strength, defense, baseHp, baseStr, baseDef, levelThreshold, expWorth;
 
 	/**
 	 * Whether the GameObject can level up
 	 */
-	private boolean canLevel;
+	private transient boolean canLevel;
 
 	/**
 	 * Constructor for a new set of stats
