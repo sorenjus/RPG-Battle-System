@@ -42,6 +42,7 @@ public class PlayerCharacter extends BattleObject {
      * Numeric value for which way the character is currently facing
      */
     private int facing;
+    private int attackRange;
 
     /**
      * How far away the player can reach enemies to attack
@@ -83,6 +84,11 @@ public class PlayerCharacter extends BattleObject {
         {
             if (go instanceof Item) {
                 System.out.println("you picked up a " + ((Item)go).getItemName() + "!");
+                    if(((Item)go).getItemName().equals("Sword"))
+                    {
+                        attackRange = attackRange+31;
+                        stats.setStrength(getStrength()+2);
+                    }
                 go.setDeleteTrue();
                 pickUpItem((Item)go);
             }

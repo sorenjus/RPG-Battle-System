@@ -37,7 +37,10 @@ public class Main {
      * Creates the display window for the game
      */
     private static void initDisplay() {
+        //Display.setDisplayMode(new DisplayMode(800, 600));
+        //Display.create();
         Store.beginSession();
+        //new Main();
     }
 
     /**

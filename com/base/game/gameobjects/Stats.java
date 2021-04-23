@@ -197,6 +197,10 @@ public class Stats {
 		return (this.getStrength() * (200 * this.getLevel())) / 100 + 30;
 	}
 
+	public void setStrength(int strength) {
+		this.strength = strength;
+	}
+
 	/**
 	 * Deals damage to the target
 	 *
