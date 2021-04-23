@@ -6,8 +6,8 @@ import java.awt.event.*;
 
 public class DeathScreen extends JFrame implements ActionListener{
 
-    private JLabel message;
-    private JButton restart;
+    private final JLabel message;
+    private final JButton restart;
 
     public DeathScreen() {
         setLayout(null);

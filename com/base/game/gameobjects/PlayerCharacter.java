@@ -6,6 +6,7 @@ import com.base.engine.Physics;
 import com.base.engine.DeathScreen;
 import com.base.game.Cooldown;
 import com.base.game.Game;
+import com.base.game.Item.Equipment;
 import com.base.game.Item.Item;
 import org.lwjgl.input.Keyboard;
 
@@ -22,6 +23,8 @@ public class PlayerCharacter extends BattleObject {
     private transient String name = "Lonk"; // temporary
 
     private final Inventory playerInventory;
+    private final Equipment equipment;
+
     public static final int UP = 0;
     public static final int DOWN = 1;
     public static final int LEFT = 2;
@@ -37,13 +40,14 @@ public class PlayerCharacter extends BattleObject {
      * This constructor creates a new character
      */
     public PlayerCharacter(final float xCoordinate, final float yCoordinate) {
-        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE,"Player");
+        init(xCoordinate, yCoordinate, 0.1f, 1f, 0.25f, SIZE, SIZE, "Player" );
         stats = new Stats(0, 3, 1, 50, true);
         playerInventory = new Inventory(10);
         facing = 0;
         attackRange = 69;
         attackCoolDown = new Cooldown(500);
         attackCoolDown.stop();
+        equipment = new Equipment(playerInventory);
     }
 
     @Override

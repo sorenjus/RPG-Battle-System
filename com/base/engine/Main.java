@@ -53,7 +53,7 @@ public class Main {
     /**
      * Creates a new game
      */
-    private static void initGame() {
+    public static void initGame() {
         game = new Game();
     }
 
