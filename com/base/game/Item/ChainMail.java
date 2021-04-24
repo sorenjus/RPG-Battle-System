@@ -7,7 +7,7 @@ package com.base.game.Item;
 public class ChainMail extends EquippableItems {
 
     /**
-     * The size of the sword
+     * The size of the chain mail
      */
     public static final float SIZE = 32;
     /**
@@ -15,7 +15,7 @@ public class ChainMail extends EquippableItems {
      */
     public static final String ITEMNAME = "Chain Mail";
     /**
-     * The increased damage the sword lets the player deal
+     * The increased armor the chain mail increases
      */
     private final int defense;
 

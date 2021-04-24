@@ -1,8 +1,21 @@
 package com.base.game.gameobjects;
 
+import com.base.engine.GameObject;
+import com.base.engine.Main;
+import com.base.game.Item.Sword;
+import com.base.game.Game;
+import com.base.game.Time;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.lwjgl.opengl.GL11.*;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.base.engine.Main.initGame;
 
 /**
  * A test class for PlayerCharacter class
@@ -12,18 +25,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PlayerCharacterTest {
 
     /**
-     * Test the constructor of player and all attributes
+     * Test the constructor of player and all attributes and player position
      */
     @Test
     public void CharacterConstructor() {
 
+        initGame();
+
         final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
-//        assertEquals(1, player.getLevel());
-//        assertEquals(5, player.getStrength());
-//        assertEquals(40, player.getHP());
-//        assertEquals(5, player.getDefense());
-//        assertEquals(0, player.getExperience());
-//        assertEquals(50, player.getThreshold());
+        Sword sword = new Sword(390.0F,280.0F);
+        assertEquals(1, player.getLevel());
+        assertEquals(3, player.getStrength());
+        assertEquals(10, player.getHP());
+        assertEquals(1, player.getDefense());
+        assertEquals(0, player.getExperience());
+        assertEquals("Lonk", player.getName());
+        assertEquals(384, player.getX());
+        assertEquals(284, player.getY());
+
+
+
     }
 
     /**
@@ -31,24 +52,38 @@ public class PlayerCharacterTest {
      */
     @Test
     public void levelUp() {
-        final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
-//        player.setExperience(50);
-//        assertEquals(2, player.getLevel());
-//        assertEquals(7, player.getStrength());
-//        assertEquals(50, player.getHP());
-//        assertEquals(7, player.getDefense());
-//        assertEquals(50, player.getExperience());
-//        assertEquals(100, player.getThreshold());
-//
-//        player.setExperience(50);
-//        assertEquals(3, player.getLevel());
-//        assertEquals(9, player.getStrength());
-//        assertEquals(72, player.getHP());
-//        assertEquals(9, player.getDefense());
-//        assertEquals(100, player.getExperience());
-//        assertEquals(200, player.getThreshold());
-//        player.setHP();
-//        assertEquals(62, player.getHP());
 
+        final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
+        player.stats.setExperience(50);
+        assertEquals(2, player.getLevel());
+        assertEquals(5, player.getStrength());
+        assertEquals(20, player.getHP());
+        assertEquals(1, player.getDefense());
+        assertEquals(50, player.getExperience());
+        assertEquals(100, player.stats.getThreshold());
+
+        player.stats.setExperience(50);
+        assertEquals(3, player.getLevel());
+        assertEquals(6, player.getStrength());
+        assertEquals(30, player.getHP());
+        assertEquals(1, player.getDefense());
+        assertEquals(100, player.getExperience());
+        assertEquals(200, player.stats.getThreshold());
+
+    }
+
+    /**
+     * Test the death mechanic
+     *
+     */
+    @Test
+    public void die() {
+
+        initGame();
+
+        final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
+        player.stats.setHP(0);
+        player.update();
+        assertTrue(player.getDelete()); //check if player gets deleted after HP reaching 0
     }
 }

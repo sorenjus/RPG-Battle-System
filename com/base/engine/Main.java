@@ -81,8 +81,6 @@ public class Main {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        final TileGrid grid = new TileGrid(map);
-        grid.draw();
         Time.init();
         System.out.println("WASD keys: Move | Space: Attack");
         while (!Display.isCloseRequested()) {

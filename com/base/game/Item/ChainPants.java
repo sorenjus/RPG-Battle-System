@@ -8,7 +8,7 @@ public class ChainPants extends EquippableItems{
 
 
     /**
-     * The size of the sword
+     * The size of the chain pants
      */
     public static final float SIZE = 32;
     /**
@@ -16,7 +16,7 @@ public class ChainPants extends EquippableItems{
      */
     public static final String ITEMNAME = "Chain Mail Pants";
     /**
-     * The increased damage the sword lets the player deal
+     * The increased defense the chain pants incrases
      */
     private final int defense;
 

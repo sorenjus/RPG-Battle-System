@@ -1,12 +1,12 @@
 package com.base.game.Item;
 /**
- * Class for a Sword that can be equipped and used
+ * Class for a Cap that can be equipped and used
  *
  * @author Adrian Croitoru
  */
 public class Cap extends EquippableItems{
     /**
-     * The size of the sword
+     * The size of the cap
      */
     public static final float SIZE = 32;
     /**
@@ -14,7 +14,7 @@ public class Cap extends EquippableItems{
      */
     public static final String ITEMNAME = "Cap";
     /**
-     * The increased damage the sword lets the player deal
+     * The increased defense the cap
      */
     private final int defense;
 

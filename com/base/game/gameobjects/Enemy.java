@@ -86,6 +86,16 @@ public class Enemy extends BattleObject {
 		attackRange = dist;
 	}
 
+
+	/**
+	 * Returns the enemy's attack range
+	 *
+	 * @return  attackRange the attack range
+	 */
+	public int getAttackRange() {
+		return attackRange;
+	}
+
 	/**
 	 * Changes the cooldown time between Enemy attacks
 	 *
@@ -184,7 +194,6 @@ public class Enemy extends BattleObject {
 		} else if(speedY < -speedCap) {
 			speedY = -speedCap;
 		}
-
 		setX(getX() + speedX);
 		setY(getY() + speedY);
 	}
