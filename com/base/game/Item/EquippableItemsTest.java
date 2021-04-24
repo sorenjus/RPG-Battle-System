@@ -28,7 +28,7 @@ public class EquippableItemsTest {
     public void equipTestTwo()
     {
         eitem.init(22,11,0f,0.1f,0.1f, -32,32,1);
-        int i = eitem.getSlot();
+        final int i = eitem.getSlot();
         assertEquals(1, i);
         assertEquals(22, eitem.getX());
         assertEquals(11,eitem.getY());

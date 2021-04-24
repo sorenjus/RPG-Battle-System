@@ -15,7 +15,7 @@ public class EnemyTest {
     @Test
     public void EnemyTestOne() {
 
-        Enemy en = new Enemy(5, 2,1,0);
+        final Enemy en = new Enemy(5, 2,1,0);
         assertEquals(50, en.getMaxHP());
         assertEquals(1, en.getDefense());
         assertEquals(2, en.getStrength());
@@ -32,7 +32,7 @@ public class EnemyTest {
     @Test
     public void EnemyTestTwo() {
 
-        Enemy en = new Enemy(1, 3,2,1);
+        final Enemy en = new Enemy(1, 3,2,1);
         assertEquals(10, en.getMaxHP());
         assertEquals(3, en.getStrength());
         assertEquals(2, en.getDefense());

@@ -16,18 +16,18 @@ public class EquipmentTest {
     @Test
     public void equipmentTestOne()
     {
-        Inventory inv = new Inventory(5);
+        final Inventory inv = new Inventory(5);
 
         //create 9 items, 4 to equip in 4 slots and 5 to store in inventory to make it full
-        EquippableItems eitem0 = new EquippableItems();
-        EquippableItems eitem1 = new EquippableItems();
-        EquippableItems eitem2 = new EquippableItems();
-        EquippableItems eitem3 = new EquippableItems();
-        EquippableItems eitem00 = new EquippableItems();
-        EquippableItems eitem11 = new EquippableItems();
-        EquippableItems eitem22 = new EquippableItems();
-        EquippableItems eitem33 = new EquippableItems();
-        EquippableItems eitem44 = new EquippableItems();
+        final EquippableItems eitem0 = new EquippableItems();
+        final EquippableItems eitem1 = new EquippableItems();
+        final EquippableItems eitem2 = new EquippableItems();
+        final EquippableItems eitem3 = new EquippableItems();
+        final EquippableItems eitem00 = new EquippableItems();
+        final EquippableItems eitem11 = new EquippableItems();
+        final EquippableItems eitem22 = new EquippableItems();
+        final EquippableItems eitem33 = new EquippableItems();
+        final EquippableItems eitem44 = new EquippableItems();
         eitem0.init(15,15,0.1f,0.2f,0.4f,32,32,0);
         eitem1.init(30,30,0.1f,0.2f,0.4f,32,32,1);
         eitem2.init(44,44,0.1f,0.2f,0.4f,32,32,2);

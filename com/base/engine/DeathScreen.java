@@ -23,7 +23,7 @@ public class DeathScreen extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel message = new JLabel("You have been defeated.", SwingConstants.CENTER);
+        final JLabel message = new JLabel("You have been defeated.", SwingConstants.CENTER);
         restart = new JButton("Restart");
         closeGame = new JButton("Exit");
 

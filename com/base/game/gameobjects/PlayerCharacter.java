@@ -64,7 +64,7 @@ public class PlayerCharacter extends BattleObject {
         /**
          * The items the PlayerCharacter has equipped
          **/
-        Equipment equipment = new Equipment(playerInventory);
+        final Equipment equipment = new Equipment(playerInventory);
     }
 
     /**

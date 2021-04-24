@@ -33,7 +33,7 @@ public class PlayerCharacterTest {
         initGame();
 
         final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
-        Sword sword = new Sword(390.0F,280.0F);
+        final Sword sword = new Sword(390.0F,280.0F);
         assertEquals(1, player.getLevel());
         assertEquals(3, player.getStrength());
         assertEquals(10, player.getHP());
@@ -54,21 +54,21 @@ public class PlayerCharacterTest {
     public void levelUp() {
 
         final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
-        player.stats.setExperience(50);
+        player.stats.setExperience(50);//NOPMD
         assertEquals(2, player.getLevel());
         assertEquals(5, player.getStrength());
         assertEquals(20, player.getHP());
         assertEquals(1, player.getDefense());
         assertEquals(50, player.getExperience());
-        assertEquals(100, player.stats.getThreshold());
+        assertEquals(100, player.stats.getThreshold());//NOPMD
 
-        player.stats.setExperience(50);
+        player.stats.setExperience(50);//NOPMD
         assertEquals(3, player.getLevel());
         assertEquals(6, player.getStrength());
         assertEquals(30, player.getHP());
         assertEquals(1, player.getDefense());
         assertEquals(100, player.getExperience());
-        assertEquals(200, player.stats.getThreshold());
+        assertEquals(200, player.stats.getThreshold());//NOPMD
 
     }
 
@@ -82,7 +82,7 @@ public class PlayerCharacterTest {
         initGame();
 
         final PlayerCharacter player = new PlayerCharacter(384.0F, 284.0f);
-        player.stats.setHP(0);
+        player.stats.setHP(0);//NOPMD
         player.update();
         assertTrue(player.getDelete()); //check if player gets deleted after HP reaching 0
     }
