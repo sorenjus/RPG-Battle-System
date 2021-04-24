@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class PlayerCharacter extends BattleObject {
     //String containing the characters name//
-    private static transient final String name = "Lonk";
+    private static transient final String NAME = "Lonk";
 
     /**
      * The PlayerCharacter's inventory
@@ -188,7 +188,7 @@ public class PlayerCharacter extends BattleObject {
      * @return Character name
      */
     public String getName() {
-        return this.name;
+        return this.NAME;
     }
 
     /**

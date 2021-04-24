@@ -20,7 +20,7 @@ public class PlayerCharacterTest {
      * Test the constructor of player and all attributes and player position
      */
     @Test
-    public void CharacterConstructor() {
+    public void characterConstructor() {
 
         initGame();
 

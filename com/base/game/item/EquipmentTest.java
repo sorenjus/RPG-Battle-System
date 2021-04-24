@@ -45,7 +45,7 @@ public class EquipmentTest {
         inv.addItemToInventory(eitem2);
         inv.addItemToInventory(eitem3);
         inv.addItemToInventory(eitem00);
-        Equipment equipment = new Equipment(inv);
+        final Equipment equipment = new Equipment(inv);
 
         //equip 4 of them in 4 different slots, equip another one in a slot, the item is unequipped and placed in inventory
         //we have 4 items equipped, 1 in inventory

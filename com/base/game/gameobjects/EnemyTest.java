@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class EnemyTest {
 
     @Test
-    public void EnemyTestOne() {
+    public void enemyTestOne() {
 
         final Enemy enemy = new Enemy(5, 2,1,0);
         assertEquals(50, enemy.getMaxHP());
@@ -30,7 +30,7 @@ public class EnemyTest {
     }
 
     @Test
-    public void EnemyTestTwo() {
+    public void enemyTestTwo() {
 
         final Enemy enemy = new Enemy(1, 3,2,1);
         assertEquals(10, enemy.getMaxHP());

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Adrian Croitoru
  */
 public class EquippableItemsTest {
-
+    //Create new equippable item to test
     EquippableItems eitem = new EquippableItems();
 
     @Test

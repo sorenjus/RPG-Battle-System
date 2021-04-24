@@ -44,15 +44,15 @@ public class DeathScreen extends JFrame implements ActionListener{
     /**
      * Method for detecting an input within the menu screen
      *
-     * @param e Input from user
+     * @param userInput Input from user
      */
-    public void actionPerformed(final ActionEvent e) {
-        if(e.getSource().equals(restart)) {//NOPMD
+    public void actionPerformed(final ActionEvent userInput) {
+        if(userInput.getSource().equals(restart)) {//NOPMD
             this.setVisible(false);
             Main.initGame();
         }
-        if(e.getSource().equals(closeGame)) {//NOPMD
-            System.exit(0);
+        if(userInput.getSource().equals(closeGame)) {//NOPMD
+            Runtime.getRuntime().exit(0);//NOPMD
         }
     }
 }

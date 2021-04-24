@@ -19,7 +19,7 @@ public class Sword extends EquippableItems {
     /**
      * The increased damage the sword lets the player deal
      */
-    private transient final int STRINCREASE;
+    private transient final int strIncrease;
     /**
      * The increased the range of the player attack.
      */
@@ -35,7 +35,7 @@ public class Sword extends EquippableItems {
         super();
         init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, WEAPON_SLOT);
         this.setItemName(ITEMNAME);
-        STRINCREASE = 2;
+        strIncrease = 2;
         this.itemRange =31;
         this.typeOfItem="1";
     }
@@ -46,7 +46,7 @@ public class Sword extends EquippableItems {
      */
     public int getStrIncrease()
     {
-        return STRINCREASE;
+        return strIncrease;
     }
 
     /**
