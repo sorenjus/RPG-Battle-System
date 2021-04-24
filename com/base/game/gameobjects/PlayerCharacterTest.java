@@ -1,18 +1,10 @@
 package com.base.game.gameobjects;
 
-import com.base.engine.GameObject;
-import com.base.engine.Main;
-import com.base.game.Item.Sword;
-import com.base.game.Game;
-import com.base.game.Time;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
+import com.base.game.item.Sword;
 
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.lwjgl.opengl.GL11.*;
+
 import org.junit.Test;
 
 import static com.base.engine.Main.initGame;

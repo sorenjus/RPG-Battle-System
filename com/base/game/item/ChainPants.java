@@ -1,10 +1,10 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 /**
  * A class representing chain mail pants which boost player stats
  *
  */
-public class ChainPants extends EquippableItems{
+public class ChainPants extends EquippableItems {
 
 
     /**
@@ -27,8 +27,8 @@ public class ChainPants extends EquippableItems{
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public ChainPants (final float xCoord, final float yCoord){
-
+    public ChainPants(final float xCoord, final float yCoord){
+        super();
         init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, LEG_SLOT);
         this.setItemName(ITEMNAME);
         this.defense =2;

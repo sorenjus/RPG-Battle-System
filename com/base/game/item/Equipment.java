@@ -1,6 +1,8 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 import com.base.game.gameobjects.Inventory;
+
+import static com.base.game.item.EquippableItems.NUM_SLOTS;
 
 /**
  * Class handles currently equipped items
@@ -23,7 +25,7 @@ public class Equipment {
      * @param inventory The player's inventory
      */
     public Equipment(final Inventory inventory) {
-        equippableItems= new EquippableItems[EquippableItems.NUM_SLOTS];
+        equippableItems= new EquippableItems[NUM_SLOTS];
         this.inventory = inventory;
     }
 

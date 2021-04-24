@@ -1,6 +1,6 @@
 package com.base.game.gameobjects;
 
-import com.base.game.Item.Item;
+import com.base.game.item.Item;
 
 /**
  * A class that manages the player's inventory

@@ -15,29 +15,29 @@ public class EnemyTest {
     @Test
     public void EnemyTestOne() {
 
-        final Enemy en = new Enemy(5, 2,1,0);
-        assertEquals(50, en.getMaxHP());
-        assertEquals(1, en.getDefense());
-        assertEquals(2, en.getStrength());
-        assertEquals(50, en.getAttackRange());
-        en.setAttackRange(100);
-        assertEquals(100, en.getAttackRange());
-        assertEquals(0, en.getAttackPower());
-        en.setAttackPower(10);
-        assertEquals(10,en.getAttackPower());
-        assertEquals(50,en.getExpWorth());
+        final Enemy enemy = new Enemy(5, 2,1,0);
+        assertEquals(50, enemy.getMaxHP());
+        assertEquals(1, enemy.getDefense());
+        assertEquals(2, enemy.getStrength());
+        assertEquals(50, enemy.getAttackRange());
+        enemy.setAttackRange(100);
+        assertEquals(100, enemy.getAttackRange());
+        assertEquals(0, enemy.getAttackPower());
+        enemy.setAttackPower(10);
+        assertEquals(10,enemy.getAttackPower());
+        assertEquals(50,enemy.getExpWorth());
 
     }
 
     @Test
     public void EnemyTestTwo() {
 
-        final Enemy en = new Enemy(1, 3,2,1);
-        assertEquals(10, en.getMaxHP());
-        assertEquals(3, en.getStrength());
-        assertEquals(2, en.getDefense());
+        final Enemy enemy = new Enemy(1, 3,2,1);
+        assertEquals(10, enemy.getMaxHP());
+        assertEquals(3, enemy.getStrength());
+        assertEquals(2, enemy.getDefense());
 
-        assertEquals(50,en.getExpWorth());
+        assertEquals(50,enemy.getExpWorth());
 
     }
 }

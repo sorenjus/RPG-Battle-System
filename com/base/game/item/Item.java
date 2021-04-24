@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 import com.base.engine.GameObject;
 import com.base.engine.Sprite;

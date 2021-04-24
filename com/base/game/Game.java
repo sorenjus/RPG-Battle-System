@@ -2,10 +2,10 @@ package com.base.game;
 
 import com.base.engine.GameObject;
 import com.base.engine.Physics;
-import com.base.game.Item.Cap;
-import com.base.game.Item.ChainMail;
-import com.base.game.Item.ChainPants;
-import com.base.game.Item.Sword;
+import com.base.game.item.Cap;
+import com.base.game.item.ChainMail;
+import com.base.game.item.ChainPants;
+import com.base.game.item.Sword;
 import com.base.game.gameobjects.GenericRedSquareOfDeath;
 import com.base.game.gameobjects.PlayerCharacter;
 import org.lwjgl.opengl.Display;

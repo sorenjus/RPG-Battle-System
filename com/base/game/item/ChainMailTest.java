@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 import org.junit.Test;
 

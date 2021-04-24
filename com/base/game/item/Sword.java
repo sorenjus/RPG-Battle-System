@@ -1,4 +1,4 @@
-package com.base.game.Item;
+package com.base.game.item;
 
 /**
  * Class for a Sword that can be equipped and used
@@ -31,7 +31,8 @@ public class Sword extends EquippableItems {
      * @param xCoord Horizontal position
      * @param yCoord Vertical position
      */
-    public Sword (final float xCoord, final float yCoord){
+    public Sword(final float xCoord, final float yCoord){
+        super();
         init(xCoord, yCoord, 0.1f,0.5f,0.9f, SIZE, SIZE, WEAPON_SLOT);
         this.setItemName(ITEMNAME);
         STRINCREASE = 2;

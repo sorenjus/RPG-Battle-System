@@ -18,6 +18,7 @@ public class DeathScreen extends JFrame implements ActionListener{
      * Constructor method to display a menu screen once the character had died
      */
     public DeathScreen() {
+        super();
         setLayout(null);
         setSize(300, 200);
         setLocationRelativeTo(null);
